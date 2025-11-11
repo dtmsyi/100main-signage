@@ -1243,12 +1243,25 @@
                     <div id="confirmation-message" style="display: none; background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); border: 3px solid #3b82f6; padding: 35px; border-radius: 12px; margin-top: 30px; text-align: left; box-shadow: 0 8px 16px rgba(59, 130, 246, 0.3);">
                         <div style="text-align: center; font-size: 48px; margin-bottom: 15px;">📧</div>
                         <h3 style="color: #1e40af; margin-bottom: 15px; font-size: 24px; font-weight: 700; text-align: center;">Email Your Selections</h3>
-                        <p style="color: #1e3a8a; font-size: 14px; line-height: 1.6; margin-bottom: 20px; text-align: center;">Copy the text below and email it to <strong>100mainhm@gmail.com</strong></p>
+
+                        <!-- Instructions -->
+                        <div style="background: #eff6ff; border: 2px solid #60a5fa; border-radius: 8px; padding: 20px; margin-bottom: 20px;">
+                            <h4 style="color: #1e40af; margin-bottom: 12px; font-size: 16px; font-weight: 700;">How to Submit:</h4>
+                            <ol style="color: #1e3a8a; font-size: 14px; line-height: 1.8; margin-left: 20px; padding-left: 0;">
+                                <li style="margin-bottom: 8px;">Click the <strong>"Copy to Clipboard"</strong> button below</li>
+                                <li style="margin-bottom: 8px;">Open your email (Gmail, Outlook, etc.) or text message app</li>
+                                <li style="margin-bottom: 8px;">Create a new message to: <strong style="color: #3b82f6;">100mainhm@gmail.com</strong></li>
+                                <li style="margin-bottom: 8px;">Paste the copied content (Cmd+V or Ctrl+V)</li>
+                                <li>Send the message!</li>
+                            </ol>
+                        </div>
 
                         <div style="background: white; border: 2px solid #3b82f6; border-radius: 8px; padding: 20px; margin-bottom: 20px;">
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                                <strong style="color: #1e40af;">Email Content:</strong>
-                                <button onclick="copyEmailContent()" style="background: #3b82f6; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 600;">Copy to Clipboard</button>
+                                <strong style="color: #1e40af;">Your Selection Details:</strong>
+                                <button onclick="copyEmailContent()" style="background: #3b82f6; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 600; box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3); transition: all 0.2s;" onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 4px 6px rgba(59, 130, 246, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 4px rgba(59, 130, 246, 0.3)'">
+                                    📋 Copy to Clipboard
+                                </button>
                             </div>
                             <textarea id="email-content" readonly style="width: 100%; min-height: 250px; padding: 15px; border: 1px solid #cbd5e1; border-radius: 6px; font-family: monospace; font-size: 13px; line-height: 1.6; resize: vertical;"></textarea>
                         </div>
