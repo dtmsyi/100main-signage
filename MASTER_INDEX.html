@@ -1718,6 +1718,7 @@
         }
 
         function submitOrder() {
+            alert('Submit button clicked!'); // DEBUG
             console.log('submitOrder function called');
             console.log('Current selections:', selections);
 
@@ -1729,6 +1730,7 @@
                 return;
             }
 
+            alert('Validation passed, opening email...'); // DEBUG
             console.log('Validation passed, proceeding with submission...');
 
             // Get checked additional signs from Step 4
