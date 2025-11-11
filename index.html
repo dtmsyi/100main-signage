@@ -1240,12 +1240,20 @@
                     </div>
 
                     <!-- Confirmation Message (hidden initially) -->
-                    <div id="confirmation-message" style="display: none; background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); border: 3px solid #3b82f6; padding: 35px; border-radius: 12px; margin-top: 30px; text-align: center; box-shadow: 0 8px 16px rgba(59, 130, 246, 0.3);">
-                        <div style="font-size: 48px; margin-bottom: 15px;">📧</div>
-                        <h3 style="color: #1e40af; margin-bottom: 15px; font-size: 24px; font-weight: 700;">Email Draft Created!</h3>
-                        <p style="color: #1e3a8a; font-size: 16px; line-height: 1.6;">Your email client has been opened with your signage selections pre-filled.<br><strong>Please click "Send" in your email client to submit your choices.</strong></p>
-                        <p style="color: #1e40af; font-size: 14px; margin-top: 15px; font-weight: 600;">Recipient: 100mainhm@gmail.com</p>
-                        <p style="color: #3b82f6; font-size: 14px; margin-top: 5px; font-weight: 600;">Timestamp: <span id="submission-time"></span></p>
+                    <div id="confirmation-message" style="display: none; background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); border: 3px solid #3b82f6; padding: 35px; border-radius: 12px; margin-top: 30px; text-align: left; box-shadow: 0 8px 16px rgba(59, 130, 246, 0.3);">
+                        <div style="text-align: center; font-size: 48px; margin-bottom: 15px;">📧</div>
+                        <h3 style="color: #1e40af; margin-bottom: 15px; font-size: 24px; font-weight: 700; text-align: center;">Email Your Selections</h3>
+                        <p style="color: #1e3a8a; font-size: 14px; line-height: 1.6; margin-bottom: 20px; text-align: center;">Copy the text below and email it to <strong>100mainhm@gmail.com</strong></p>
+
+                        <div style="background: white; border: 2px solid #3b82f6; border-radius: 8px; padding: 20px; margin-bottom: 20px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                <strong style="color: #1e40af;">Email Content:</strong>
+                                <button onclick="copyEmailContent()" style="background: #3b82f6; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 600;">Copy to Clipboard</button>
+                            </div>
+                            <textarea id="email-content" readonly style="width: 100%; min-height: 250px; padding: 15px; border: 1px solid #cbd5e1; border-radius: 6px; font-family: monospace; font-size: 13px; line-height: 1.6; resize: vertical;"></textarea>
+                        </div>
+
+                        <p style="color: #3b82f6; font-size: 12px; text-align: center;">Timestamp: <span id="submission-time"></span></p>
                     </div>
                 </div>
             </div>
@@ -1718,7 +1726,6 @@
         }
 
         function submitOrder() {
-            alert('Submit button clicked!'); // DEBUG
             console.log('submitOrder function called');
             console.log('Current selections:', selections);
 
@@ -1730,7 +1737,6 @@
                 return;
             }
 
-            alert('Validation passed, opening email...'); // DEBUG
             console.log('Validation passed, proceeding with submission...');
 
             // Get checked additional signs from Step 4
@@ -1791,21 +1797,62 @@ Thank you!
                 window.location.href = mailtoLink;
             }, 100);
 
+            // Prepare email content for display
+            const emailContent = `Subject: 100 & Main - Delivery Signage Order Request
+
+To: 100mainhm@gmail.com
+
+---
+
+100 & Main - Delivery Signage Order Request
+============================================
+
+Wording/Verbiage: ${submissionData.wordingVerbiage}
+
+Color Scheme: ${submissionData.colorScheme}
+
+Material: ${submissionData.material}
+
+Additional Signs: ${submissionData.additionalSigns}
+
+Timestamp: ${submissionData.timestamp}
+
+Please review these selections and provide feedback.
+Thank you!`;
+
             // Show confirmation message
             setTimeout(() => {
                 document.getElementById('submission-time').textContent = submissionData.timestamp;
+                document.getElementById('email-content').value = emailContent;
                 document.getElementById('confirmation-message').style.display = 'block';
 
                 const submitBtn = document.getElementById('submit-order-btn');
-                submitBtn.textContent = 'Email Opened - Please Send ✓';
+                submitBtn.textContent = 'Ready to Email ✓';
                 submitBtn.style.background = '#3b82f6';
                 submitBtn.disabled = true;
                 submitBtn.style.opacity = '1';
                 submitBtn.style.cursor = 'not-allowed';
 
                 document.getElementById('confirmation-message').scrollIntoView({ behavior: 'smooth', block: 'center' });
-                console.log('Email client opened with:', submissionData);
+                console.log('Email content ready:', submissionData);
             }, 500);
+        }
+
+        function copyEmailContent() {
+            const textarea = document.getElementById('email-content');
+            textarea.select();
+            document.execCommand('copy');
+
+            // Show feedback
+            const copyBtn = event.target;
+            const originalText = copyBtn.textContent;
+            copyBtn.textContent = 'Copied! ✓';
+            copyBtn.style.background = '#16a34a';
+
+            setTimeout(() => {
+                copyBtn.textContent = originalText;
+                copyBtn.style.background = '#3b82f6';
+            }, 2000);
         }
 
         // Update summary whenever selections change (no longer saving to localStorage)
