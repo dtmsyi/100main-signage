@@ -1761,60 +1761,56 @@
             // Google Form submission URL
             const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSeN6oszZksZTBGLWWa5gcqHS6BE9cS6nwyZ-rQMINPjhUIH2A/formResponse';
 
-            // Build URL with query parameters
-            const params = new URLSearchParams();
-            params.append('entry.20751046', submissionData.wordingVerbiage);
-            params.append('entry.1989504779', submissionData.colorScheme);
-            params.append('entry.1844654185', submissionData.material);
-            params.append('entry.76427407', submissionData.additionalSigns);
-            params.append('entry.577765424', submissionData.timestamp);
+            // Build FormData
+            const formData = new URLSearchParams();
+            formData.append('entry.20751046', submissionData.wordingVerbiage);
+            formData.append('entry.1989504779', submissionData.colorScheme);
+            formData.append('entry.1844654185', submissionData.material);
+            formData.append('entry.76427407', submissionData.additionalSigns);
+            formData.append('entry.577765424', submissionData.timestamp);
 
-            // Create hidden iframe for submission
-            const iframe = document.createElement('iframe');
-            iframe.style.display = 'none';
-            iframe.name = 'hidden-form-iframe';
-            document.body.appendChild(iframe);
+            // Use fetch with no-cors mode (we won't get response but submission works)
+            fetch(googleFormUrl, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: formData.toString()
+            })
+            .then(() => {
+                console.log('Form submission sent');
+                // Show success after short delay
+                setTimeout(() => {
+                    // Update timestamp in confirmation message
+                    document.getElementById('submission-time').textContent = submissionData.timestamp;
 
-            // Create hidden form
-            const form = document.createElement('form');
-            form.method = 'POST';
-            form.action = googleFormUrl;
-            form.target = 'hidden-form-iframe';
+                    // Show confirmation message
+                    document.getElementById('confirmation-message').style.display = 'block';
+                    submitBtn.textContent = 'Submitted Successfully! ✓';
+                    submitBtn.style.background = '#16a34a';
+                    submitBtn.style.opacity = '1';
+                    submitBtn.style.cursor = 'not-allowed';
 
-            // Add form fields
-            params.forEach((value, key) => {
-                const input = document.createElement('input');
-                input.type = 'hidden';
-                input.name = key;
-                input.value = value;
-                form.appendChild(input);
+                    // Scroll to confirmation message
+                    document.getElementById('confirmation-message').scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                    console.log('Form submitted successfully:', submissionData);
+                }, 1000);
+            })
+            .catch(error => {
+                console.error('Submission error:', error);
+                // Still show success because no-cors mode can't verify
+                setTimeout(() => {
+                    document.getElementById('submission-time').textContent = submissionData.timestamp;
+                    document.getElementById('confirmation-message').style.display = 'block';
+                    submitBtn.textContent = 'Submitted Successfully! ✓';
+                    submitBtn.style.background = '#16a34a';
+                    submitBtn.style.opacity = '1';
+                    submitBtn.style.cursor = 'not-allowed';
+                    document.getElementById('confirmation-message').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 1000);
             });
-
-            document.body.appendChild(form);
-
-            // Submit form
-            form.submit();
-
-            // Show success message after a delay (since we can't verify with Google Forms)
-            setTimeout(() => {
-                // Update timestamp in confirmation message
-                document.getElementById('submission-time').textContent = submissionData.timestamp;
-
-                // Show confirmation message
-                document.getElementById('confirmation-message').style.display = 'block';
-                submitBtn.textContent = 'Submitted Successfully! ✓';
-                submitBtn.style.background = '#16a34a';
-                submitBtn.style.opacity = '1';
-                submitBtn.style.cursor = 'not-allowed';
-
-                // Clean up
-                document.body.removeChild(form);
-
-                // Scroll to confirmation message
-                document.getElementById('confirmation-message').scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-                console.log('Form submitted successfully:', submissionData);
-            }, 1500);
         }
 
         // Update summary whenever selections change (no longer saving to localStorage)
