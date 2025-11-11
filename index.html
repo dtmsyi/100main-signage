@@ -1222,7 +1222,7 @@
 
                     <!-- Submit Button -->
                     <div style="text-align: center;">
-                        <button id="submit-order-btn" style="
+                        <button type="button" id="submit-order-btn" onclick="submitOrder()" style="
                             background: #22c55e;
                             color: white;
                             border: none;
@@ -1240,11 +1240,12 @@
                     </div>
 
                     <!-- Confirmation Message (hidden initially) -->
-                    <div id="confirmation-message" style="display: none; background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border: 3px solid #22c55e; padding: 35px; border-radius: 12px; margin-top: 30px; text-align: center; box-shadow: 0 8px 16px rgba(34, 197, 94, 0.3);">
-                        <div style="font-size: 48px; margin-bottom: 15px;">✓</div>
-                        <h3 style="color: #16a34a; margin-bottom: 15px; font-size: 24px; font-weight: 700;">Submission Successful!</h3>
-                        <p style="color: #166534; font-size: 16px; line-height: 1.6;">Your signage selections have been successfully submitted to the Google Form.<br>Project Manager David Ta will review your choices and contact you shortly.</p>
-                        <p style="color: #059669; font-size: 14px; margin-top: 15px; font-weight: 600;">Timestamp: <span id="submission-time"></span></p>
+                    <div id="confirmation-message" style="display: none; background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); border: 3px solid #3b82f6; padding: 35px; border-radius: 12px; margin-top: 30px; text-align: center; box-shadow: 0 8px 16px rgba(59, 130, 246, 0.3);">
+                        <div style="font-size: 48px; margin-bottom: 15px;">📧</div>
+                        <h3 style="color: #1e40af; margin-bottom: 15px; font-size: 24px; font-weight: 700;">Email Draft Created!</h3>
+                        <p style="color: #1e3a8a; font-size: 16px; line-height: 1.6;">Your email client has been opened with your signage selections pre-filled.<br><strong>Please click "Send" in your email client to submit your choices.</strong></p>
+                        <p style="color: #1e40af; font-size: 14px; margin-top: 15px; font-weight: 600;">Recipient: 100mainhm@gmail.com</p>
+                        <p style="color: #3b82f6; font-size: 14px; margin-top: 5px; font-weight: 600;">Timestamp: <span id="submission-time"></span></p>
                     </div>
                 </div>
             </div>
@@ -1752,65 +1753,44 @@
                 timestamp: new Date().toLocaleString()
             };
 
-            // Disable button immediately
-            const submitBtn = document.getElementById('submit-order-btn');
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Submitting...';
-            submitBtn.style.opacity = '0.7';
+            // Create email body
+            const subject = encodeURIComponent('100 & Main - Delivery Signage Order Request');
+            const emailBody = encodeURIComponent(`
+100 & Main - Delivery Signage Order Request
+============================================
 
-            // Google Form submission URL
-            const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSeN6oszZksZTBGLWWa5gcqHS6BE9cS6nwyZ-rQMINPjhUIH2A/formResponse';
+Wording/Verbiage: ${submissionData.wordingVerbiage}
 
-            // Build FormData
-            const formData = new URLSearchParams();
-            formData.append('entry.20751046', submissionData.wordingVerbiage);
-            formData.append('entry.1989504779', submissionData.colorScheme);
-            formData.append('entry.1844654185', submissionData.material);
-            formData.append('entry.76427407', submissionData.additionalSigns);
-            formData.append('entry.577765424', submissionData.timestamp);
+Color Scheme: ${submissionData.colorScheme}
 
-            // Use fetch with no-cors mode (we won't get response but submission works)
-            fetch(googleFormUrl, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: formData.toString()
-            })
-            .then(() => {
-                console.log('Form submission sent');
-                // Show success after short delay
-                setTimeout(() => {
-                    // Update timestamp in confirmation message
-                    document.getElementById('submission-time').textContent = submissionData.timestamp;
+Material: ${submissionData.material}
 
-                    // Show confirmation message
-                    document.getElementById('confirmation-message').style.display = 'block';
-                    submitBtn.textContent = 'Submitted Successfully! ✓';
-                    submitBtn.style.background = '#16a34a';
-                    submitBtn.style.opacity = '1';
-                    submitBtn.style.cursor = 'not-allowed';
+Additional Signs: ${submissionData.additionalSigns}
 
-                    // Scroll to confirmation message
-                    document.getElementById('confirmation-message').scrollIntoView({ behavior: 'smooth', block: 'center' });
+Timestamp: ${submissionData.timestamp}
 
-                    console.log('Form submitted successfully:', submissionData);
-                }, 1000);
-            })
-            .catch(error => {
-                console.error('Submission error:', error);
-                // Still show success because no-cors mode can't verify
-                setTimeout(() => {
-                    document.getElementById('submission-time').textContent = submissionData.timestamp;
-                    document.getElementById('confirmation-message').style.display = 'block';
-                    submitBtn.textContent = 'Submitted Successfully! ✓';
-                    submitBtn.style.background = '#16a34a';
-                    submitBtn.style.opacity = '1';
-                    submitBtn.style.cursor = 'not-allowed';
-                    document.getElementById('confirmation-message').scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }, 1000);
-            });
+Please review these selections and provide feedback.
+Thank you!
+            `);
+
+            // Open email client
+            window.location.href = `mailto:100mainhm@gmail.com?subject=${subject}&body=${emailBody}`;
+
+            // Show confirmation message
+            setTimeout(() => {
+                document.getElementById('submission-time').textContent = submissionData.timestamp;
+                document.getElementById('confirmation-message').style.display = 'block';
+
+                const submitBtn = document.getElementById('submit-order-btn');
+                submitBtn.textContent = 'Email Opened - Please Send ✓';
+                submitBtn.style.background = '#3b82f6';
+                submitBtn.disabled = true;
+                submitBtn.style.opacity = '1';
+                submitBtn.style.cursor = 'not-allowed';
+
+                document.getElementById('confirmation-message').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                console.log('Email client opened with:', submissionData);
+            }, 500);
         }
 
         // Update summary whenever selections change (no longer saving to localStorage)
