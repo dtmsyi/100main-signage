@@ -1775,8 +1775,21 @@ Please review these selections and provide feedback.
 Thank you!
             `);
 
-            // Open email client
-            window.location.href = `mailto:100mainhm@gmail.com?subject=${subject}&body=${emailBody}`;
+            // Try multiple methods to open email client
+            const mailtoLink = `mailto:100mainhm@gmail.com?subject=${subject}&body=${emailBody}`;
+
+            // Method 1: Create a temporary link and click it
+            const link = document.createElement('a');
+            link.href = mailtoLink;
+            link.target = '_blank';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            // Method 2: Also try window.location as backup
+            setTimeout(() => {
+                window.location.href = mailtoLink;
+            }, 100);
 
             // Show confirmation message
             setTimeout(() => {
