@@ -1639,7 +1639,10 @@
             // Setup submit button
             const submitBtn = document.getElementById('submit-order-btn');
             if (submitBtn) {
+                console.log('Submit button found, attaching click listener');
                 submitBtn.addEventListener('click', submitOrder);
+            } else {
+                console.error('Submit button not found!');
             }
 
             // Add event listeners to checkboxes to update summary when changed
@@ -1714,6 +1717,9 @@
         }
 
         function submitOrder() {
+            console.log('submitOrder function called');
+            console.log('Current selections:', selections);
+
             // Check if required selections are made (Step 4 is optional checkboxes)
             const allSelected = selections.text && selections.color && selections.material;
 
@@ -1721,6 +1727,8 @@
                 alert('Please make selections in Steps 1-3 before submitting.');
                 return;
             }
+
+            console.log('Validation passed, proceeding with submission...');
 
             // Get checked additional signs from Step 4
             const checkedSigns = Array.from(document.querySelectorAll('.sign-checkbox:checked'))
