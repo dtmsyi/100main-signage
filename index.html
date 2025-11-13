@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>100 & Main - Delivery Signage Selection</title>
+    <title>100 & Main - Package/Delivery Signage Update Selection</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&family=Great+Vibes&family=Allura&family=Sacramento&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,1876 +15,1876 @@
         }
 
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f5f5f5;
-            padding: 40px 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #ffffff;
+            min-height: 100vh;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: row;
         }
 
         .container {
-            max-width: 1400px;
-            margin: 0 auto;
+            flex: 1;
+            max-width: calc(100% - 320px);
+            width: 100%;
+            margin: 0;
+            padding: 40px 50px;
+            overflow-y: auto;
+            max-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 1400px) {
+            body {
+                flex-direction: column;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 40px 20px 220px;
+                max-height: none;
+            }
         }
 
         .header {
-            background: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            margin-bottom: 40px;
             text-align: center;
-            border-top: 4px solid #000;
+            color: #1a1a1a;
+            margin-bottom: 60px;
+            border-bottom: 2px solid #1a1a1a;
+            padding-bottom: 30px;
         }
 
-        h1 {
-            font-size: 32px;
-            color: #1A1A1A;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-
-        .project-meta {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-            color: #666;
-            font-size: 14px;
-        }
-
-        .status-badge {
-            display: inline-block;
-            padding: 8px 20px;
-            background: #000;
-            color: white;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-top: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .step-badge {
-            display: inline-block;
-            background: #2c5aa0;
-            color: white;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .section {
-            background: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-        }
-
-        .section h2 {
-            font-size: 24px;
-            color: #1A1A1A;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #000;
-            font-weight: 600;
-        }
-
-        .design-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .design-card {
-            background: #fafafa;
-            border-radius: 4px;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            border: 1px solid #ddd;
-        }
-
-        .design-card.official {
-            border: 3px solid #000;
-        }
-
-        .official-badge {
-            background: #000;
-            color: white;
-            padding: 8px 16px;
-            font-size: 11px;
-            font-weight: 700;
-            text-align: center;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .design-header {
-            padding: 20px;
-            background: #000;
-            color: white;
-        }
-
-        .design-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .design-subtitle {
-            font-size: 13px;
-            opacity: 0.8;
-        }
-
-        .design-preview {
-            padding: 40px;
-            background: white;
-            min-height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .sign-mockup {
-            width: 100%;
-            max-width: 600px;
-            padding: 40px;
-            border-radius: 4px;
-            text-align: center;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        .sign-text-line {
-            font-size: 28px;
-            line-height: 1.3;
-            font-weight: 400;
-            margin: 15px 0;
-        }
-
-        .sign-arrow {
-            font-size: 120px;
-            font-weight: 900;
-            margin: 30px 0;
-            line-height: 1;
-            text-shadow: 0 0 2px currentColor;
-        }
-
-        .design-details {
-            padding: 20px;
-            background: #f5f5f5;
-            border-top: 1px solid #ddd;
-        }
-
-        .detail-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            font-size: 14px;
-        }
-
-        .detail-label {
-            color: #666;
-            font-weight: 500;
-        }
-
-        .detail-value {
-            color: #1A1A1A;
-            font-weight: 600;
-        }
-
-        .pros-cons-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-top: 10px;
-        }
-
-        .pros-list, .cons-list {
-            padding: 10px;
-            border-radius: 4px;
-        }
-
-        .pros-list {
-            background: #f0fdf4;
-            border-left: 4px solid #22c55e;
-        }
-
-        .cons-list {
-            background: #fef2f2;
-            border-left: 4px solid #ef4444;
-        }
-
-        .pros-list h4, .cons-list h4 {
-            margin-bottom: 6px;
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .pros-list h4 {
-            color: #16a34a;
-        }
-
-        .cons-list h4 {
-            color: #dc2626;
-        }
-
-        .pros-list ul, .cons-list ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .pros-list li, .cons-list li {
-            padding: 3px 0;
-            font-size: 13px;
-            line-height: 1.4;
-        }
-
-        .pros-list li:before {
-            content: "✓ ";
-            color: #16a34a;
-            font-weight: bold;
-            margin-right: 8px;
-        }
-
-        .cons-list li:before {
-            content: "✗ ";
-            color: #dc2626;
-            font-weight: bold;
-            margin-right: 8px;
-        }
-
-        .material-specs {
-            background: #fafafa;
-            padding: 15px;
-            border-radius: 4px;
-            margin-top: 15px;
-            border: 1px solid #e0e0e0;
-        }
-
-        .spec-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .spec-row:last-child {
-            border-bottom: none;
-        }
-
-        .spec-label {
-            font-weight: 600;
-            color: #666;
-        }
-
-        .spec-value {
-            color: #1A1A1A;
-        }
-
-        .footer {
-            text-align: center;
-            color: #666;
-            margin-top: 50px;
-            padding: 30px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .footer-text {
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-
-        @media (max-width: 768px) {
-            .design-grid {
-                grid-template-columns: 1fr;
-            }
-
-            h1 {
-                font-size: 24px;
-            }
-
-            .project-meta {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .pros-cons-container {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Accordion Styles */
-        .section {
-            transition: all 0.3s ease;
-        }
-
-        .accordion-header {
-            cursor: pointer;
-            user-select: none;
-            position: relative;
-            padding-right: 50px;
-            transition: all 0.2s ease;
-        }
-
-        .accordion-header:hover {
-            opacity: 0.8;
-        }
-
-        .accordion-toggle {
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #000;
-            color: white;
-            border-radius: 50%;
-            font-size: 24px;
+        .header h1 {
+            font-size: 2.8em;
             font-weight: 300;
-            transition: transform 0.3s ease;
+            letter-spacing: 0.05em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
         }
 
-        .accordion-toggle.collapsed {
-            transform: translateY(-50%) rotate(0deg);
+        .header p {
+            font-size: 1em;
+            color: #666;
+            font-weight: 300;
+            letter-spacing: 0.02em;
         }
 
-        .accordion-toggle.expanded {
-            transform: translateY(-50%) rotate(45deg);
-        }
-
-        .accordion-content {
-            max-height: 5000px;
-            overflow: hidden;
-            transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.3s ease;
-            opacity: 1;
-            margin-top: 0;
-        }
-
-        .accordion-content.collapsed {
-            max-height: 0;
-            opacity: 0;
-            margin-top: -20px;
-        }
-
-        /* Selection Styles */
-        .design-card {
-            cursor: pointer;
+        .step {
+            background: #fafafa;
+            border-radius: 0;
+            padding: 50px 40px;
+            margin-bottom: 40px;
+            box-shadow: none;
+            border: 1px solid #e0e0e0;
             transition: all 0.3s ease;
+        }
+
+        .step.collapsed {
+            padding: 0;
+            border: none;
+            margin-bottom: 0;
+        }
+
+        .step.collapsed .step-content {
+            display: none;
+        }
+
+        .step.active {
+            padding: 50px 40px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 40px;
+        }
+
+        .step.active .step-content {
+            display: block;
+        }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            padding: 30px 40px;
+            background: #fafafa;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 0;
+        }
+
+        .step.collapsed .step-header {
+            margin-bottom: 20px;
+        }
+
+        .step.active .step-header {
+            border: none;
+            border-bottom: 1px solid #e0e0e0;
+            margin-bottom: 0;
+            padding: 0;
+            padding-bottom: 20px;
+            background: transparent;
+        }
+
+        .step-header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .step-checkmark {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #28a745;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            color: #28a745;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .step.completed .step-checkmark {
+            display: flex;
+        }
+
+        .step-content {
+            padding-top: 30px;
+        }
+
+        .step-actions {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .btn-next {
+            background: #1a1a1a;
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            font-size: 0.95em;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .btn-next:hover {
+            background: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-next:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .step h2 {
+            color: #1a1a1a;
+            font-size: 1.6em;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 300;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+
+        .step-number {
+            background: #1a1a1a;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 400;
+            font-size: 0.9em;
+        }
+
+        /* Text Selection with Design Previews */
+        .text-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 100%;
+            width: 100%;
+        }
+
+        @media (min-width: 1600px) {
+            .text-options {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .text-card {
+            border: 1px solid #d0d0d0;
+            border-radius: 0;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            background: white;
+        }
+
+        .text-card:hover {
+            border-color: #1a1a1a;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .text-card.selected {
+            border-color: #28a745;
+            border-width: 3px;
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.3);
             position: relative;
         }
 
-        .design-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-
-        .design-card.selected {
-            border: 3px solid #22c55e;
-            box-shadow: 0 4px 16px rgba(34, 197, 94, 0.3);
-        }
-
-        .design-card.selected::after {
-            content: "✓";
+        .text-card.selected::after {
+            content: '✓';
             position: absolute;
             top: 15px;
             right: 15px;
-            width: 36px;
-            height: 36px;
-            background: #22c55e;
+            width: 32px;
+            height: 32px;
+            background: #28a745;
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
             font-weight: bold;
+            font-size: 20px;
             z-index: 10;
         }
 
-        .design-card.official.selected {
-            border: 3px solid #22c55e;
+        .text-preview {
+            background: #000000;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            /* Enforce 11" x 9" aspect ratio (1.222:1) */
+            width: 100%;
+            aspect-ratio: 1.222;
+            max-width: 100%;
+            height: auto;
+            position: relative;
+            box-sizing: border-box;
+            margin: 0 auto;
+        }
+
+        .text-preview .headline,
+        .sign-mockup .headline {
+            font-family: inherit;
+            font-size: 24px !important;
+            font-weight: 700 !important;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            line-height: 1.1 !important;
+            text-align: center;
+            position: relative;
+            padding-bottom: 0 !important;
+            margin: 0 !important;
+            margin-bottom: 5px !important;
+        }
+
+        .text-preview .headline.underlined,
+        .sign-mockup .headline.underlined {
+            padding-bottom: 0 !important;
+            margin-bottom: 12px !important;
+            white-space: nowrap !important;
+            display: inline-block !important;
+            font-size: 22px !important;
+            max-width: 100% !important;
+        }
+
+        .text-preview .headline.underlined::after,
+        .sign-mockup .headline.underlined::after {
+            content: '' !important;
+            position: absolute;
+            bottom: -8px !important;
+            left: 0 !important;
+            right: 0 !important;
+            transform: none !important;
+            width: 100% !important;
+            height: 4px !important;
+            background: #FFFFFF !important;
+            display: block !important;
+        }
+
+        .text-preview .subhead,
+        .sign-mockup .subhead {
+            font-family: inherit;
+            font-size: 20px !important;
+            font-weight: 500;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            line-height: 1.1 !important;
+            text-align: center;
+            margin-top: 12px !important;
+            margin-bottom: 0 !important;
+        }
+
+        .text-preview .arrow,
+        .sign-mockup .arrow {
+            width: 60px;
+            height: 12px;
+            background: #FFFFFF;
+            position: relative;
+            margin: 20px auto !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .text-preview .arrow::after,
+        .sign-mockup .arrow::after {
+            content: '';
+            position: absolute;
+            right: -14px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 18px solid #FFFFFF;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            filter: drop-shadow(2px 0 4px rgba(0, 0, 0, 0.15));
+        }
+
+        .text-preview .body,
+        .sign-mockup .body {
+            font-family: inherit;
+            font-size: 18px !important;
+            font-weight: 400;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            line-height: 1.1 !important;
+            text-align: center;
+            margin-top: 8px !important;
+            margin-bottom: 0 !important;
+        }
+
+        .text-info {
+            padding: 25px;
+            background: #ffffff;
+        }
+
+        .text-info h3 {
+            color: #1a1a1a;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+        }
+
+        .text-info p {
+            color: #666;
+            font-size: 0.9em;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* Color/Style Selection */
+        .style-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 1200px) {
+            .text-options,
+            .style-options {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .style-card {
+            border: 1px solid #d0d0d0;
+            border-radius: 0;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            background: white;
+        }
+
+        .style-card:hover {
+            border-color: #1a1a1a;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .style-card.selected {
+            border-color: #28a745;
+            border-width: 3px;
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.3);
+            position: relative;
+        }
+
+        .style-card.selected::after {
+            content: '✓';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 32px;
+            height: 32px;
+            background: #28a745;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+            z-index: 10;
+        }
+
+        .style-preview {
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 280px;
+            background: white;
+        }
+
+        .style-preview .sign-mockup {
+            /* Enforce 11" x 9" aspect ratio (1.222:1) */
+            width: 100%;
+            max-width: 550px;
+            aspect-ratio: 1.222;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Building Standard Match Typography Override */
+        .building-standard-preview .headline,
+        .building-standard-preview .subhead,
+        .building-standard-preview .body {
+            font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, sans-serif !important;
+            font-weight: 500 !important;
+            letter-spacing: 0.1em !important;
+            line-height: 1.1 !important;
+            text-transform: uppercase !important;
+        }
+
+        /* Paramount Script Drop Caps - First letter extra large and cursive */
+        .paramount-script-preview .headline::first-letter,
+        .paramount-script-preview .subhead::first-letter {
+            font-family: 'Great Vibes', 'Allura', cursive !important;
+            font-size: 2.5em !important;
+            line-height: 0.8 !important;
+            float: left;
+            margin-right: 0.1em;
+            font-weight: 400 !important;
+        }
+
+        .style-preview.black-standard {
+            background: #000000;
+        }
+
+        .style-preview.gray-match {
+            background: #5A5A5A;
+        }
+
+        .style-preview.black-minimal {
+            background: #1C1C1C;
+        }
+
+        .style-preview.black-yellow {
+            background: #1C1C1C;
+            border: 14px solid #FFC400;
+            border-radius: 12px;
+        }
+
+        .style-preview .preview-content {
+            width: 100%;
+        }
+
+        .style-preview .preview-content .headline {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            line-height: 1.1;
+            text-align: center;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .style-preview .preview-content .headline.underlined::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #FFFFFF;
+        }
+
+        .style-preview .preview-content .subhead {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            line-height: 1.1;
+            text-align: center;
+            margin-top: 12px;
+        }
+
+        .style-preview .preview-content .arrow {
+            width: 50px;
+            height: 8px;
+            background: #FFFFFF;
+            position: relative;
+            margin: 18px auto;
+        }
+
+        .style-preview .preview-content .arrow::after {
+            content: '';
+            position: absolute;
+            right: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 14px solid #FFFFFF;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+        }
+
+        .style-preview .preview-content .body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        .style-info {
+            padding: 25px;
+            background: #ffffff;
+        }
+
+        .style-info h3 {
+            color: #1a1a1a;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+        }
+
+        .style-info p {
+            color: #666;
+            font-size: 0.9em;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* Material Selection */
+        .material-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        @media (max-width: 1200px) {
+            .material-options {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .material-card {
+            border: 1px solid #d0d0d0;
+            border-radius: 0;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            background: white;
+        }
+
+        .material-card:hover {
+            border-color: #1a1a1a;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .material-card.selected {
+            border-color: #28a745;
+            border-width: 3px;
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.3);
+            position: relative;
+        }
+
+        .material-card.selected::after {
+            content: '✓';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 32px;
+            height: 32px;
+            background: #28a745;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+            z-index: 10;
+        }
+
+        .material-preview {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f5f5f5;
+            position: relative;
+        }
+
+        .material-sample {
+            width: 180px;
+            height: 140px;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .material-texture {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        /* PVC Texture - Matte white finish */
+        .pvc-texture {
+            background: linear-gradient(135deg, #f8f8f8 0%, #e8e8e8 100%);
+            border: 1px solid #d0d0d0;
+        }
+
+        /* Acrylic Texture - Glossy transparent with shine */
+        .acrylic-texture {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 248, 255, 0.95) 50%, rgba(255, 255, 255, 0.9) 100%);
+            border: 1px solid rgba(200, 220, 240, 0.6);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .acrylic-texture::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.4) 50%,
+                transparent 70%);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%); }
+            100% { transform: translateX(100%) translateY(100%); }
+        }
+
+        /* Dibond Texture - Metallic aluminum finish */
+        .dibond-texture {
+            background: linear-gradient(135deg,
+                #b8b8b8 0%,
+                #d4d4d4 25%,
+                #c0c0c0 50%,
+                #d8d8d8 75%,
+                #b8b8b8 100%);
+            border: 1px solid #a0a0a0;
+            position: relative;
+        }
+
+        .dibond-texture::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 2px,
+                rgba(255, 255, 255, 0.1) 2px,
+                rgba(255, 255, 255, 0.1) 4px
+            );
+        }
+
+        .material-label {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.75);
+            color: white;
+            padding: 6px 12px;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            border-radius: 0;
+        }
+
+        .material-info-card {
+            padding: 25px;
+            background: #ffffff;
+        }
+
+        .material-info-card h3 {
+            color: #1a1a1a;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+        }
+
+        .material-info-card p {
+            color: #666;
+            font-size: 0.9em;
+            line-height: 1.6;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .pricing-table {
+            border-top: 1px solid #e0e0e0;
+            padding-top: 15px;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .price-row:last-child {
+            border-bottom: none;
+        }
+
+        .size-label {
+            color: #666;
+            font-size: 0.9em;
+            font-weight: 300;
+        }
+
+        .price-value {
+            color: #1a1a1a;
+            font-size: 1em;
+            font-weight: 400;
+        }
+
+        /* Live Summary Sidebar (Right) */
+        .live-sidebar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 320px;
+            height: 100vh;
+            background: #1a1a1a;
+            padding: 35px 25px;
+            box-shadow: -2px 0 15px rgba(0, 0, 0, 0.15);
+            z-index: 100;
+            overflow-y: auto;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 1400px) {
+            .live-sidebar {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                top: auto;
+                width: 100%;
+                height: auto;
+                max-height: 200px;
+                padding: 25px;
+            }
+        }
+
+        .sidebar-content {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        @media (max-width: 1400px) {
+            .sidebar-content {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr auto;
+                gap: 20px;
+                align-items: center;
+            }
+        }
+
+        .sidebar-section {
+            padding-bottom: 20px;
+            border-bottom: 1px solid #444;
+        }
+
+        .sidebar-section:last-of-type {
+            border-bottom: none;
+        }
+
+        @media (max-width: 1400px) {
+            .sidebar-section {
+                border-right: 1px solid #444;
+                border-bottom: none;
+                padding-right: 20px;
+                padding-bottom: 0;
+            }
+
+            .sidebar-section:last-of-type {
+                border-right: none;
+            }
+        }
+
+        .sidebar-section h4 {
+            color: #ffffff;
+            font-size: 0.85em;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+        }
+
+        .sidebar-section p {
+            color: #cccccc;
+            line-height: 1.5;
+            font-size: 0.95em;
+            font-weight: 300;
+        }
+
+        .sidebar-total {
+            background: #ffffff;
+            color: #1a1a1a;
+            padding: 20px;
+            border-radius: 0;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+            margin-top: 10px;
+        }
+
+        .sidebar-total h4 {
+            font-size: 0.85em;
+            margin-bottom: 8px;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #1a1a1a;
+        }
+
+        .sidebar-total .price {
+            font-size: 1.8em;
+            font-weight: 300;
+        }
+
+        @media (max-width: 1400px) {
+            .sidebar-total {
+                margin-top: 0;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
         <div class="header">
-            <h1 style="line-height: 1.4; margin-bottom: 15px;">100 & Main Delivery Signage Upgrade</h1>
-            <h2 style="font-size: 18px; font-weight: 500; color: #64748b; margin: 15px 0; line-height: 1.6;">
-                "DO NOT USE INTERCOM TO CALL RESIDENTS<br>FOLLOW ARROW TO PACKAGE ROOM"
-            </h2>
-            <span class="status-badge">For Board Review</span>
+            <h1>100 & Main</h1>
+            <p>Package/Delivery Signage Update Selection</p>
         </div>
 
-        <!-- Quick Reference Diagram -->
-        <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 25px; margin-bottom: 30px;">
-            <h3 style="color: #1e293b; font-size: 18px; font-weight: 700; margin-bottom: 15px; text-align: center;">📍 Quick Reference: Sign Locations</h3>
-            <div style="text-align: center;">
-                <img src="assets/diagram.jpg" alt="Building diagram showing sign locations" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <!-- Problem Statement & Solution Rationale -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 50px; padding: 40px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+            <!-- Problem Statement -->
+            <div style="padding: 30px; background: white; border-radius: 6px; border-left: 4px solid #dc3545;">
+                <h3 style="font-family: 'Avenir Next', -apple-system, sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #dc3545; margin-bottom: 16px;">The Problem</h3>
+                <p style="font-family: Georgia, 'Times New Roman', serif; font-size: 16px; line-height: 1.7; color: #2c3e50; margin: 0;">
+                    Current signage reads "Parcel/Package" with a rightward arrow. Drivers interpret this as <strong>"enter building, <em>then</em> turn right,"</strong> prompting intercom calls for access. Amazon drivers operate under time pressure with 150+ stops per route—<strong>signage requiring interpretation becomes a request for assistance.</strong> Ambiguous directions convert directly into resident interruptions and operational inefficiency.
+                </p>
             </div>
-            <p style="color: #64748b; font-size: 14px; text-align: center; margin-top: 15px; font-style: italic;">
-                Building layout showing primary and additional sign placement locations
-            </p>
+
+            <!-- Solution Rationale -->
+            <div style="padding: 30px; background: white; border-radius: 6px; border-left: 4px solid #28a745;">
+                <h3 style="font-family: 'Avenir Next', -apple-system, sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #28a745; margin-bottom: 16px;">The Solution</h3>
+                <p style="font-family: Georgia, 'Times New Roman', serif; font-size: 16px; line-height: 1.7; color: #2c3e50; margin: 0;">
+                    Prohibitive commands ("DO NOT") <strong>eliminate ambiguity</strong> by stopping undesired behavior before it starts. Leading with prohibition, then identifying the audience (Amazon/deliveries), then providing the correct action (exterior door) follows <strong>established wayfinding hierarchy</strong> used in traffic control and industrial safety systems. When misinterpretation carries operational costs, explicit instruction outperforms directional suggestion.
+                </p>
+            </div>
         </div>
 
-        <!-- STEP 1: Text & Wording -->
-        <div class="section">
-            <div class="accordion-header" data-section="step1">
-                <span class="step-badge">Step 1 of 4</span>
-                <h2>Select Sign Text & Wording</h2>
-                <span class="accordion-toggle expanded">+</span>
+        <!-- Step 1: Verbiage Selection -->
+        <div class="step active" id="step-1">
+            <div class="step-header" onclick="toggleStep(1)">
+                <div class="step-header-left">
+                    <div class="step-checkmark">✓</div>
+                    <h2>
+                        <span class="step-number">1</span>
+                        Choose Your Verbiage
+                    </h2>
+                </div>
             </div>
-            <div class="accordion-content" id="step1-content">
+            <div class="step-content">
+                <div class="text-options">
+                <!-- Text Option 1: Maximum Impact -->
+                <div class="text-card" onclick="selectText('Maximum Impact', 'DO NOT USE INTERCOM / AMAZON DELIVERIES / USE EXTERIOR SIDE DOOR', 'Stop drivers in their tracks—impossible to miss', 'Option 1')">
+                    <div class="text-preview">
+                        <div class="headline underlined">DO NOT USE INTERCOM</div>
+                        <div class="subhead">AMAZON DELIVERIES</div>
+                        <div class="arrow"></div>
+                        <div class="body">USE EXTERIOR SIDE DOOR</div>
+                    </div>
+                    <div class="text-info">
+                        <h3>Maximum Impact <span style="color: #999; font-weight: 300;">(Option 1)</span> <span style="background: #28a745; color: white; padding: 3px 8px; font-size: 0.75em; border-radius: 3px; margin-left: 8px;">RECOMMENDED</span></h3>
+                        <p>Bold "DO NOT" command stops drivers immediately. Clear hierarchy guides them to the exterior door.</p>
+                    </div>
+                </div>
+
+                <!-- Text Option 2: Amazon-First -->
+                <div class="text-card" onclick="selectText('Amazon-First', 'AMAZON DELIVERIES / DO NOT USE INTERCOM / USE EXTERIOR SIDE DOOR', 'Targets Amazon drivers specifically—80% of delivery traffic', 'Option 2')">
+                    <div class="text-preview">
+                        <div class="headline underlined">AMAZON DELIVERIES</div>
+                        <div class="subhead">DO NOT USE INTERCOM</div>
+                        <div class="arrow"></div>
+                        <div class="body">USE EXTERIOR SIDE DOOR</div>
+                    </div>
+                    <div class="text-info">
+                        <h3>Amazon-First <span style="color: #999; font-weight: 300;">(Option 2)</span></h3>
+                        <p>Targets Amazon drivers specifically—80% of delivery traffic. Recognition-based messaging.</p>
+                    </div>
+                </div>
+
+                <!-- Text Option 3: Visual Frame -->
+                <div class="text-card" onclick="selectText('Visual Frame', 'DO NOT USE INTERCOM (boxed) / PACKAGE DELIVERIES / USE EXTERIOR SIDE DOOR', 'Regulatory compliance aesthetic with boxed warning', 'Option 3')">
+                    <div class="text-preview">
+                        <div class="headline" style="border: 3px solid white; padding: 0 20px; display: inline-flex; align-items: center; justify-content: center; height: 80px; line-height: 1 !important; white-space: nowrap !important;"><span style="text-decoration: underline;">DO NOT</span>&nbsp;USE INTERCOM</div>
+                        <div class="subhead">PACKAGE DELIVERIES</div>
+                        <div class="arrow"></div>
+                        <div class="body">USE EXTERIOR SIDE DOOR</div>
+                    </div>
+                    <div class="text-info">
+                        <h3>Visual Frame <span style="color: #999; font-weight: 300;">(Option 3)</span></h3>
+                        <p>White box creates official warning aesthetic. Strong authority signaling for compliance.</p>
+                    </div>
+                </div>
+
+                <!-- Text Option 4: Complete Guidance -->
+                <div class="text-card" onclick="selectText('Complete Guidance', 'DELIVERIES / PACKAGE ROOM ENTRANCE / AROUND THE CORNER', 'Simple wayfinding without negative commands', 'Option 4')">
+                    <div class="text-preview">
+                        <div class="headline">DELIVERIES</div>
+                        <div class="arrow"></div>
+                        <div class="body">Package Room Entrance</div>
+                        <div class="body">Around the Corner</div>
+                    </div>
+                    <div class="text-info">
+                        <h3>Complete Guidance <span style="color: #999; font-weight: 300;">(Option 4)</span></h3>
+                        <p>Positive directional guidance only. No prohibitions—just clear wayfinding instructions.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="step-actions">
+                <button class="btn-next" id="btn-next-1" onclick="nextStep(1)" disabled>Next: Choose Font</button>
+            </div>
+            </div>
+        </div>
+
+        <!-- Step 2: Font Selection -->
+        <div class="step collapsed" id="step-2">
+            <div class="step-header" onclick="toggleStep(2)">
+                <div class="step-header-left">
+                    <div class="step-checkmark">✓</div>
+                    <h2>
+                        <span class="step-number">2</span>
+                        Choose Your Font
+                    </h2>
+                </div>
+            </div>
+            <div class="step-content">
                 <p style="margin-bottom: 25px; color: #666; font-size: 15px;">
-                    Choose what the sign will say. This text can be combined with any color scheme in Step 2.
+                    Select the typography style for your sign. Your selected verbiage will be shown in each font.
                 </p>
-
-            <div class="design-grid">
-                <!-- Text Option 1: Underlined Emphasis -->
-                <div class="design-card" data-step="text" data-option="text2">
-                    <div class="design-header" style="background: #2c5aa0;">
-                        <div class="design-title">Option 1: Maximum Impact</div>
-                        <div class="design-subtitle">Stop drivers in their tracks—impossible to miss</div>
-                    </div>
-                    <div class="design-preview">
-                        <div class="sign-mockup" style="background: #000000; color: white; border: none;">
-                            <div class="sign-text-line" style="font-size: 28px; font-weight: 700; text-decoration: underline;">DO NOT USE INTERCOM</div>
-                            <div class="sign-text-line" style="font-size: 28px; margin-top: 10px;">AMAZON DELIVERIES</div>
-                            <div class="sign-arrow" style="margin: 20px 0;">→</div>
-                            <div class="sign-text-line" style="font-size: 24px;">USE EXTERIOR SIDE DOOR</div>
+                <div class="style-options">
+                <!-- Font 1: Helvetica Neue (Standard) -->
+                <div class="style-card" onclick="selectFont('Helvetica Neue', 'Modern sans-serif, clean and professional', 'helvetica-neue')">
+                    <div class="style-preview" data-font-preview="helvetica-neue">
+                        <div class="sign-mockup" style="background: #000000; color: white; border: none; padding: 40px; text-align: center; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+                            <p style="color: #999; font-size: 16px;">Select verbiage in Step 1 to preview</p>
                         </div>
                     </div>
-                    <div class="design-details">
+                    <div class="style-info">
+                        <h3>Helvetica Neue (Standard) <span style="background: #28a745; color: white; padding: 3px 8px; font-size: 0.75em; border-radius: 3px; margin-left: 8px;">RECOMMENDED</span></h3>
+                        <p>Universal readability across all delivery companies. High contrast ensures legibility from any angle or distance.</p>
                     </div>
                 </div>
 
-                <!-- Text Option 2: AMAZON DELIVERIES -->
-                <div class="design-card" data-step="text" data-option="text3">
-                    <div class="design-header" style="background: #2c5aa0;">
-                        <div class="design-title">Option 2: Amazon-First</div>
-                        <div class="design-subtitle">Speak their language—target 80% of delivery traffic</div>
-                    </div>
-                    <div class="design-preview">
-                        <div class="sign-mockup" style="background: #000000; color: white; border: none;">
-                            <div class="sign-text-line" style="font-size: 32px; font-weight: 600; margin-bottom: 15px; text-decoration: underline; text-underline-offset: 8px;">AMAZON DELIVERIES</div>
-                            <div class="sign-text-line" style="font-size: 28px; margin: 20px 0;">DO NOT USE INTERCOM</div>
-                            <div class="sign-arrow" style="margin: 30px 0;">→</div>
-                            <div class="sign-text-line" style="font-size: 24px;">USE EXTERIOR SIDE DOOR</div>
+                <!-- Font 2: Avenir Next Medium (Building Standard) -->
+                <div class="style-card" onclick="selectFont('Avenir Next Medium', 'Matches ground-floor 100 & MAIN signage', 'avenir-next')">
+                    <div class="style-preview" data-font-preview="avenir-next">
+                        <div class="sign-mockup building-standard-preview" style="background: #000000; color: #FFFFFF; border: none; padding: 40px; text-align: center; font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, sans-serif; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;">
+                            <p style="color: #999; font-size: 16px; text-transform: none; letter-spacing: normal;">Select verbiage in Step 1 to preview</p>
                         </div>
                     </div>
-                    <div class="design-details">
+                    <div class="style-info">
+                        <h3>Avenir Next Medium (Building Standard)</h3>
+                        <p>Cohesive brand integration with ground-floor signage. Creates official building wayfinding system continuity.</p>
                     </div>
                 </div>
 
-                <!-- Text Option 3: Full Details -->
-                <div class="design-card" data-step="text" data-option="text5">
-                    <div class="design-header" style="background: #2c5aa0;">
-                        <div class="design-title">Option 3: Visual Frame</div>
-                        <div class="design-subtitle">Authority signaling—regulatory compliance aesthetic</div>
-                    </div>
-                    <div class="design-preview">
-                        <div class="sign-mockup" style="background: #000000; color: white; border: none;">
-                            <div class="sign-text-line" style="font-size: 28px; margin-bottom: 15px; border: 3px solid white; padding: 10px; display: inline-block;"><span style="text-decoration: underline;">DO NOT</span> USE INTERCOM</div>
-                            <div class="sign-text-line" style="font-size: 28px; margin: 15px 0;">FOR PACKAGE DELIVERIES</div>
-                            <div class="sign-arrow" style="margin: 30px 0;">→</div>
-                            <div class="sign-text-line" style="font-size: 24px;">USE EXTERIOR SIDE DOOR</div>
+                <!-- Font 3: DIN Bold (Industrial Standard) -->
+                <div class="style-card" onclick="selectFont('DIN Bold', 'Heavy industrial German engineering aesthetic', 'din-bold')">
+                    <div class="style-preview" data-font-preview="din-bold">
+                        <div class="sign-mockup" style="background: #000000; color: #FFFFFF; border: none; padding: 40px; text-align: center; font-family: 'Impact', 'Arial Black', sans-serif; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase;">
+                            <p style="color: #999; font-size: 16px; text-transform: none; letter-spacing: normal; font-weight: normal;">Select verbiage in Step 1 to preview</p>
                         </div>
                     </div>
-                    <div class="design-details">
+                    <div class="style-info">
+                        <h3>DIN Bold (Industrial Standard)</h3>
+                        <p>Maximum authority and impact. Heavy weight commands attention like airport or highway signage. Unmissable compliance.</p>
                     </div>
                 </div>
 
-                <!-- Text Option 4: AMAZON (Optimized Design) -->
-                <div class="design-card" data-step="text" data-option="text6">
-                    <div class="design-header" style="background: #2c5aa0;">
-                        <div class="design-title">Option 4: Complete Guidance</div>
-                        <div class="design-subtitle">Leave nothing to chance—end-to-end wayfinding</div>
-                    </div>
-                    <div class="design-preview">
-                        <div class="sign-mockup" style="background: #000000; color: white; border: none;">
-                            <div class="sign-text-line" style="font-size: 40px; font-weight: 700; margin-bottom: 15px;">AMAZON</div>
-                            <div class="sign-text-line" style="font-size: 26px; margin: 15px 0;"><span style="text-decoration: underline;">DO NOT</span> USE INTERCOM</div>
-                            <div class="sign-arrow" style="margin: 30px 0;">→</div>
-                            <div class="sign-text-line" style="font-size: 24px; margin-top: 10px;">PACKAGE ROOM ENTRANCE</div>
-                            <div class="sign-text-line" style="font-size: 24px; margin-top: 5px;">AROUND CORNER</div>
+                <!-- Font 4: Futura Medium (Modern Geometric) -->
+                <div class="style-card" onclick="selectFont('Futura Medium', 'Clean geometric modernist design', 'futura-medium')">
+                    <div class="style-preview" data-font-preview="futura-medium">
+                        <div class="sign-mockup" style="background: #000000; color: #FFFFFF; border: none; padding: 40px; text-align: center; font-family: 'Century Gothic', 'Futura', sans-serif; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;">
+                            <p style="color: #999; font-size: 16px; text-transform: none; letter-spacing: normal;">Select verbiage in Step 1 to preview</p>
                         </div>
                     </div>
-                    <div class="design-details">
+                    <div class="style-info">
+                        <h3>Futura Medium (Modern Geometric)</h3>
+                        <p>Timeless Bauhaus aesthetic used by museums and luxury brands. Clean circles and sharp angles project sophistication.</p>
                     </div>
                 </div>
+
+                <!-- Font 5: Paramount Hotel Script (Rod's Style) -->
+                <div class="style-card" onclick="selectFont('Paramount Hotel Script', 'Elegant script like Paramount Hotel Seattle', 'paramount-script')">
+                    <div class="style-preview" data-font-preview="paramount-script">
+                        <div class="sign-mockup paramount-script-preview" style="background: linear-gradient(180deg, #1a1510 0%, #0a0805 100%); color: #D4AF37; border: 15px solid #8B7355; padding: 30px 20px; text-align: center; font-family: 'Georgia', 'Times New Roman', serif; font-style: italic; letter-spacing: 0; font-size: 0.7em; font-weight: 400; line-height: 1.2; text-shadow: 0 0 30px rgba(212, 175, 55, 0.9), 0 0 50px rgba(212, 175, 55, 0.7), 0 0 80px rgba(212, 175, 55, 0.5), 3px 3px 8px rgba(0,0,0,0.8); position: relative; box-shadow: inset 0 0 60px rgba(139, 115, 85, 0.5), 0 20px 50px rgba(0,0,0,0.7); overflow: hidden; word-wrap: break-word;">
+                            <p style="color: #999; font-size: 13px; font-family: 'Helvetica Neue', sans-serif; font-style: normal; text-shadow: none; letter-spacing: normal;">Select verbiage in Step 1 to preview</p>
+                        </div>
+                    </div>
+                    <div class="style-info">
+                        <h3>✨ Paramount Hotel Script (Rod's Favorite) ✨</h3>
+                        <p>Elegant serif italic with oversized ornate first letters. Readable luxury that mimics classic hotel marquee drop caps. Pure sophistication. 🏨👑</p>
+                    </div>
+                </div>
+
+                <!-- Font 6: Vegas Marquee Extravaganza -->
+                <div class="style-card" onclick="selectFont('Vegas Marquee Extravaganza', 'Over-the-top Vegas showlights style', 'vegas-marquee')">
+                    <div class="style-preview" data-font-preview="vegas-marquee">
+                        <div class="sign-mockup" style="background: linear-gradient(135deg, #000000 0%, #1a0033 50%, #000000 100%); color: #FFD700; border: 8px solid #FFD700; padding: 40px; text-align: center; font-family: Impact, 'Arial Black', sans-serif; font-weight: 900; letter-spacing: 0.2em; text-transform: uppercase; text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700, 0 0 30px #FFD700, 0 0 40px #FF00FF, 0 0 70px #FF00FF, 0 0 80px #FF00FF, 0 0 100px #FF00FF;">
+                            <p style="color: #999; font-size: 16px; font-family: 'Helvetica Neue', sans-serif; text-shadow: none; letter-spacing: normal; text-transform: none;">Select verbiage in Step 1 to preview</p>
+                        </div>
+                    </div>
+                    <div class="style-info">
+                        <h3>🎰 Vegas Marquee Extravaganza 🎰</h3>
+                        <p>Maximum glitz and glam with gold text, neon glow effects, and enough sparkle to be seen from space. Drivers won't miss this. 💎</p>
+                    </div>
+                </div>
+
             </div>
-
-            <!-- Next Step Button -->
-            <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 2px solid #e5e7eb;">
-                <button class="next-step-btn" data-current="text" style="
-                    background: #2c5aa0;
-                    color: white;
-                    border: none;
-                    padding: 15px 40px;
-                    font-size: 16px;
-                    font-weight: 600;
-                    border-radius: 6px;
-                    cursor: pointer;
-                    transition: all 0.3s ease;
-                    box-shadow: 0 2px 8px rgba(44, 90, 160, 0.3);
-                " onmouseover="this.style.background='#1e3a5f'" onmouseout="this.style.background='#2c5aa0'">
-                    Continue to Step 2: Color Scheme →
-                </button>
+            <div class="step-actions">
+                <button class="btn-next" id="btn-next-2" onclick="nextStep(2)" disabled>Next: Choose Color</button>
             </div>
             </div>
         </div>
 
-        <!-- STEP 2: Color Scheme -->
-        <div class="section">
-            <div class="accordion-header" data-section="step2">
-                <span class="step-badge">Step 2 of 4</span>
-                <h2>Select Color Scheme</h2>
-                <span class="accordion-toggle expanded">+</span>
+        <!-- Step 3: Color Scheme Selection -->
+        <div class="step collapsed" id="step-3">
+            <div class="step-header" onclick="toggleStep(3)">
+                <div class="step-header-left">
+                    <div class="step-checkmark">✓</div>
+                    <h2>
+                        <span class="step-number">3</span>
+                        Choose Your Color Scheme
+                    </h2>
+                </div>
             </div>
-            <div class="accordion-content" id="step2-content">
+            <div class="step-content">
                 <p style="margin-bottom: 25px; color: #666; font-size: 15px;">
-                    Choose the color scheme for your sign. Any text option from Step 1 can be applied to any color scheme below.
+                    Choose the color scheme for your sign. Your selected verbiage and font will appear in each color option.
                 </p>
-
-            <div class="design-grid">
-                <!-- Color Option 4: Official Black Background -->
-                <div class="design-card official" data-step="color" data-option="color4">
-                    <div class="official-badge">Official Building Standard</div>
-                    <div class="design-header">
-                        <div class="design-title">Black Background (Exterior)</div>
-                        <div class="design-subtitle">Matches existing building standards</div>
+                <div class="style-options">
+                <!-- Style 1: Black Standard -->
+                <div class="style-card" onclick="selectStyle('Official Building Standard', 'Black background (#000000), white text', 'black-standard')" style="padding: 0; overflow: hidden;">
+                    <div style="background: #000000; padding: 20px 20px; text-align: left; border-bottom: 1px solid #333;">
+                        <div style="font-size: 10px; color: white; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase;">OFFICIAL BUILDING STANDARD</div>
                     </div>
-                    <div class="design-preview">
-                        <div class="sign-mockup" style="background: #000000; color: white; border: none;">
-                            <div style="font-size: 48px; font-weight: 400; letter-spacing: 2px; margin-bottom: 40px;">Parcel/Package Delivery</div>
-                            <div style="margin: 40px 0;">
-                                <svg width="400" height="120" viewBox="0 0 400 120">
-                                    <polygon points="0,60 300,60 300,30 400,75 300,120 300,90 0,90" fill="white"/>
-                                </svg>
-                            </div>
+                    <div class="style-preview" data-color-preview="black-standard" style="background: white; padding: 30px;">
+                        <div class="sign-mockup" style="background: #000000; color: white; border: 3px solid #000; padding: 40px; text-align: center; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+                            <p style="color: #999; font-size: 16px;">Select text in Step 1 to preview</p>
                         </div>
                     </div>
-                    <div class="design-details">
-                        <div class="detail-row">
-                            <span class="detail-label">Tone</span>
-                            <span class="detail-value">Official, Professional</span>
-                        </div>
-                        <div class="pros-cons-container">
-                            <div class="pros-list">
-                                <h4>Pros</h4>
-                                <ul>
-                                    <li>Matches existing exterior signage perfectly</li>
-                                    <li>High contrast for excellent readability</li>
-                                    <li>Professional, official appearance</li>
-                                </ul>
-                            </div>
-                            <div class="cons-list">
-                                <h4>Cons</h4>
-                                <ul>
-                                    <li>May be less visible in low light without reflective material</li>
-                                </ul>
-                            </div>
-                        </div>
+                    <div class="style-info">
+                        <h3>Black Background (Exterior) <span style="background: #28a745; color: white; padding: 3px 8px; font-size: 0.75em; border-radius: 3px; margin-left: 8px;">RECOMMENDED</span></h3>
+                        <p>Maximum contrast for outdoor visibility. Weather-resistant colors won't fade in direct sunlight or rain.</p>
                     </div>
                 </div>
 
-<!-- Color Option 1: Gray Building Match -->
-                <div class="design-card" data-step="color" data-option="color1">
-                    <div class="design-header">
-                        <div class="design-title">Gray Building Match</div>
-                        <div class="design-subtitle">Blends seamlessly with gray concrete exterior</div>
-                    </div>
-                    <div class="design-preview">
-                        <div class="sign-mockup" style="background: #5A5A5A; color: white; border: 1px solid #E0E0E0; border-radius: 0;">
-                            <div class="sign-text-line">DO NOT USE INTERCOM</div>
-                            <div class="sign-text-line">FOR PACKAGE DELIVERIES</div>
-                            <div class="sign-arrow" style="margin: 30px 0;">→</div>
-                            <div class="sign-text-line" style="font-size: 28px;">DELIVERIES THIS WAY</div>
-                            <div class="sign-text-line" style="font-size: 22px;">Package Room Entrance</div>
-                            <div class="sign-text-line" style="font-size: 22px;">Around Corner to Left</div>
+                <!-- Style 2: Gray Match -->
+                <div class="style-card" onclick="selectStyle('Gray Building Match', 'Gray background (#5A5A5A), white text', 'gray-match')">
+                    <div class="style-preview" data-color-preview="gray-match">
+                        <div class="sign-mockup" style="background: #5A5A5A; color: white; border: 1px solid #E0E0E0; border-radius: 0; padding: 40px; text-align: center; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+                            <p style="color: #ccc; font-size: 16px;">Select text in Step 1 to preview</p>
                         </div>
                     </div>
-                    <div class="design-details">
-                        <div class="detail-row">
-                            <span class="detail-label">Tone</span>
-                            <span class="detail-value">Neutral, Architectural</span>
-                        </div>
-                        <div class="pros-cons-container">
-                            <div class="pros-list">
-                                <h4>Pros</h4>
-                                <ul>
-                                    <li>Blends seamlessly with gray concrete exterior</li>
-                                    <li>Doesn't clash with building aesthetic</li>
-                                    <li>Subtle, integrated appearance</li>
-                                </ul>
-                            </div>
-                            <div class="cons-list">
-                                <h4>Cons</h4>
-                                <ul>
-                                    <li>Lower contrast, less attention-grabbing</li>
-                                    <li>May not stand out enough</li>
-                                </ul>
-                            </div>
-                        </div>
+                    <div class="style-info">
+                        <h3>Gray Building Match</h3>
+                        <p>Blends seamlessly with gray concrete exterior. Sign becomes part of building architecture rather than afterthought.</p>
                     </div>
                 </div>
 
-<!-- Color Option 2: Black Minimal -->
-                <div class="design-card" data-step="color" data-option="color2">
-                    <div class="design-header">
-                        <div class="design-title">Black Minimal</div>
-                        <div class="design-subtitle">Matches building's dark charcoal doors perfectly</div>
-                    </div>
-                    <div class="design-preview">
-                        <div class="sign-mockup" style="background: #1A1A1A; color: white; border: none;">
-                            <div class="sign-text-line">Do Not Use Intercom</div>
-                            <div class="sign-text-line">for Package Deliveries</div>
-                            <div class="sign-arrow" style="margin: 30px 0;">→</div>
-                            <div class="sign-text-line" style="font-size: 28px;">DELIVERIES THIS WAY</div>
-                            <div class="sign-text-line" style="font-size: 22px;">Package Room Entrance</div>
-                            <div class="sign-text-line" style="font-size: 22px;">Around Corner to Left</div>
+                <!-- Style 3: Charcoal + Soft White Border -->
+                <div class="style-card" onclick="selectStyle('Charcoal + Soft White Border', 'Charcoal (#181818), soft white border (#F2F2F2), white text', 'charcoal-white-border')">
+                    <div class="style-preview" data-color-preview="charcoal-white-border">
+                        <div class="sign-mockup" style="background: #181818; color: white; border: 3px solid #F2F2F2; padding: 40px; text-align: center; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+                            <p style="color: #999; font-size: 16px;">Select text in Step 1 to preview</p>
                         </div>
                     </div>
-                    <div class="design-details">
-                        <div class="detail-row">
-                            <span class="detail-label">Tone</span>
-                            <span class="detail-value">Modern, Sophisticated</span>
-                        </div>
-                        <div class="pros-cons-container">
-                            <div class="pros-list">
-                                <h4>Pros</h4>
-                                <ul>
-                                    <li>Matches building's dark charcoal doors perfectly</li>
-                                    <li>Modern, minimal aesthetic</li>
-                                    <li>Elegant, sophisticated appearance</li>
-                                </ul>
-                            </div>
-                            <div class="cons-list">
-                                <h4>Cons</h4>
-                                <ul>
-                                    <li>Less visible during daytime</li>
-                                    <li>Relies heavily on reflective material</li>
-                                </ul>
-                            </div>
-                        </div>
+                    <div class="style-info">
+                        <h3>Charcoal + Soft White Border (Architectural Standard)</h3>
+                        <p>Softer charcoal reduces harshness while white border prevents sign disappearing into gray surfaces. Works perfectly on both metal and concrete.</p>
                     </div>
                 </div>
 
-<!-- Color Option 3: Black with Yellow Border -->
-                <div class="design-card" data-step="color" data-option="color3">
-                    <div class="design-header">
-                        <div class="design-title">Black with Yellow Border</div>
-                        <div class="design-subtitle">Yellow border grabs attention instantly</div>
-                    </div>
-                    <div class="design-preview">
-                        <div class="sign-mockup" style="background: #1A1A1A; color: white; border: 6px solid #FFCC00; border-radius: 8px;">
-                            <div style="font-size: 24px; margin-bottom: 20px; font-weight: 600;">DELIVERY NOTICE</div>
-                            <div class="sign-text-line">DO NOT USE INTERCOM</div>
-                            <div class="sign-text-line">FOR DELIVERIES</div>
-                            <div class="sign-arrow" style="margin: 30px 0;">→</div>
-                            <div class="sign-text-line" style="font-size: 24px; margin-top: 20px;">USE EXTERIOR SIDE DOOR</div>
+                <!-- Style 4: Deep Slate + Bright White -->
+                <div class="style-card" onclick="selectStyle('Deep Slate + Bright White', 'Deep slate gray (#3C3C3C), bright white text', 'deep-slate')">
+                    <div class="style-preview" data-color-preview="deep-slate">
+                        <div class="sign-mockup" style="background: #3C3C3C; color: white; border: none; padding: 40px; text-align: center; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+                            <p style="color: #999; font-size: 16px;">Select text in Step 1 to preview</p>
                         </div>
                     </div>
-                    <div class="design-details">
-                        <div class="detail-row">
-                            <span class="detail-label">Tone</span>
-                            <span class="detail-value">High Visibility</span>
-                        </div>
-                        <div class="pros-cons-container">
-                            <div class="pros-list">
-                                <h4>Pros</h4>
-                                <ul>
-                                    <li>Yellow border grabs attention instantly</li>
-                                    <li>High contrast for maximum visibility</li>
-                                    <li>Warning/caution aesthetic</li>
-                                </ul>
-                            </div>
-                            <div class="cons-list">
-                                <h4>Cons</h4>
-                                <ul>
-                                    <li>May feel more industrial</li>
-                                    <li>Yellow may fade over time outdoors</li>
-                                </ul>
-                            </div>
-                        </div>
+                    <div class="style-info">
+                        <h3>Deep Slate + Bright White (High Visibility)</h3>
+                        <p>Higher legibility in low or side lighting without harsh contrast. Subtle yet readable; blends with building's neutral palette.</p>
                     </div>
                 </div>
 
-<!-- Color Option 6: Brushed Metal Aluminum Premium -->
-                <div class="design-card" data-step="color" data-option="color6">
-                    <div class="design-header">
-                        <div class="design-title">Brushed Metal - Aluminum Premium</div>
-                        <div class="design-subtitle">Optimized for aluminum material, industrial premium finish</div>
-                    </div>
-                    <div class="design-preview">
-                        <div class="sign-mockup" style="background: linear-gradient(135deg, #b8bfc6 0%, #8a9199 25%, #bcc3ca 50%, #8a9199 75%, #b8bfc6 100%); color: #1a1a1a; border: 2px solid #7f8c8d; box-shadow: inset 0 1px 3px rgba(255,255,255,0.5), inset 0 -1px 3px rgba(0,0,0,0.2);">
-                            <div class="sign-text-line">DO NOT USE INTERCOM</div>
-                            <div class="sign-text-line">FOR DELIVERIES</div>
-                            <div class="sign-arrow">→</div>
-                            <div class="sign-text-line" style="font-size: 24px; margin-top: 15px;">USE EXTERIOR SIDE DOOR</div>
+                <!-- Style 5: Charcoal + Gold Edge -->
+                <div class="style-card" onclick="selectStyle('Charcoal + Gold Edge', 'Charcoal (#181818), gold border (#C7A465), white text', 'charcoal-gold')">
+                    <div class="style-preview" data-color-preview="charcoal-gold">
+                        <div class="sign-mockup" style="background: #181818; color: white; border: 4px solid #C7A465; padding: 40px; text-align: center; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+                            <p style="color: #999; font-size: 16px;">Select text in Step 1 to preview</p>
                         </div>
                     </div>
-                    <div class="design-details">
-                        <div class="detail-row">
-                            <span class="detail-label">Tone</span>
-                            <span class="detail-value">Industrial Premium, Metallic</span>
-                        </div>
-                        <div class="pros-cons-container">
-                            <div class="pros-list">
-                                <h4>Pros</h4>
-                                <ul>
-                                    <li>Specifically optimized for aluminum substrate</li>
-                                    <li>Premium brushed metal aesthetic</li>
-                                    <li>Unique, distinctive appearance</li>
-                                    <li>Subtle metallic sheen adds sophistication</li>
-                                    <li>High-end commercial look</li>
-                                </ul>
-                            </div>
-                            <div class="cons-list">
-                                <h4>Cons</h4>
-                                <ul>
-                                    <li>Best suited for aluminum material only</li>
-                                    <li>May not match existing building signage</li>
-                                </ul>
-                            </div>
-                        </div>
+                    <div class="style-info">
+                        <h3>Charcoal + Gold Edge (Luxury Hotel Style)</h3>
+                        <p>Premium aesthetic similar to Four Seasons/Ritz-Carlton signage. Medium compliance, high visual harmony with upscale interiors.</p>
                     </div>
                 </div>
 
+                <!-- Style 6: Circus Chaos Edition (Easter Egg) -->
+                <div class="style-card" onclick="selectStyle('Circus Chaos Edition', 'Hot magenta background (#FF00FF), neon yellow text (#FFFF00), rainbow border', 'circus-chaos')">
+                    <div class="style-preview" data-color-preview="circus-chaos">
+                        <div class="sign-mockup" style="background: linear-gradient(45deg, #FF00FF, #00FFFF, #FFFF00, #FF00FF); color: #FFFF00; border: 8px solid; border-image: linear-gradient(45deg, red, orange, yellow, green, blue, purple) 1; padding: 40px; text-align: center; font-family: 'Comic Sans MS', cursive; text-shadow: 3px 3px 0px #FF1493, -3px -3px 0px #00CED1;">
+                            <p style="color: #FFFF00; font-size: 16px; text-shadow: 2px 2px 4px #000;">Select text in Step 1 to preview</p>
+                        </div>
+                    </div>
+                    <div class="style-info">
+                        <h3>🎪 Circus Chaos Edition 🎪</h3>
+                        <p>Maximum visual assault. Comic Sans font, gradient rainbow border, neon colors that violate OSHA guidelines. Drivers will stop using the intercom because they literally can't look at it. 🤡</p>
+                    </div>
+                </div>
             </div>
-
-            <!-- Next Step Button -->
-            <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 2px solid #e5e7eb;">
-                <button class="next-step-btn" data-current="color" style="
-                    background: #2c5aa0;
-                    color: white;
-                    border: none;
-                    padding: 15px 40px;
-                    font-size: 16px;
-                    font-weight: 600;
-                    border-radius: 6px;
-                    cursor: pointer;
-                    transition: all 0.3s ease;
-                    box-shadow: 0 2px 8px rgba(44, 90, 160, 0.3);
-                " onmouseover="this.style.background='#1e3a5f'" onmouseout="this.style.background='#2c5aa0'">
-                    Continue to Step 3: Material →
-                </button>
+            <div class="step-actions">
+                <button class="btn-next" id="btn-next-3" onclick="nextStep(3)" disabled>Next: Choose Material</button>
             </div>
             </div>
         </div>
 
-        <!-- STEP 3: Material Options -->
-        <div class="section">
-            <div class="accordion-header" data-section="step3">
-                <span class="step-badge">Step 3 of 4</span>
-                <h2>Select Material</h2>
-                <span class="accordion-toggle expanded">+</span>
+        <!-- Step 4: Material Selection -->
+        <div class="step collapsed" id="step-4">
+            <div class="step-header" onclick="toggleStep(4)">
+                <div class="step-header-left">
+                    <div class="step-checkmark">✓</div>
+                    <h2>
+                        <span class="step-number">4</span>
+                        Choose Material
+                    </h2>
+                </div>
             </div>
-            <div class="accordion-content" id="step3-content">
+            <div class="step-content">
                 <p style="margin-bottom: 25px; color: #666; font-size: 15px;">
-                    Choose the material for all signs. Material affects durability, appearance, and cost. All signs will use the same material.
+                    Select your preferred material. Pricing is shown for all available sizes.
                 </p>
-
-                <div style="background: #eff6ff; border-left: 4px solid #2563eb; padding: 15px; margin-bottom: 25px; border-radius: 4px;">
-                    <p style="color: #1e40af; font-size: 14px; line-height: 1.6;">
-                        <strong>Recommended Size:</strong> 18" x 24" for all signs (consistent, professional appearance)<br>
-                        <strong>Pricing:</strong> Cost estimates shown below are per sign. Total cost will depend on number of additional signs selected in Step 4.
-                    </p>
-                </div>
-
-            <div class="design-grid">
-                <!-- Material Option 1: Aluminum -->
-                <div class="design-card" data-step="material" data-option="material1">
-                    <div class="design-header" style="background: #6B7280;">
-                        <div class="design-title">Aluminum (Recommended)</div>
-                        <div class="design-subtitle">Durable metal for outdoor use</div>
-                    </div>
-                    <div class="design-preview" style="background: #f0f0f0;">
-                        <div style="text-align: left; padding: 20px; max-width: 500px;">
-                            <h3 style="margin-bottom: 15px; color: #1A1A1A;">Premium Aluminum Sign</h3>
-                            <p style="color: #666; line-height: 1.6; margin-bottom: 20px;">
-                                Professional-grade aluminum with reflective vinyl overlay. Weather-resistant and long-lasting.
-                            </p>
-                            <div class="material-specs">
-                                <div class="spec-row">
-                                    <span class="spec-label">Material</span>
-                                    <span class="spec-value">.063" Aluminum</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Finish</span>
-                                    <span class="spec-value">Reflective vinyl overlay</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Durability</span>
-                                    <span class="spec-value">10+ years outdoor</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Weather Resistance</span>
-                                    <span class="spec-value">Excellent (rain, sun, snow)</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Installation</span>
-                                    <span class="spec-value">Drill-mounted or adhesive</span>
-                                </div>
-                                <div class="spec-row" style="border-top: 2px solid #e5e7eb; margin-top: 15px; padding-top: 15px;">
-                                    <span class="spec-label" style="font-weight: 700; font-size: 16px;">Size</span>
-                                    <span class="spec-value" style="font-weight: 700;">18" x 24"</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label" style="font-weight: 700; font-size: 16px;">Price Per Sign</span>
-                                    <span class="spec-value" style="font-weight: 700; color: #16a34a; font-size: 18px;">$60-75</span>
-                                </div>
-                            </div>
+                <div class="material-options">
+                <!-- Dibond Material -->
+                <div class="material-card" onclick="selectMaterial('Dibond', '3mm Dibond/Max Metal (Aluminum Composite)', 'Professional grade, weather-resistant, long-lasting', [48.91, 119.83, 232.81])">
+                    <div class="material-preview dibond-preview">
+                        <div class="material-sample">
+                            <div class="material-texture dibond-texture"></div>
+                            <div class="material-label">DIBOND</div>
                         </div>
                     </div>
-                    <div class="design-details">
-                        <div class="pros-cons-container">
-                            <div class="pros-list">
-                                <h4>Pros</h4>
-                                <ul>
-                                    <li>Most durable option for outdoor use</li>
-                                    <li>Professional appearance</li>
-                                    <li>Reflective finish improves night visibility</li>
-                                    <li>Won't warp or fade quickly</li>
-                                    <li>Industry standard for outdoor signage</li>
-                                </ul>
+                    <div class="material-info-card">
+                        <h3>3mm Dibond/Max Metal (Aluminum Composite) <span style="background: #28a745; color: white; padding: 3px 8px; font-size: 0.75em; border-radius: 3px; margin-left: 8px;">RECOMMENDED</span></h3>
+                        <p>Engineered for exterior use. Aluminum composite won't warp, fade, or degrade in Pacific Northwest rain and UV exposure.</p>
+                        <div class="pricing-table">
+                            <div class="price-row">
+                                <span class="size-label">11" W × 9" H</span>
+                                <span class="price-value">$48.91</span>
                             </div>
-                            <div class="cons-list">
-                                <h4>Cons</h4>
-                                <ul>
-                                    <li>Higher cost than laminated options</li>
-                                    <li>Heavier (requires proper mounting)</li>
-                                </ul>
+                            <div class="price-row">
+                                <span class="size-label">24" W × 19.6" H</span>
+                                <span class="price-value">$119.83</span>
+                            </div>
+                            <div class="price-row">
+                                <span class="size-label">36" W × 29.5" H</span>
+                                <span class="price-value">$232.81</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Material Option 2: PVC/Plastic -->
-                <div class="design-card" data-step="material" data-option="material2">
-                    <div class="design-header" style="background: #6B7280;">
-                        <div class="design-title">PVC/Plastic</div>
-                        <div class="design-subtitle">Lightweight, budget-friendly</div>
-                    </div>
-                    <div class="design-preview" style="background: #f0f0f0;">
-                        <div style="text-align: left; padding: 20px; max-width: 500px;">
-                            <h3 style="margin-bottom: 15px; color: #1A1A1A;">Rigid PVC Sign</h3>
-                            <p style="color: #666; line-height: 1.6; margin-bottom: 20px;">
-                                Rigid plastic board with UV-printed graphics. Lightweight and easy to install.
-                            </p>
-                            <div class="material-specs">
-                                <div class="spec-row">
-                                    <span class="spec-label">Material</span>
-                                    <span class="spec-value">3mm PVC board</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Finish</span>
-                                    <span class="spec-value">UV-printed, matte or gloss</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Durability</span>
-                                    <span class="spec-value">3-5 years outdoor</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Weather Resistance</span>
-                                    <span class="spec-value">Good (may fade over time)</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Installation</span>
-                                    <span class="spec-value">Adhesive or lightweight mounting</span>
-                                </div>
-                                <div class="spec-row" style="border-top: 2px solid #e5e7eb; margin-top: 15px; padding-top: 15px;">
-                                    <span class="spec-label" style="font-weight: 700; font-size: 16px;">Size</span>
-                                    <span class="spec-value" style="font-weight: 700;">18" x 24"</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label" style="font-weight: 700; font-size: 16px;">Price Per Sign</span>
-                                    <span class="spec-value" style="font-weight: 700; color: #16a34a; font-size: 18px;">~$80-90</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label" style="font-size: 13px; color: #666;">Based on FastSigns pricing</span>
-                                    <span class="spec-value" style="font-size: 13px; color: #666;">($35 for 8"x10" scaled up)</span>
-                                </div>
-                            </div>
+                <!-- Acrylic Material -->
+                <div class="material-card" onclick="selectMaterial('Acrylic', '1/8&quot; Clear Acrylic', 'Premium look, excellent durability, modern aesthetic', [51.72, 97.02, 225.00])">
+                    <div class="material-preview acrylic-preview">
+                        <div class="material-sample">
+                            <div class="material-texture acrylic-texture"></div>
+                            <div class="material-label">ACRYLIC</div>
                         </div>
                     </div>
-                    <div class="design-details">
-                        <div class="pros-cons-container">
-                            <div class="pros-list">
-                                <h4>Pros</h4>
-                                <ul>
-                                    <li>Most affordable option</li>
-                                    <li>Lightweight and easy to install</li>
-                                    <li>Good for temporary or budget signage</li>
-                                    <li>Can be cut to custom shapes easily</li>
-                                </ul>
+                    <div class="material-info-card">
+                        <h3>1/8" Clear Acrylic</h3>
+                        <p>Weather-resistant with premium glass-like finish. UV-stable material suitable for covered exterior mounting.</p>
+                        <div class="pricing-table">
+                            <div class="price-row">
+                                <span class="size-label">11" W × 9" H</span>
+                                <span class="price-value">$51.72</span>
                             </div>
-                            <div class="cons-list">
-                                <h4>Cons</h4>
-                                <ul>
-                                    <li>Less durable than aluminum</li>
-                                    <li>May warp in extreme temperatures</li>
-                                    <li>Colors fade faster in direct sunlight</li>
-                                    <li>Looks less professional</li>
-                                </ul>
+                            <div class="price-row">
+                                <span class="size-label">24" W × 19.6" H</span>
+                                <span class="price-value">$97.02</span>
+                            </div>
+                            <div class="price-row">
+                                <span class="size-label">36" W × 29.5" H</span>
+                                <span class="price-value">$225.00</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Material Option 3: Laminated Vinyl -->
-                <div class="design-card" data-step="material" data-option="material3">
-                    <div class="design-header" style="background: #6B7280;">
-                        <div class="design-title">Laminated Vinyl (Economy)</div>
-                        <div class="design-subtitle">Budget option, shorter lifespan</div>
-                    </div>
-                    <div class="design-preview" style="background: #f0f0f0;">
-                        <div style="text-align: left; padding: 20px; max-width: 500px;">
-                            <h3 style="margin-bottom: 15px; color: #1A1A1A;">Laminated Vinyl Decal</h3>
-                            <p style="color: #666; line-height: 1.6; margin-bottom: 20px;">
-                                Printed vinyl with protective laminate. Can be applied to existing surface.
-                            </p>
-                            <div class="material-specs">
-                                <div class="spec-row">
-                                    <span class="spec-label">Material</span>
-                                    <span class="spec-value">Vinyl with laminate overlay</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Finish</span>
-                                    <span class="spec-value">Matte or gloss laminate</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Durability</span>
-                                    <span class="spec-value">2-3 years outdoor</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Weather Resistance</span>
-                                    <span class="spec-value">Moderate (may peel/fade)</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Installation</span>
-                                    <span class="spec-value">Self-adhesive (apply to surface)</span>
-                                </div>
-                                <div class="spec-row" style="border-top: 2px solid #e5e7eb; margin-top: 15px; padding-top: 15px;">
-                                    <span class="spec-label" style="font-weight: 700; font-size: 16px;">Size</span>
-                                    <span class="spec-value" style="font-weight: 700;">18" x 24"</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label" style="font-weight: 700; font-size: 16px;">Price Per Sign</span>
-                                    <span class="spec-value" style="font-weight: 700; color: #16a34a; font-size: 18px;">$25-40</span>
-                                </div>
-                            </div>
+                <!-- PVC Material -->
+                <div class="material-card" onclick="selectMaterial('PVC', '1/8&quot; PVC (Sintra)', 'Lightweight, budget-friendly, ideal for indoor use', [26.46, 51.76, 82.04])">
+                    <div class="material-preview pvc-preview">
+                        <div class="material-sample">
+                            <div class="material-texture pvc-texture"></div>
+                            <div class="material-label">PVC</div>
                         </div>
                     </div>
-                    <div class="design-details">
-                        <div class="pros-cons-container">
-                            <div class="pros-list">
-                                <h4>Pros</h4>
-                                <ul>
-                                    <li>Lowest cost option</li>
-                                    <li>Easy to apply to existing surfaces</li>
-                                    <li>Can be replaced easily if needed</li>
-                                    <li>No drilling required</li>
-                                </ul>
+                    <div class="material-info-card">
+                        <h3>1/8" PVC (Sintra)</h3>
+                        <p>Budget option for temporary or protected locations only. Not recommended for direct weather exposure—will fade and warp outdoors.</p>
+                        <div class="pricing-table">
+                            <div class="price-row">
+                                <span class="size-label">11" W × 9" H</span>
+                                <span class="price-value">$26.46</span>
                             </div>
-                            <div class="cons-list">
-                                <h4>Cons</h4>
-                                <ul>
-                                    <li>Shortest lifespan (2-3 years)</li>
-                                    <li>May peel at edges over time</li>
-                                    <li>Less professional appearance</li>
-                                    <li>Not reflective (poor night visibility)</li>
-                                    <li>Fades quickly in direct sunlight</li>
-                                </ul>
+                            <div class="price-row">
+                                <span class="size-label">24" W × 19.6" H</span>
+                                <span class="price-value">$51.76</span>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Material Option 4: Acrylic -->
-                <div class="design-card" data-step="material" data-option="material4">
-                    <div class="design-header" style="background: #6B7280;">
-                        <div class="design-title">Acrylic (Premium)</div>
-                        <div class="design-subtitle">High-end, modern appearance</div>
-                    </div>
-                    <div class="design-preview" style="background: #f0f0f0;">
-                        <div style="text-align: left; padding: 20px; max-width: 500px;">
-                            <h3 style="margin-bottom: 15px; color: #1A1A1A;">Premium Acrylic Sign</h3>
-                            <p style="color: #666; line-height: 1.6; margin-bottom: 20px;">
-                                High-quality acrylic with UV-printed or engraved graphics. Modern, sophisticated look.
-                            </p>
-                            <div class="material-specs">
-                                <div class="spec-row">
-                                    <span class="spec-label">Material</span>
-                                    <span class="spec-value">1/4" thick acrylic</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Finish</span>
-                                    <span class="spec-value">UV-printed or laser engraved</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Durability</span>
-                                    <span class="spec-value">7-10 years outdoor</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Weather Resistance</span>
-                                    <span class="spec-value">Excellent (UV resistant)</span>
-                                </div>
-                                <div class="spec-row">
-                                    <span class="spec-label">Installation</span>
-                                    <span class="spec-value">Standoffs or adhesive mounting</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="design-details">
-                        <div class="pros-cons-container">
-                            <div class="pros-list">
-                                <h4>Pros</h4>
-                                <ul>
-                                    <li>Most premium, sophisticated appearance</li>
-                                    <li>Excellent durability and UV resistance</li>
-                                    <li>Modern, high-end look</li>
-                                    <li>Won't rust or corrode</li>
-                                    <li>Easy to clean</li>
-                                </ul>
-                            </div>
-                            <div class="cons-list">
-                                <h4>Cons</h4>
-                                <ul>
-                                    <li>Highest cost option</li>
-                                    <li>Can crack if impacted</li>
-                                    <li>May not match rustic building aesthetic</li>
-                                </ul>
+                            <div class="price-row">
+                                <span class="size-label">36" W × 29.5" H</span>
+                                <span class="price-value">$82.04</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div style="margin-top: 30px; padding: 20px; background: #f9f9f9; border-left: 4px solid #2c5aa0; border-radius: 4px;">
-                <p style="font-weight: 600; margin-bottom: 10px; color: #1A1A1A;">Recommendation:</p>
-                <p style="color: #666; line-height: 1.6;">
-                    <strong>Aluminum with reflective vinyl</strong> is the industry standard for outdoor signage and offers the best balance of durability, visibility, and professional appearance. For a ~$230 budget, aluminum is the recommended choice.
-                </p>
-            </div>
-
-            <!-- Next Step Button -->
-            <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 2px solid #e5e7eb;">
-                <button class="next-step-btn" data-current="material" style="
-                    background: #2c5aa0;
-                    color: white;
-                    border: none;
-                    padding: 15px 40px;
-                    font-size: 16px;
-                    font-weight: 600;
-                    border-radius: 6px;
-                    cursor: pointer;
-                    transition: all 0.3s ease;
-                    box-shadow: 0 2px 8px rgba(44, 90, 160, 0.3);
-                " onmouseover="this.style.background='#1e3a5f'" onmouseout="this.style.background='#2c5aa0'">
-                    Continue to Step 4: Arrows →
-                </button>
+            <div class="step-actions">
+                <button class="btn-next" id="btn-next-4" onclick="nextStep(4)" disabled>View in Context</button>
             </div>
             </div>
         </div>
 
-        <!-- STEP 4: Additional Signage -->
-        <div class="section">
-            <div class="accordion-header" data-section="step4">
-                <span class="step-badge">Step 4 of 4</span>
-                <h2>Select Additional Signs (Optional - Check All That Apply)</h2>
-                <span class="accordion-toggle expanded">+</span>
-            </div>
-            <div class="accordion-content" id="step4-content">
-                <p style="margin-bottom: 25px; color: #666; font-size: 15px;">
-                    Add additional directional signs beyond the primary intercom sign. Select all locations where you want signs installed.
-                </p>
-
-            <div style="display: flex; flex-direction: column; gap: 20px;">
-                <!-- Sign 1: Above Intercom (Always included, shown as reference) -->
-                <div style="background: #f0fdf4; border: 2px solid #22c55e; border-radius: 8px; padding: 25px;">
-                    <div style="display: flex; align-items: flex-start; gap: 15px;">
-                        <div style="flex-shrink: 0; margin-top: 5px;">
-                            <div style="width: 28px; height: 28px; background: #22c55e; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 18px;">✓</div>
-                        </div>
-                        <div style="flex-grow: 1;">
-                            <h3 style="font-size: 20px; font-weight: 700; color: #16a34a; margin-bottom: 8px;">Sign 1: Above Intercom (Included)</h3>
-                            <p style="color: #166534; margin-bottom: 15px; font-size: 15px;">Primary sign using your selections from Steps 1-3. Always included in order.</p>
-                            <div style="background: white; padding: 20px; border-radius: 6px;">
-                                <p style="font-weight: 600; color: #1A1A1A; margin-bottom: 8px;">Location: Above building intercom</p>
-                                <p style="color: #666; font-size: 14px; line-height: 1.6;">Uses the text, color scheme, and material you selected in previous steps.</p>
-                            </div>
-                        </div>
-                    </div>
+        <!-- Step 5: View in Context -->
+        <div class="step collapsed" id="step-5">
+            <div class="step-header" onclick="toggleStep(5)">
+                <div class="step-header-left">
+                    <div class="step-checkmark">✓</div>
+                    <h2>
+                        <span class="step-number">5</span>
+                        View in Context & Submit
+                    </h2>
                 </div>
+            </div>
+            <div class="step-content">
+                <!-- Reference Photos Section -->
+                <div style="background: #f8f9fa; border: 1px solid #ddd; border-radius: 8px; padding: 30px; margin-bottom: 40px;">
+                    <h4 style="font-size: 1.2em; color: #1a1a1a; margin-bottom: 15px; text-align: center;">Sign Placement Reference</h4>
+                    <p style="text-align: center; color: #666; margin-bottom: 25px; font-size: 0.95em;">White rectangles show where signs will be mounted</p>
 
-                <!-- Sign 2: Corner Sign (Checkbox) -->
-                <label style="background: #fafafa; border: 2px solid #ddd; border-radius: 8px; padding: 25px; cursor: pointer; display: block; transition: all 0.3s ease;">
-                    <div style="display: flex; align-items: flex-start; gap: 15px;">
-                        <input type="checkbox" class="sign-checkbox" data-sign="sign2" checked style="width: 24px; height: 24px; margin-top: 5px; cursor: pointer;">
-                        <div style="flex-grow: 1;">
-                            <h3 style="font-size: 18px; font-weight: 700; color: #1A1A1A; margin-bottom: 8px;">Sign 2: Corner Sign</h3>
-                            <p style="color: #666; margin-bottom: 15px; font-size: 14px;">Directs drivers from intercom area around corner to package room</p>
-                            <div style="background: white; padding: 15px; border-radius: 6px; border: 1px solid #e5e7eb;">
-                                <p style="font-weight: 600; color: #1A1A1A; margin-bottom: 8px;">Text Content:</p>
-                                <div style="background: #000; color: white; padding: 20px; text-align: center; border-radius: 4px;">
-                                    <div style="font-size: 24px; font-weight: 700;">PACKAGE ROOM</div>
-                                    <div style="font-size: 22px; margin: 10px 0;">AMAZON DELIVERIES</div>
-                                    <div style="font-size: 60px; margin: 15px 0;">→</div>
-                                    <div style="font-size: 20px;">AROUND CORNER</div>
-                                </div>
-                                <p style="color: #666; font-size: 13px; margin-top: 12px;"><strong>Location:</strong> At building corner adjacent to intercom</p>
-                            </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 25px;">
+                        <div>
+                            <img src="sign_placeholder_1.png" alt="Building entrance - Location 1" style="width: 100%; height: auto; display: block; border: 1px solid #ddd; border-radius: 4px;">
+                            <p style="text-align: center; color: #666; font-size: 0.85em; margin-top: 8px;">Location 1</p>
                         </div>
-                    </div>
-                </label>
-
-                <!-- Sign 3: Long Stone Wall Sign (Checkbox) -->
-                <label style="background: #fafafa; border: 2px solid #ddd; border-radius: 8px; padding: 25px; cursor: pointer; display: block; transition: all 0.3s ease;">
-                    <div style="display: flex; align-items: flex-start; gap: 15px;">
-                        <input type="checkbox" class="sign-checkbox" data-sign="sign3" style="width: 24px; height: 24px; margin-top: 5px; cursor: pointer;">
-                        <div style="flex-grow: 1;">
-                            <h3 style="font-size: 18px; font-weight: 700; color: #1A1A1A; margin-bottom: 8px;">Sign 3: Long Stone Wall (Comprehensive)</h3>
-                            <p style="color: #666; margin-bottom: 15px; font-size: 14px;">Large wayfinding sign on long stone wall near fountain - arrow points right</p>
-                            <div style="background: white; padding: 15px; border-radius: 6px; border: 1px solid #e5e7eb;">
-                                <p style="font-weight: 600; color: #1A1A1A; margin-bottom: 8px;">Text Content:</p>
-                                <div style="background: #000; color: white; padding: 20px; text-align: center; border-radius: 4px;">
-                                    <div style="font-size: 24px; font-weight: 700;">PACKAGE ROOM</div>
-                                    <div style="font-size: 22px; margin: 10px 0;">AMAZON DELIVERIES</div>
-                                    <div style="font-size: 60px; margin: 15px 0;">→</div>
-                                    <div style="font-size: 20px;">USE EXTERIOR SIDE DOOR</div>
-                                </div>
-                                <p style="color: #666; font-size: 13px; margin-top: 12px;"><strong>Location:</strong> Long stone wall side, next to fountain area</p>
-                                <p style="color: #666; font-size: 13px;"><strong>Size:</strong> Larger format (spans wall length)</p>
-                            </div>
-                        </div>
-                    </div>
-                </label>
-
-                <!-- Sign 4: Fairgate Side Sign (Checkbox) -->
-                <label style="background: #fafafa; border: 2px solid #ddd; border-radius: 8px; padding: 25px; cursor: pointer; display: block; transition: all 0.3s ease;">
-                    <div style="display: flex; align-items: flex-start; gap: 15px;">
-                        <input type="checkbox" class="sign-checkbox" data-sign="sign4" style="width: 24px; height: 24px; margin-top: 5px; cursor: pointer;">
-                        <div style="flex-grow: 1;">
-                            <h3 style="font-size: 18px; font-weight: 700; color: #1A1A1A; margin-bottom: 8px;">Sign 4: Package Room Corridor</h3>
-                            <p style="color: #666; margin-bottom: 15px; font-size: 14px;">Mirror of Sign 3 but arrow points left (into package room corridor)</p>
-                            <div style="background: white; padding: 15px; border-radius: 6px; border: 1px solid #e5e7eb;">
-                                <p style="font-weight: 600; color: #1A1A1A; margin-bottom: 8px;">Text Content:</p>
-                                <div style="background: #000; color: white; padding: 20px; text-align: center; border-radius: 4px;">
-                                    <div style="font-size: 28px; font-weight: 700; text-decoration: underline;">AMAZON DELIVERIES</div>
-                                    <div style="font-size: 70px; margin: 20px 0;">←</div>
-                                </div>
-                                <p style="color: #666; font-size: 13px; margin-top: 12px;"><strong>Location:</strong> Into package room corridor</p>
-                                <p style="color: #666; font-size: 13px;"><strong>Arrow Direction:</strong> Points left (opposite of Sign 3)</p>
-                            </div>
-                        </div>
-                    </div>
-                </label>
-            </div>
-
-            <!-- Next Step Button -->
-            <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 2px solid #e5e7eb;">
-                <button class="next-step-btn" data-current="arrows" style="
-                    background: #22c55e;
-                    color: white;
-                    border: none;
-                    padding: 15px 40px;
-                    font-size: 16px;
-                    font-weight: 600;
-                    border-radius: 6px;
-                    cursor: pointer;
-                    transition: all 0.3s ease;
-                    box-shadow: 0 2px 8px rgba(34, 197, 94, 0.3);
-                " onmouseover="this.style.background='#16a34a'" onmouseout="this.style.background='#22c55e'">
-                    Continue to Checkout →
-                </button>
-            </div>
-            </div>
-        </div>
-        <!-- Checkout / Submit Order -->
-        <div class="section" id="checkout-section" style="margin-top: 40px;">
-            <div class="accordion-header" data-section="checkout">
-                <h2>Submit Your Selections</h2>
-                <span class="accordion-toggle expanded">+</span>
-            </div>
-            <div class="accordion-content" id="checkout-content">
-                <div style="max-width: 800px; margin: 0 auto;">
-                    <!-- Selection Summary -->
-                    <div id="selection-summary" style="background: #f8fafc; padding: 25px; border-radius: 8px; margin-bottom: 25px; border: 2px solid #e2e8f0;">
-                        <h3 style="margin-bottom: 20px; color: #1e293b; font-size: 20px;">Your Selections</h3>
-                        <div id="summary-content" style="line-height: 2;">
-                            <!-- Will be populated by JavaScript -->
+                        <div>
+                            <img src="sign_placeholder_2.png" alt="Building entrance - Location 2" style="width: 100%; height: auto; display: block; border: 1px solid #ddd; border-radius: 4px;">
+                            <p style="text-align: center; color: #666; font-size: 0.85em; margin-top: 8px;">Location 2</p>
                         </div>
                     </div>
 
-                    <!-- Submit Button -->
                     <div style="text-align: center;">
-                        <button type="button" id="submit-order-btn" onclick="submitOrder()" style="
-                            background: #22c55e;
-                            color: white;
-                            border: none;
-                            padding: 18px 40px;
-                            font-size: 18px;
-                            font-weight: 700;
-                            border-radius: 8px;
-                            cursor: pointer;
-                            box-shadow: 0 4px 6px rgba(34, 197, 94, 0.3);
-                            transition: all 0.3s ease;
-                        " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 8px rgba(34, 197, 94, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(34, 197, 94, 0.3)'">
-                            Submit Order Request
+                        <img src="diagram.jpg" alt="Sign placement reference diagram" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px;">
+                        <p style="text-align: center; color: #666; font-size: 0.85em; margin-top: 8px;">Placement Diagram</p>
+                    </div>
+                </div>
+
+                <!-- Submission Form -->
+                <div style="background: #f8f9fa; border: 2px solid #28a745; border-radius: 8px; padding: 40px; margin-top: 40px;">
+                    <h3 style="font-size: 1.4em; margin-bottom: 20px; color: #1a1a1a; text-align: center;">Ready to Order?</h3>
+                    <p style="text-align: center; color: #666; margin-bottom: 30px;">Click the button below to generate your order summary. Copy the text and email it to the House Manager.</p>
+
+                    <div style="text-align: center; margin-bottom: 30px;">
+                        <button onclick="generateOrderSummary()" onmouseover="this.style.background='#218838'" onmouseout="this.style.background='#28a745'" style="background: #28a745; color: white; border: none; padding: 16px 40px; font-size: 1.1em; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; border-radius: 4px; transition: all 0.25s ease;">
+                            Generate Order Summary
                         </button>
-                        <p style="margin-top: 15px; color: #64748b; font-size: 14px;">This will send your selections to Project Manager, David Ta</p>
                     </div>
 
-                    <!-- Confirmation Message (hidden initially) -->
-                    <div id="confirmation-message" style="display: none; background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); border: 3px solid #3b82f6; padding: 35px; border-radius: 12px; margin-top: 30px; text-align: left; box-shadow: 0 8px 16px rgba(59, 130, 246, 0.3);">
-                        <div style="text-align: center; font-size: 48px; margin-bottom: 15px;">📧</div>
-                        <h3 style="color: #1e40af; margin-bottom: 15px; font-size: 24px; font-weight: 700; text-align: center;">Email Your Selections</h3>
-
-                        <!-- Instructions -->
-                        <div style="background: #eff6ff; border: 2px solid #60a5fa; border-radius: 8px; padding: 20px; margin-bottom: 20px;">
-                            <h4 style="color: #1e40af; margin-bottom: 12px; font-size: 16px; font-weight: 700;">How to Submit:</h4>
-                            <ol style="color: #1e3a8a; font-size: 14px; line-height: 1.8; margin-left: 20px; padding-left: 0;">
-                                <li style="margin-bottom: 8px;">Click the <strong>"Copy to Clipboard"</strong> button below</li>
-                                <li style="margin-bottom: 8px;">Open your email (Gmail, Outlook, etc.) or text message app</li>
-                                <li style="margin-bottom: 8px;">Create a new message to: <strong style="color: #3b82f6;">100mainhm@gmail.com</strong></li>
-                                <li style="margin-bottom: 8px;">Paste the copied content (Cmd+V or Ctrl+V)</li>
-                                <li>Send the message!</li>
-                            </ol>
+                    <!-- Order Summary Output (hidden until generated) -->
+                    <div id="order-summary-container" style="display: none; background: white; border: 1px solid #ddd; border-radius: 4px; padding: 30px; margin-top: 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                            <h4 style="font-size: 1.1em; color: #1a1a1a; margin: 0;">Order Summary</h4>
+                            <button onclick="copyToClipboard()" style="background: #1a1a1a; color: white; border: none; padding: 10px 20px; font-size: 0.9em; cursor: pointer; border-radius: 4px; transition: all 0.25s ease;">
+                                📋 Copy to Clipboard
+                            </button>
                         </div>
+                        <pre id="order-summary-text" style="font-family: 'Courier New', monospace; font-size: 13px; line-height: 1.6; color: #333; white-space: pre-wrap; word-wrap: break-word; margin: 0;"></pre>
+                        <p style="margin-top: 20px; color: #666; font-size: 0.9em; text-align: center;">
+                            Copy the text above and email it to: <strong>100mainhm@gmail.com</strong>
+                        </p>
+                    </div>
 
-                        <div style="background: white; border: 2px solid #3b82f6; border-radius: 8px; padding: 20px; margin-bottom: 20px;">
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                                <strong style="color: #1e40af;">Your Selection Details:</strong>
-                                <button onclick="copyEmailContent()" style="background: #3b82f6; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 600; box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3); transition: all 0.2s;" onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 4px 6px rgba(59, 130, 246, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 4px rgba(59, 130, 246, 0.3)'">
-                                    📋 Copy to Clipboard
-                                </button>
-                            </div>
-                            <textarea id="email-content" readonly style="width: 100%; min-height: 250px; padding: 15px; border: 1px solid #cbd5e1; border-radius: 6px; font-family: monospace; font-size: 13px; line-height: 1.6; resize: vertical;"></textarea>
-                        </div>
-
-                        <p style="color: #3b82f6; font-size: 12px; text-align: center;">Timestamp: <span id="submission-time"></span></p>
+                    <!-- Board Decision Section -->
+                    <div id="additional-notes-section" style="margin-top: 30px;">
+                        <h4 style="font-size: 1.1em; color: #1a1a1a; margin-bottom: 15px;">Your Thoughts on Additional Placements & Sizing Decisions (Executive Decisions)</h4>
+                        <textarea id="additional-notes" placeholder="Example: I agree with 24&quot; sign for stone wall. Let's also add a 36&quot; sign at the corner entrance. For intercom replacement, 11&quot; should be sufficient." style="width: 100%; min-height: 120px; padding: 15px; border: 1px solid #ddd; border-radius: 4px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; resize: vertical; box-sizing: border-box;"></textarea>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Footer -->
-        <div class="footer">
-            <div class="footer-text">100 & Main Condominium - Delivery Signage Improvement Project</div>
-            <div class="footer-text">Project Owner: David Ta | Contact: 100mainhm@gmail.com | (206) 854-3309</div>
-            <div class="footer-text" style="margin-top: 15px; opacity: 0.8;">Last Updated: November 10, 2025</div>
+    <!-- Live Summary Sidebar (Right) -->
+    <div class="live-sidebar">
+        <div class="sidebar-content">
+            <div class="sidebar-section">
+                <h4>Verbiage</h4>
+                <p id="sb-text">No selection yet</p>
+            </div>
+
+            <div class="sidebar-section">
+                <h4>Font</h4>
+                <p id="sb-font">No selection yet</p>
+            </div>
+
+            <div class="sidebar-section">
+                <h4>Color Scheme</h4>
+                <p id="sb-style">No selection yet</p>
+            </div>
+
+            <div class="sidebar-section">
+                <h4>Material</h4>
+                <p id="sb-material">No selection yet</p>
+            </div>
+
+            <div class="sidebar-total">
+                <h4>Price Range</h4>
+                <div class="price" id="sb-total">$0.00</div>
+            </div>
         </div>
     </div>
 
     <script>
-        // Selection state
-        const selections = {
-            text: null,
-            color: null,
-            material: null,
-            arrows: null
-        };
+        // State management
+        let selectedText = null;
+        let selectedFont = null;
+        let selectedStyle = null;
+        let selectedMaterial = null;
+        const TAX_RATE = 0.084;
+        let currentStep = 1;
 
-        // Text content templates
-        const textTemplates = {
-            text2: {
-                type: 'underlined',
-                lines: [
-                    { text: 'DO NOT USE INTERCOM', underline: true },
-                    { text: 'AMAZON DELIVERIES', underline: false },
-                    { text: '→', isArrow: true },
-                    { text: 'USE EXTERIOR SIDE DOOR', underline: false }
-                ]
-            },
-            text3: {
-                type: 'amazon-deliveries',
-                lines: [
-                    { text: 'AMAZON DELIVERIES', size: '32px', weight: '600', margin: '15px', underline: true },
-                    { text: 'DO NOT USE INTERCOM', size: '28px', weight: '400', margin: '20px' },
-                    { text: '→', isArrow: true },
-                    { text: 'USE EXTERIOR SIDE DOOR', size: '24px', weight: '400', margin: '0' }
-                ]
-            },
-            text5: {
-                type: 'full-details',
-                lines: [
-                    { text: 'DO NOT USE INTERCOM', boxed: true, underlineWords: 'DO NOT' },
-                    'FOR PACKAGE DELIVERIES',
-                    { text: '→', isArrow: true },
-                    'USE EXTERIOR SIDE DOOR'
-                ]
-            },
-            text6: {
-                type: 'amazon-optimized',
-                lines: [
-                    { text: 'AMAZON', size: '40px', weight: '700', margin: '15px' },
-                    { text: 'DO NOT USE INTERCOM', size: '26px', weight: '400', margin: '15px', underlineWords: 'DO NOT' },
-                    { text: '→', isArrow: true },
-                    { text: 'PACKAGE ROOM ENTRANCE', size: '24px', weight: '400', margin: '10px' },
-                    { text: 'AROUND CORNER', size: '24px', weight: '400', margin: '5px' }
-                ]
+        // Toggle step (accordion behavior)
+        function toggleStep(stepNumber) {
+            // Only allow opening if previous steps are complete
+            if (stepNumber > 1) {
+                const prevStep = document.getElementById(`step-${stepNumber - 1}`);
+                if (!prevStep.classList.contains('completed')) {
+                    return; // Don't open if previous step not completed
+                }
             }
-        };
 
-        // Color schemes
+            const step = document.getElementById(`step-${stepNumber}`);
+            const isCollapsed = step.classList.contains('collapsed');
+
+            if (isCollapsed) {
+                // Close all other steps
+                document.querySelectorAll('.step').forEach(s => {
+                    s.classList.remove('active');
+                    s.classList.add('collapsed');
+                });
+
+                // Open this step
+                step.classList.remove('collapsed');
+                step.classList.add('active');
+                currentStep = stepNumber;
+            }
+        }
+
+        // Next step navigation
+        function nextStep(fromStep) {
+            const currentStepEl = document.getElementById(`step-${fromStep}`);
+            currentStepEl.classList.add('completed');
+            currentStepEl.classList.remove('active');
+            currentStepEl.classList.add('collapsed');
+
+            const nextStepNumber = fromStep + 1;
+            if (nextStepNumber <= 5) {
+                const nextStepEl = document.getElementById(`step-${nextStepNumber}`);
+                nextStepEl.classList.remove('collapsed');
+                nextStepEl.classList.add('active');
+                currentStep = nextStepNumber;
+
+                // Update previews based on what step we're entering
+                if (nextStepNumber === 2 && selectedText) {
+                    // Entering font selection - show selected text in font previews
+                    updateFontPreviews(selectedText.previewHTML);
+                } else if (nextStepNumber === 3 && selectedText) {
+                    // Entering color selection - show selected text in color previews
+                    updateStylePreviews(selectedText.previewHTML);
+                } else if (nextStepNumber === 5) {
+                    // Entering final context view - populate summary
+                    updateContextView();
+                }
+
+                // Scroll to next step
+                nextStepEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // Update context view with final selections
+        function updateContextView() {
+            // Step 5 now just shows reference photos - no dynamic updates needed
+            // All selections are visible in the sidebar
+        }
+
+        // Enable/disable next buttons based on selection
+        function updateNextButton(stepNumber) {
+            const button = document.getElementById(`btn-next-${stepNumber}`);
+            let shouldEnable = false;
+
+            switch(stepNumber) {
+                case 1:
+                    shouldEnable = selectedText !== null;
+                    break;
+                case 2:
+                    shouldEnable = selectedFont !== null;
+                    break;
+                case 3:
+                    shouldEnable = selectedStyle !== null;
+                    break;
+                case 4:
+                    shouldEnable = selectedMaterial !== null;
+                    break;
+            }
+
+            button.disabled = !shouldEnable;
+        }
+
+        // Text selection
+        function selectText(optionName, textContent, description, optionNumber) {
+            // Remove previous selection
+            document.querySelectorAll('.text-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+
+            // Add selection to clicked card
+            const clickedCard = event.currentTarget;
+            clickedCard.classList.add('selected');
+
+            // Get the text preview HTML from the clicked card
+            const textPreview = clickedCard.querySelector('.text-preview');
+            const previewHTML = textPreview.innerHTML;
+
+            // Update state
+            selectedText = {
+                option: optionName,
+                optionNumber: optionNumber,
+                text: textContent,
+                description: description,
+                previewHTML: previewHTML
+            };
+
+            // Update all style preview cards with the full text design
+            updateStylePreviews(previewHTML);
+
+            // Update sidebar
+            updateSidebar();
+
+            // Update font previews if font is selected
+            if (selectedFont) {
+                updateFontPreviews(previewHTML);
+            }
+
+            // Enable next button
+            updateNextButton(1);
+        }
+
+        // Font selection
+        function selectFont(fontName, description, fontClass) {
+            // Remove previous selection
+            document.querySelectorAll('[data-font-preview]').forEach(card => {
+                card.closest('.style-card').classList.remove('selected');
+            });
+
+            // Add selection to clicked card
+            event.currentTarget.classList.add('selected');
+
+            // Update state
+            selectedFont = {
+                name: fontName,
+                description: description,
+                fontClass: fontClass
+            };
+
+            // Update font preview cards and color scheme cards
+            if (selectedText) {
+                updateFontPreviews(selectedText.previewHTML);
+                updateStylePreviews(selectedText.previewHTML);
+            }
+
+            // Update sidebar
+            updateSidebar();
+
+            // Enable next button
+            updateNextButton(2);
+        }
+
+        // Update font preview cards with selected text
+        function updateFontPreviews(previewHTML) {
+            document.querySelectorAll('[data-font-preview]').forEach(fontPreview => {
+                const mockup = fontPreview.querySelector('.sign-mockup');
+                if (mockup) {
+                    // Store original styles before updating content
+                    const originalFontFamily = mockup.style.fontFamily;
+                    const originalFontStyle = mockup.style.fontStyle;
+                    const originalLetterSpacing = mockup.style.letterSpacing;
+                    const originalFontSize = mockup.style.fontSize;
+                    const originalFontWeight = mockup.style.fontWeight;
+                    const originalLineHeight = mockup.style.lineHeight;
+                    const originalTextShadow = mockup.style.textShadow;
+                    const originalTransform = mockup.style.transform;
+
+                    // Update content
+                    mockup.innerHTML = previewHTML;
+
+                    // Restore font styles
+                    if (originalFontFamily) mockup.style.fontFamily = originalFontFamily;
+                    if (originalFontStyle) mockup.style.fontStyle = originalFontStyle;
+                    if (originalLetterSpacing) mockup.style.letterSpacing = originalLetterSpacing;
+                    if (originalFontSize) mockup.style.fontSize = originalFontSize;
+                    if (originalFontWeight) mockup.style.fontWeight = originalFontWeight;
+                    if (originalLineHeight) mockup.style.lineHeight = originalLineHeight;
+                    if (originalTextShadow) mockup.style.textShadow = originalTextShadow;
+                    if (originalTransform) mockup.style.transform = originalTransform;
+                }
+            });
+        }
+
+        // Color scheme backgrounds
         const colorSchemes = {
-            color1: { bg: '#5A5A5A', text: 'white', border: '1px solid #E0E0E0' },
-            color2: { bg: '#1A1A1A', text: 'white', border: 'none' },
-            color3: { bg: '#1A1A1A', text: 'white', border: '6px solid #FFCC00' },
-            color4: { bg: '#000000', text: 'white', border: 'none' },
-            color5: { bg: '#FFFFFF', text: '#000000', border: '3px solid #000' },
-            color6: { bg: 'linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #2c3e50 100%)', text: 'white', border: '2px solid #7f8c8d' },
-            color7: { bg: '#FFCC00', text: '#000000', border: '4px solid #000' }
+            'black-standard': { bg: '#000000', text: 'white', border: 'none' },
+            'gray-match': { bg: '#5A5A5A', text: 'white', border: '1px solid #E0E0E0' },
+            'black-minimal': { bg: '#1A1A1A', text: 'white', border: 'none' },
+            'black-yellow': { bg: '#1A1A1A', text: 'white', border: '6px solid #FFCC00' },
+            'building-standard': { bg: '#000000', text: '#FFFFFF', border: 'none' },
+            'charcoal-minimal': { bg: '#181818', text: 'white', border: 'none' },
+            'charcoal-red': { bg: '#181818', text: 'white', border: 'none' },
+            'charcoal-white-border': { bg: '#181818', text: 'white', border: '3px solid #F2F2F2' },
+            'silver-metallic': { bg: '#5E5E5E', text: '#000000', border: '1px solid #000000' },
+            'deep-slate': { bg: '#3C3C3C', text: 'white', border: 'none' },
+            'bronze-match': { bg: '#4C3F36', text: 'white', border: 'none' },
+            'charcoal-gold': { bg: '#181818', text: 'white', border: '4px solid #C7A465' },
+            'circus-chaos': { bg: 'linear-gradient(45deg, #FF00FF, #00FFFF, #FFFF00, #FF00FF)', text: '#FFFF00', border: '8px solid', borderImage: 'linear-gradient(45deg, red, orange, yellow, green, blue, purple) 1', font: "'Comic Sans MS', cursive", textShadow: '3px 3px 0px #FF1493, -3px -3px 0px #00CED1' },
+            'broncos-theme': { bg: 'linear-gradient(135deg, #002244 0%, #FB4F14 50%, #002244 100%)', text: '#FB4F14', border: '10px solid #FB4F14', textShadow: '3px 3px 0px #002244, -2px -2px 0px #FFFFFF, 0 0 20px #FB4F14, 0 0 40px #FB4F14' },
+            'seahawks-theme': { bg: 'linear-gradient(135deg, #002244 0%, #69BE28 25%, #002244 50%, #A5ACAF 75%, #002244 100%)', text: '#69BE28', border: '10px solid #69BE28', textShadow: '3px 3px 0px #002244, -2px -2px 0px #A5ACAF, 0 0 25px #69BE28, 0 0 50px #69BE28, 0 0 75px #69BE28' }
         };
 
-        document.addEventListener('DOMContentLoaded', function() {
-            // Accordion functionality
-            setupAccordion();
-
-            // Selection functionality
-            setupSelections();
-
-            // Setup checkout
-            setupCheckout();
-
-            // Initialize: Only Step 1 open, rest collapsed
-            initializeSteps();
-
-            // Auto-select first option in Step 1
-            const firstTextOption = document.querySelector('.design-card[data-step="text"]');
-            if (firstTextOption) {
-                firstTextOption.click();
-            }
-        });
-
-        function initializeSteps() {
-            // Close all steps except step1
-            const steps = ['step2', 'step3', 'step4', 'nextsteps', 'checkout'];
-            steps.forEach(stepId => {
-                const content = document.getElementById(`${stepId}-content`);
-                const header = document.querySelector(`[data-section="${stepId}"]`);
-                const toggle = header?.querySelector('.accordion-toggle');
-
-                if (content) {
-                    content.classList.add('collapsed');
-                }
-                if (toggle) {
-                    toggle.classList.remove('expanded');
-                    toggle.classList.add('collapsed');
-                }
-            });
-
-            // Ensure step1 is open
-            const step1Content = document.getElementById('step1-content');
-            const step1Header = document.querySelector('[data-section="step1"]');
-            const step1Toggle = step1Header?.querySelector('.accordion-toggle');
-
-            if (step1Content) {
-                step1Content.classList.remove('collapsed');
-            }
-            if (step1Toggle) {
-                step1Toggle.classList.remove('collapsed');
-                step1Toggle.classList.add('expanded');
-            }
-
-            // Setup Next Step buttons
-            setupNextStepButtons();
-        }
-
-        function setupNextStepButtons() {
-            const nextButtons = document.querySelectorAll('.next-step-btn');
-            nextButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const currentStep = this.getAttribute('data-current');
-                    advanceToNextStep(currentStep);
-                });
-            });
-        }
-
-        function setupAccordion() {
-            const accordionHeaders = document.querySelectorAll('.accordion-header');
-
-            accordionHeaders.forEach(header => {
-                header.addEventListener('click', function() {
-                    const sectionId = this.getAttribute('data-section');
-                    const content = document.getElementById(sectionId + '-content');
-                    const toggle = this.querySelector('.accordion-toggle');
-
-                    content.classList.toggle('collapsed');
-
-                    if (content.classList.contains('collapsed')) {
-                        toggle.classList.remove('expanded');
-                        toggle.classList.add('collapsed');
-                    } else {
-                        toggle.classList.remove('collapsed');
-                        toggle.classList.add('expanded');
-
-                        // Update summary when checkout section opens
-                        if (sectionId === 'checkout') {
-                            setTimeout(updateSelectionSummary, 100);
-                        }
-                    }
-                });
-            });
-        }
-
-        function setupSelections() {
-            const cards = document.querySelectorAll('.design-card[data-step]');
-
-            cards.forEach(card => {
-                card.addEventListener('click', function(e) {
-                    // Don't trigger if clicking on accordion header
-                    if (e.target.closest('.accordion-header')) return;
-
-                    const step = this.getAttribute('data-step');
-                    const option = this.getAttribute('data-option');
-
-                    // Remove selection from other cards in same step
-                    document.querySelectorAll(`.design-card[data-step="${step}"]`).forEach(c => {
-                        c.classList.remove('selected');
-                    });
-
-                    // Add selection to clicked card
-                    this.classList.add('selected');
-
-                    // Update selection state
-                    selections[step] = option;
-
-                    // Update previews in subsequent steps
-                    updateAllPreviews();
-
-                    // Update checkout summary
-                    updateSelectionSummary();
-                });
-            });
-        }
-
-        function advanceToNextStep(currentStep) {
-            // Map data-step values to section IDs
-            const stepToSection = {
-                'text': 'step1',
-                'color': 'step2',
-                'material': 'step3',
-                'arrows': 'step4'
-            };
-
-            // Define progression
-            const stepProgression = {
-                'text': 'color',
-                'color': 'material',
-                'material': 'arrows',
-                'arrows': 'checkout'
-            };
-
-            const nextStep = stepProgression[currentStep];
-            if (!nextStep) return; // No next step
-
-            // Get section IDs
-            const currentSectionId = stepToSection[currentStep];
-            const nextSectionId = nextStep === 'checkout' ? 'checkout' : stepToSection[nextStep];
-
-            // Collapse current step
-            const currentContent = document.getElementById(`${currentSectionId}-content`);
-            const currentHeader = document.querySelector(`[data-section="${currentSectionId}"]`);
-            const currentToggle = currentHeader?.querySelector('.accordion-toggle');
-
-            if (currentContent) {
-                currentContent.classList.add('collapsed');
-            }
-            if (currentToggle) {
-                currentToggle.classList.remove('expanded');
-                currentToggle.classList.add('collapsed');
-            }
-
-            // Expand next step
-            const nextContent = document.getElementById(`${nextSectionId}-content`);
-            const nextHeader = document.querySelector(`[data-section="${nextSectionId}"]`);
-            const nextToggle = nextHeader?.querySelector('.accordion-toggle');
-
-            if (nextContent) {
-                nextContent.classList.remove('collapsed');
-            }
-            if (nextToggle) {
-                nextToggle.classList.remove('collapsed');
-                nextToggle.classList.add('expanded');
-            }
-
-            // Scroll to next step - position at top
-            if (nextHeader) {
-                setTimeout(() => {
-                    // Get the section element
-                    const section = nextHeader.closest('.section');
-                    if (section) {
-                        // Calculate position with some padding
-                        const yOffset = -20;
-                        const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
-
-                        // Scroll to exact position
-                        window.scrollTo({
-                            top: y,
-                            behavior: 'smooth'
-                        });
-                    }
-                }, 450); // Delay for accordion animation
-            }
-        }
-
-        function updateAllPreviews() {
-            // Update color previews based on text selection
-            if (selections.text) {
-                updateColorPreviews();
-            }
-
-            // Update material previews based on text + color selection
-            if (selections.text && selections.color) {
-                updateMaterialPreviews();
-            }
-
-            // Update arrow previews based on text + color + material selection
-            if (selections.text && selections.color && selections.material) {
-                updateArrowPreviews();
-            }
-        }
-
-        function updateColorPreviews() {
-            const colorCards = document.querySelectorAll('.design-card[data-step="color"]');
-            const textTemplate = textTemplates[selections.text];
-
-            colorCards.forEach(card => {
-                const colorOption = card.getAttribute('data-option');
+        // Update style card previews with selected text design
+        function updateStylePreviews(previewHTML) {
+            // Update each color preview
+            document.querySelectorAll('[data-color-preview]').forEach(colorPreview => {
+                const colorOption = colorPreview.getAttribute('data-color-preview');
                 const colorScheme = colorSchemes[colorOption];
-                const preview = card.querySelector('.design-preview .sign-mockup');
+                const mockup = colorPreview.querySelector('.sign-mockup');
 
-                if (preview && colorScheme && textTemplate) {
-                    preview.style.background = colorScheme.bg;
-                    preview.style.color = colorScheme.text;
-                    preview.style.border = colorScheme.border;
-                    preview.innerHTML = generateTextContent(textTemplate);
+                if (mockup && colorScheme) {
+                    // Apply the color scheme styling
+                    mockup.style.background = colorScheme.bg;
+                    mockup.style.color = colorScheme.text;
+                    mockup.style.border = colorScheme.border;
+
+                    // Special handling for circus chaos
+                    if (colorOption === 'circus-chaos') {
+                        mockup.style.borderImage = colorScheme.borderImage;
+                        mockup.style.fontFamily = colorScheme.font;
+                        mockup.style.textShadow = colorScheme.textShadow;
+                    }
+
+                    // Special handling for sports themes
+                    if (colorOption === 'broncos-theme' || colorOption === 'seahawks-theme') {
+                        mockup.style.textShadow = colorScheme.textShadow;
+                    }
+
+                    // Copy the text content
+                    mockup.innerHTML = previewHTML;
+
+                    // Apply blood red to "DO NOT" for circus chaos
+                    if (colorOption === 'circus-chaos') {
+                        mockup.innerHTML = mockup.innerHTML.replace(/DO NOT/g, '<span style="color: #8B0000; filter: drop-shadow(0 3px 5px rgba(139, 0, 0, 0.9));">DO NOT</span>');
+                    }
                 }
             });
         }
 
-        function updateMaterialPreviews() {
-            // Material cards show specifications, not live previews
-            // But we could add a small preview badge showing the selected combination
-        }
-
-        function updateArrowPreviews() {
-            // Arrow options are more about the system than visual preview
-            // Could add small preview badges here too
-        }
-
-        function generateTextContent(template) {
-            if (template.type === 'detailed' || template.type === 'full-details') {
-                return template.lines.map((line, idx) => {
-                    // Check if line is an arrow object
-                    if (typeof line === 'object' && line.isArrow) {
-                        return `<div class="sign-arrow" style="font-size: 60px; font-weight: 700; margin: 25px 0; line-height: 1;">${line.text}</div>`;
-                    }
-
-                    // Check if line is a boxed text object
-                    if (typeof line === 'object' && line.boxed) {
-                        let displayText = line.text;
-                        if (line.underlineWords) {
-                            displayText = displayText.replace(line.underlineWords, `<span style="text-decoration: underline;">${line.underlineWords}</span>`);
-                        }
-                        return `<div style="font-size: 28px; font-weight: 400; margin: 15px 0; line-height: 1.3; border: 3px solid white; padding: 10px; display: inline-block;">${displayText}</div>`;
-                    }
-
-                    // Handle string lines
-                    const lineText = typeof line === 'string' ? line : line.text;
-
-                    // Regular text lines
-                    let fontSize = '28px';
-                    let fontWeight = '400';
-                    let margin = '15px 0';
-
-                    if (idx === 0) { // First line (DO NOT USE INTERCOM)
-                        fontSize = '28px';
-                        fontWeight = '400';
-                    } else if (idx === 1) { // Second line (FOR PACKAGE DELIVERIES)
-                        fontSize = '28px';
-                    } else if (idx > 2) { // Action line
-                        fontSize = '24px';
-                    }
-
-                    return `<div style="font-size: ${fontSize}; font-weight: ${fontWeight}; margin: ${margin}; line-height: 1.3;">${lineText}</div>`;
-                }).join('');
-            } else if (template.type === 'amazon-deliveries' || template.type === 'amazon-simple' || template.type === 'amazon-optimized') {
-                return template.lines.map(line => {
-                    // Check if line is an arrow
-                    if (typeof line === 'object' && line.isArrow) {
-                        return `<div class="sign-arrow" style="font-size: 60px; font-weight: 700; margin: 25px 0; line-height: 1;">${line.text}</div>`;
-                    }
-                    const opacityStyle = line.opacity ? `opacity: ${line.opacity};` : '';
-                    const underlineStyle = line.underline ? 'text-decoration: underline; text-underline-offset: 8px;' : '';
-
-                    // Handle underlineWords (partial underline)
-                    let displayText = line.text;
-                    if (line.underlineWords) {
-                        displayText = displayText.replace(line.underlineWords, `<span style="text-decoration: underline;">${line.underlineWords}</span>`);
-                    }
-
-                    return `<div style="font-size: ${line.size}; font-weight: ${line.weight}; margin: ${line.margin} 0; line-height: 1.3; ${opacityStyle} ${underlineStyle}">${displayText}</div>`;
-                }).join('');
-            } else if (template.type === 'underlined') {
-                return template.lines.map(line => {
-                    if (line.isArrow) {
-                        return `<div class="sign-arrow" style="font-size: 60px; font-weight: 700; margin: 25px 0; line-height: 1;">${line.text}</div>`;
-                    }
-                    const underlineStyle = line.underline ? 'text-decoration: underline; text-underline-offset: 6px;' : '';
-                    const fontSize = line.underline ? '28px' : '24px';
-                    const fontWeight = line.underline ? '700' : '400';
-                    const margin = line.underline ? '10px 0' : '15px 0';
-
-                    // Handle underlineWords (partial underline)
-                    let displayText = line.text;
-                    if (line.underlineWords) {
-                        displayText = displayText.replace(line.underlineWords, `<span style="text-decoration: underline;">${line.underlineWords}</span>`);
-                    }
-
-                    return `<div style="font-size: ${fontSize}; font-weight: ${fontWeight}; ${underlineStyle} margin: ${margin}; line-height: 1.3;">${displayText}</div>`;
-                }).join('');
-            }
-        }
-
-        // Selections no longer saved - reset on page refresh
-
-        function setupCheckout() {
-            // Update summary when selections change
-            updateSelectionSummary();
-
-            // Setup submit button
-            const submitBtn = document.getElementById('submit-order-btn');
-            if (submitBtn) {
-                console.log('Submit button found, attaching click listener');
-                submitBtn.addEventListener('click', submitOrder);
-            } else {
-                console.error('Submit button not found!');
-            }
-
-            // Add event listeners to checkboxes to update summary when changed
-            const checkboxes = document.querySelectorAll('.sign-checkbox');
-            checkboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', updateSelectionSummary);
+        // Style selection
+        function selectStyle(name, description, styleClass) {
+            // Remove previous selection
+            document.querySelectorAll('.style-card').forEach(card => {
+                card.classList.remove('selected');
             });
-        }
 
-        function updateSelectionSummary() {
-            const summaryContent = document.getElementById('summary-content');
-            if (!summaryContent) return;
+            // Add selection to clicked card
+            event.currentTarget.classList.add('selected');
 
-            const optionNames = {
-                text2: 'Option 1: Maximum Impact',
-                text3: 'Option 2: Amazon-First',
-                text5: 'Option 3: Visual Frame',
-                text6: 'Option 4: Complete Guidance',
-                color1: 'Gray Building Match',
-                color2: 'Dark Charcoal',
-                color3: 'Black with Yellow Border',
-                color4: 'Black Background (Exterior) - Official',
-                color6: 'Brushed Metal - Aluminum Premium',
-                material1: 'Aluminum (Recommended)',
-                material2: 'PVC/Plastic',
-                material3: 'Laminated Vinyl',
-                arrows1: '1-Arrow Minimum',
-                arrows2: '2-Arrow Enhanced',
-                arrows3: '3-Arrow Wayfinding System'
+            // Update state
+            selectedStyle = {
+                name: name,
+                description: description,
+                styleClass: styleClass
             };
 
-            let html = '';
+            // Update sidebar
+            updateSidebar();
 
-            if (selections.text) {
-                html += `<p><strong>Text Option:</strong> ${optionNames[selections.text] || selections.text}</p>`;
-            } else {
-                html += `<p style="color: #94a3b8;"><strong>Text Option:</strong> Not selected</p>`;
-            }
-
-            if (selections.color) {
-                html += `<p><strong>Color Scheme:</strong> ${optionNames[selections.color] || selections.color}</p>`;
-            } else {
-                html += `<p style="color: #94a3b8;"><strong>Color Scheme:</strong> Not selected</p>`;
-            }
-
-            if (selections.material) {
-                html += `<p><strong>Material:</strong> ${optionNames[selections.material] || selections.material}</p>`;
-            } else {
-                html += `<p style="color: #94a3b8;"><strong>Material:</strong> Not selected</p>`;
-            }
-
-            // Get checked additional signs
-            const checkedSigns = Array.from(document.querySelectorAll('.sign-checkbox:checked'));
-            const signNames = {
-                sign2: 'Corner Sign (Package Room/Amazon Deliveries → Around Corner)',
-                sign3: 'Long Stone Wall Sign (Package Room/Amazon Deliveries → Use Exterior Side Door)',
-                sign4: 'Package Room Corridor Sign (Amazon Deliveries ←)'
-            };
-
-            if (checkedSigns.length > 0) {
-                html += `<p><strong>Additional Signs:</strong></p><ul style="margin-left: 20px;">`;
-                checkedSigns.forEach(checkbox => {
-                    const signId = checkbox.getAttribute('data-sign');
-                    html += `<li>${signNames[signId] || signId}</li>`;
-                });
-                html += `</ul>`;
-            } else {
-                html += `<p><strong>Additional Signs:</strong> None (Primary sign only)</p>`;
-            }
-
-            summaryContent.innerHTML = html;
+            // Enable next button
+            updateNextButton(3);
         }
 
-        function submitOrder() {
-            console.log('submitOrder function called');
-            console.log('Current selections:', selections);
+        // Material selection
+        function selectMaterial(materialName, fullName, description, prices) {
+            // Remove previous selection
+            document.querySelectorAll('.material-card').forEach(card => {
+                card.classList.remove('selected');
+            });
 
-            // Check if required selections are made (Step 4 is optional checkboxes)
-            const allSelected = selections.text && selections.color && selections.material;
+            // Add selection to clicked card
+            event.currentTarget.classList.add('selected');
 
-            if (!allSelected) {
-                alert('Please make selections in Steps 1-3 before submitting.');
+            // Update state
+            selectedMaterial = {
+                name: materialName,
+                fullName: fullName,
+                description: description,
+                prices: prices
+            };
+
+            // Update sidebar
+            updateSidebar();
+
+            // Enable next button
+            updateNextButton(4);
+
+            // Automatically advance to Step 5
+            setTimeout(() => {
+                nextStep(4);
+            }, 300);
+        }
+
+        // Update sidebar with selections
+        function updateSidebar() {
+            // Update verbiage selection
+            const textElement = document.getElementById('sb-text');
+            if (selectedText) {
+                const displayName = selectedText.optionNumber
+                    ? `${selectedText.option} <span style="color: #999;">(${selectedText.optionNumber})</span>`
+                    : selectedText.option;
+                textElement.innerHTML = `<strong>${displayName}</strong><br><span style="font-size: 0.85em;">${selectedText.description}</span>`;
+            } else {
+                textElement.textContent = 'No selection yet';
+            }
+
+            // Update font selection
+            const fontElement = document.getElementById('sb-font');
+            if (selectedFont) {
+                fontElement.innerHTML = `<strong>${selectedFont.name}</strong><br><span style="font-size: 0.85em;">${selectedFont.description}</span>`;
+            } else {
+                fontElement.textContent = 'No selection yet';
+            }
+
+            // Update color scheme selection
+            const styleElement = document.getElementById('sb-style');
+            if (selectedStyle) {
+                styleElement.innerHTML = `<strong>${selectedStyle.name}</strong><br><span style="font-size: 0.85em;">${selectedStyle.description}</span>`;
+            } else {
+                styleElement.textContent = 'No selection yet';
+            }
+
+            // Update material selection
+            const materialElement = document.getElementById('sb-material');
+            const totalElement = document.getElementById('sb-total');
+
+            if (selectedMaterial) {
+                const sizes = ['11" W × 9" H', '24" W × 19.6" H', '36" W × 29.5" H'];
+                let materialSummary = `<strong>${selectedMaterial.fullName}</strong><br>`;
+
+                if (selectedMaterial.prices[0] > 0) {
+                    materialSummary += sizes.map((size, idx) =>
+                        `<span style="font-size: 0.85em;">${size}: $${selectedMaterial.prices[idx].toFixed(2)}</span>`
+                    ).join('<br>');
+                } else {
+                    materialSummary += `<span style="font-size: 0.85em;">Contact for pricing</span>`;
+                }
+
+                materialElement.innerHTML = materialSummary;
+
+                // Show pricing range for selected material
+                if (selectedMaterial.prices[0] > 0) {
+                    const minPrice = selectedMaterial.prices[0];
+                    const maxPrice = selectedMaterial.prices[2];
+                    totalElement.innerHTML = `$${minPrice.toFixed(2)} - $${maxPrice.toFixed(2)}<br><span style="font-size: 0.75em; opacity: 0.8;">Price range (before tax)</span>`;
+                } else {
+                    totalElement.innerHTML = `—<br><span style="font-size: 0.75em; opacity: 0.8;">Contact for quote</span>`;
+                }
+            } else {
+                materialElement.textContent = 'No selection yet';
+                totalElement.textContent = '$0.00';
+            }
+        }
+
+        // Generate order summary for email
+        function generateOrderSummary() {
+            if (!selectedText || !selectedFont || !selectedStyle || !selectedMaterial) {
+                alert('Please complete all selections (Steps 1-4) before generating order summary.');
                 return;
             }
 
-            console.log('Validation passed, proceeding with submission...');
+            const additionalNotes = document.getElementById('additional-notes').value.trim();
+            const timestamp = new Date().toLocaleString();
 
-            // Get checked additional signs from Step 4
-            const checkedSigns = Array.from(document.querySelectorAll('.sign-checkbox:checked'))
-                .map(cb => {
-                    const signNum = cb.getAttribute('data-sign');
-                    return optionsText['sign' + signNum.slice(-1)];
-                });
+            // Build the order summary text
+            let summary = `100 & MAIN - DELIVERY SIGNAGE ORDER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-            selections.additionalSigns = checkedSigns;
+ORDER SUBMITTED: ${timestamp}
 
-            const additionalSignsList = checkedSigns.length > 0
-                ? checkedSigns.join(', ')
-                : 'None (Primary sign only)';
+SELECTION DETAILS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-            // Prepare submission data
-            const submissionData = {
-                wordingVerbiage: optionsText[selections.text],
-                colorScheme: optionsText[selections.color],
-                material: optionsText[selections.material],
-                additionalSigns: additionalSignsList,
-                timestamp: new Date().toLocaleString()
-            };
+1. VERBIAGE (${selectedText.optionNumber})
+   ${selectedText.option}
+   "${selectedText.text}"
 
-            // Create email body
-            const subject = encodeURIComponent('100 & Main - Delivery Signage Order Request');
-            const emailBody = encodeURIComponent(`
-100 & Main - Delivery Signage Order Request
-============================================
+2. FONT
+   ${selectedFont.name}
 
-Wording/Verbiage: ${submissionData.wordingVerbiage}
+3. COLOR SCHEME
+   ${selectedStyle.name}
+   ${selectedStyle.description}
 
-Color Scheme: ${submissionData.colorScheme}
+4. MATERIAL
+   ${selectedMaterial.fullName}
+   ${selectedMaterial.description}
 
-Material: ${submissionData.material}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+HOUSE MANAGER NOTES (David Ta):
 
-Additional Signs: ${submissionData.additionalSigns}
+MINIMUM NECESSARY:
+• Sign above intercom (MUST REPLACE - this one is clearly causing
+  far too much confusion)
 
-Timestamp: ${submissionData.timestamp}
+ADDITIONAL RECOMMENDATIONS:
+Given ongoing intercom issues despite Amazon Key implementation and
+persistent efforts to figure out the magic words (in our delivery
+instruction updates) that would prove sufficiently clear, I recommend
+considering:
 
-Please review these selections and provide feedback.
-Thank you!
-            `);
+• One sign at the corner on the long stone side - it's right in
+  eye view of the path many Amazon drivers take heading to the lobby
+• Larger sizing (24" or 36") for better visibility from street approach
+• Additional redundancy at other sightlines (it seems some of our
+  friends may have a special talent for eluding the insights of
+  our signage)
 
-            // Try multiple methods to open email client
-            const mailtoLink = `mailto:100mainhm@gmail.com?subject=${subject}&body=${emailBody}`;
+Please let me know the board's collective decision as it regards to
+quantity beyond the minimum intercom signage replacement. I've laid
+out all the options here and will act according to what you feel would
+be best in terms of use of our resources.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`;
 
-            // Method 1: Create a temporary link and click it
-            const link = document.createElement('a');
-            link.href = mailtoLink;
-            link.target = '_blank';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+            if (additionalNotes) {
+                summary += `\n\nBOARD EXECUTIVE DECISIONS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+${additionalNotes}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`;
+            }
 
-            // Method 2: Also try window.location as backup
-            setTimeout(() => {
-                window.location.href = mailtoLink;
-            }, 100);
+            // Display the summary
+            document.getElementById('order-summary-text').textContent = summary;
+            document.getElementById('order-summary-container').style.display = 'block';
 
-            // Prepare email content for display
-            const emailContent = `Subject: 100 & Main - Delivery Signage Order Request
-
-To: 100mainhm@gmail.com
-
----
-
-100 & Main - Delivery Signage Order Request
-============================================
-
-Wording/Verbiage: ${submissionData.wordingVerbiage}
-
-Color Scheme: ${submissionData.colorScheme}
-
-Material: ${submissionData.material}
-
-Additional Signs: ${submissionData.additionalSigns}
-
-Timestamp: ${submissionData.timestamp}
-
-Please review these selections and provide feedback.
-Thank you!`;
-
-            // Show confirmation message
-            setTimeout(() => {
-                document.getElementById('submission-time').textContent = submissionData.timestamp;
-                document.getElementById('email-content').value = emailContent;
-                document.getElementById('confirmation-message').style.display = 'block';
-
-                const submitBtn = document.getElementById('submit-order-btn');
-                submitBtn.textContent = 'Ready to Email ✓';
-                submitBtn.style.background = '#3b82f6';
-                submitBtn.disabled = true;
-                submitBtn.style.opacity = '1';
-                submitBtn.style.cursor = 'not-allowed';
-
-                document.getElementById('confirmation-message').scrollIntoView({ behavior: 'smooth', block: 'center' });
-                console.log('Email content ready:', submissionData);
-            }, 500);
+            // Scroll to the summary
+            document.getElementById('order-summary-container').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
 
-        function copyEmailContent() {
-            const textarea = document.getElementById('email-content');
-            textarea.select();
-            document.execCommand('copy');
+        // Copy order summary to clipboard
+        function copyToClipboard() {
+            const summaryText = document.getElementById('order-summary-text').textContent;
 
-            // Show feedback
-            const copyBtn = event.target;
-            const originalText = copyBtn.textContent;
-            copyBtn.textContent = 'Copied! ✓';
-            copyBtn.style.background = '#16a34a';
+            navigator.clipboard.writeText(summaryText).then(() => {
+                // Show success feedback
+                const button = event.currentTarget;
+                const originalText = button.innerHTML;
+                button.innerHTML = '✓ Copied!';
+                button.style.background = '#28a745';
 
-            setTimeout(() => {
-                copyBtn.textContent = originalText;
-                copyBtn.style.background = '#3b82f6';
-            }, 2000);
-        }
-
-        // Update summary whenever selections change (no longer saving to localStorage)
-        function updateSelectionsAndSummary() {
-            updateSelectionSummary();
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.style.background = '#1a1a1a';
+                }, 2000);
+            }).catch(err => {
+                alert('Failed to copy. Please manually select and copy the text.');
+            });
         }
     </script>
 </body>
