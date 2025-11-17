@@ -416,9 +416,56 @@
         .design-card.official.selected {
             border: 3px solid #22c55e;
         }
+
+        /* SIDEBAR */
+        .live-sidebar {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            width: 280px;
+            background: white;
+            border: 3px solid #22c55e;
+            border-radius: 10px;
+            padding: 18px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            z-index: 9999;
+        }
+        .live-sidebar h4 {
+            margin: 0 0 12px 0;
+            font-size: 15px;
+            color: #1A1A1A;
+            border-bottom: 2px solid #22c55e;
+            padding-bottom: 6px;
+        }
+        .sb-row {
+            margin: 6px 0;
+            font-size: 12px;
+            padding: 5px;
+            background: #f9f9f9;
+            border-radius: 3px;
+        }
+        .sb-label {
+            font-weight: 700;
+            color: #666;
+        }
+
+        @media (max-width: 1400px) {
+            .live-sidebar {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- LIVE SIDEBAR -->
+    <div class="live-sidebar">
+        <h4>✓ Your Selections</h4>
+        <div class="sb-row"><span class="sb-label">Text:</span> <span id="sb-text">-</span></div>
+        <div class="sb-row"><span class="sb-label">Color:</span> <span id="sb-color">-</span></div>
+        <div class="sb-row"><span class="sb-label">Material:</span> <span id="sb-material">-</span></div>
+        <div id="sb-sizes"></div>
+    </div>
+
     <div class="container">
         <!-- Header -->
         <div class="header">
@@ -1883,6 +1930,183 @@ Thank you!`;
         function updateSelectionsAndSummary() {
             updateSelectionSummary();
         }
+
+        // ==================== SIDEBAR UPDATE FUNCTIONALITY ====================
+
+        // Material name mapping
+        const materialNames = {
+            pvc: 'PVC 2mm',
+            acrylic: 'Acrylic 1/4"',
+            dibond: 'Dibond/Aluminum 3mm',
+            material1: 'Aluminum (Recommended)',
+            material2: 'PVC/Plastic',
+            material3: 'Laminated Vinyl',
+            material4: 'Acrylic (Premium)'
+        };
+
+        // Size dimension mapping
+        const sizeDimensions = {
+            small: '11" × 9"',
+            medium: '24" × 19.6"',
+            large: '36" × 29.5"'
+        };
+
+        // Enhanced updateSidebar function
+        function updateSidebar(step, card) {
+            const titleEl = card.querySelector('.design-title');
+            if (!titleEl) return;
+
+            const text = titleEl.textContent;
+
+            if (step === 'text') {
+                document.getElementById('sb-text').textContent = text.split(':')[0];
+            } else if (step === 'color') {
+                document.getElementById('sb-color').textContent = text;
+            } else if (step === 'material') {
+                // Update material name
+                const materialOption = card.getAttribute('data-option');
+                const materialName = materialNames[materialOption] || text;
+                document.getElementById('sb-material').textContent = materialName;
+
+                // Update sizes when material is selected
+                updateSidebarSizes(materialOption);
+            }
+        }
+
+        // Update sidebar sizes display
+        function updateSidebarSizes(materialOption) {
+            const sizesContainer = document.getElementById('sb-sizes');
+
+            if (!materialOption || !sizesContainer) {
+                return;
+            }
+
+            // Get checked checkboxes for this material
+            const checkedBoxes = document.querySelectorAll(
+                `.size-checkbox[data-material="${materialOption}"]:checked`
+            );
+
+            if (checkedBoxes.length === 0) {
+                sizesContainer.innerHTML = '<div style="color: #999; font-size: 12px; margin-top: 8px; padding: 8px; background: white; border-radius: 6px;">No sizes selected</div>';
+                updateSidebarPricing(materialOption, []);
+                return;
+            }
+
+            // Build sizes HTML
+            sizesContainer.innerHTML = '';
+            const selectedSizes = [];
+
+            checkedBoxes.forEach(checkbox => {
+                const size = checkbox.dataset.size;
+                const price = parseFloat(checkbox.dataset.price);
+                const dimensions = sizeDimensions[size] || size;
+
+                selectedSizes.push({ size, price, dimensions });
+
+                const sizeItem = document.createElement('div');
+                sizeItem.className = 'sb-row';
+                sizeItem.style.cssText = 'margin: 6px 0; padding: 8px; background: white; border-radius: 6px; font-size: 12px; display: flex; justify-content: space-between; border: 1px solid #e5e7eb;';
+                sizeItem.innerHTML = `
+                    <span style="color: #666;">${size.charAt(0).toUpperCase() + size.slice(1)} (${dimensions})</span>
+                    <span style="font-weight: 700; color: #1A1A1A;">$${price.toFixed(2)}</span>
+                `;
+                sizesContainer.appendChild(sizeItem);
+            });
+
+            // Update pricing
+            updateSidebarPricing(materialOption, selectedSizes);
+        }
+
+        // Update sidebar pricing summary
+        function updateSidebarPricing(materialOption, selectedSizes) {
+            const priceSummary = document.querySelector('.live-sidebar .sb-row:has(#sb-subtotal)');
+
+            if (!selectedSizes || selectedSizes.length === 0) {
+                // Hide pricing if no sizes selected
+                if (priceSummary) {
+                    priceSummary.style.display = 'none';
+                }
+                return;
+            }
+
+            // Calculate totals
+            let subtotal = 0;
+            selectedSizes.forEach(item => {
+                subtotal += item.price;
+            });
+
+            const tax = subtotal * 0.084; // 8.4% tax
+            const total = subtotal + tax;
+
+            // Find or create pricing elements
+            let pricingContainer = document.getElementById('sb-pricing-container');
+            if (!pricingContainer) {
+                pricingContainer = document.createElement('div');
+                pricingContainer.id = 'sb-pricing-container';
+                pricingContainer.style.cssText = 'margin-top: 15px; padding: 15px; background: linear-gradient(135deg, #2c5aa0 0%, #1e3a5f 100%); border-radius: 8px; color: white;';
+
+                pricingContainer.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; padding: 5px 0; font-size: 13px;">
+                        <span>Subtotal:</span>
+                        <span id="sb-subtotal">$0.00</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 5px 0; font-size: 13px;">
+                        <span>Tax (8.4%):</span>
+                        <span id="sb-tax">$0.00</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 10px 0 5px 0; font-size: 16px; font-weight: 700; border-top: 2px solid rgba(255,255,255,0.3); margin-top: 8px;">
+                        <span>Total:</span>
+                        <span id="sb-total">$0.00</span>
+                    </div>
+                `;
+
+                const sidebar = document.querySelector('.live-sidebar');
+                if (sidebar) {
+                    sidebar.appendChild(pricingContainer);
+                }
+            }
+
+            // Update values
+            document.getElementById('sb-subtotal').textContent = `$${subtotal.toFixed(2)}`;
+            document.getElementById('sb-tax').textContent = `$${tax.toFixed(2)}`;
+            document.getElementById('sb-total').textContent = `$${total.toFixed(2)}`;
+            pricingContainer.style.display = 'block';
+        }
+
+        // Setup size checkbox listeners
+        function setupSizeCheckboxListeners() {
+            const sizeCheckboxes = document.querySelectorAll('.size-checkbox');
+
+            sizeCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const materialOption = this.dataset.material;
+
+                    // Ensure parent material card is selected
+                    const materialCard = document.querySelector(`.design-card[data-step="material"][data-option="${materialOption}"]`);
+                    if (materialCard && !materialCard.classList.contains('selected')) {
+                        materialCard.click();
+                    } else {
+                        // Just update sidebar
+                        updateSidebarSizes(materialOption);
+                    }
+                });
+            });
+        }
+
+        // Initialize sidebar listeners when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            setupSizeCheckboxListeners();
+
+            // Also update sidebar when material cards are clicked
+            const materialCards = document.querySelectorAll('.design-card[data-step="material"]');
+            materialCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const materialOption = this.getAttribute('data-option');
+                    setTimeout(() => updateSidebarSizes(materialOption), 100);
+                });
+            });
+        });
+
     </script>
 </body>
 </html>
