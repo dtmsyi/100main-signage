@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100 & Main - Delivery Signage Selection</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f5f5;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            text-align: center;
+            border-top: 4px solid #000;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #1A1A1A;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: #000;
+            color: white;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .step-badge {
+            display: inline-block;
+            background: #2c5aa0;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            font-size: 24px;
+            color: #1A1A1A;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #000;
+            font-weight: 600;
+        }
+
+        .design-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .design-card {
+            background: #fafafa;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border: 1px solid #ddd;
+        }
+
+        .design-card.official {
+            border: 3px solid #000;
+        }
+
+        .official-badge {
+            background: #000;
+            color: white;
+            padding: 8px 16px;
+            font-size: 11px;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .design-header {
+            padding: 20px;
+            background: #000;
+            color: white;
+        }
+
+        .design-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .design-subtitle {
+            font-size: 13px;
+            opacity: 0.8;
+        }
+
+        .design-preview {
+            padding: 40px;
+            background: white;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sign-mockup {
+            width: 100%;
+            max-width: 600px;
+            padding: 40px;
+            border-radius: 4px;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .sign-text-line {
+            font-size: 28px;
+            line-height: 1.3;
+            font-weight: 400;
+            margin: 15px 0;
+        }
+
+        .sign-arrow {
+            font-size: 120px;
+            font-weight: 900;
+            margin: 30px 0;
+            line-height: 1;
+            text-shadow: 0 0 2px currentColor;
+        }
+
+        .design-details {
+            padding: 20px;
+            background: #f5f5f5;
+            border-top: 1px solid #ddd;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+
+        .detail-label {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .detail-value {
+            color: #1A1A1A;
+            font-weight: 600;
+        }
+
+        .pros-cons-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .pros-list, .cons-list {
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .pros-list {
+            background: #f0fdf4;
+            border-left: 4px solid #22c55e;
+        }
+
+        .cons-list {
+            background: #fef2f2;
+            border-left: 4px solid #ef4444;
+        }
+
+        .pros-list h4, .cons-list h4 {
+            margin-bottom: 6px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pros-list h4 {
+            color: #16a34a;
+        }
+
+        .cons-list h4 {
+            color: #dc2626;
+        }
+
+        .pros-list ul, .cons-list ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .pros-list li, .cons-list li {
+            padding: 3px 0;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .pros-list li:before {
+            content: "✓ ";
+            color: #16a34a;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .cons-list li:before {
+            content: "✗ ";
+            color: #dc2626;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        /* Accordion Styles */
+        .section {
+            transition: all 0.3s ease;
+        }
+
+        .accordion-header {
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+            padding-right: 50px;
+            transition: all 0.2s ease;
+        }
+
+        .accordion-header:hover {
+            opacity: 0.8;
+        }
+
+        .accordion-toggle {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+            color: white;
+            border-radius: 50%;
+            font-size: 24px;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-toggle.collapsed {
+            transform: translateY(-50%) rotate(0deg);
+        }
+
+        .accordion-toggle.expanded {
+            transform: translateY(-50%) rotate(45deg);
+        }
+
+        .accordion-content {
+            max-height: 5000px;
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.3s ease;
+            opacity: 1;
+            margin-top: 0;
+        }
+
+        .accordion-content.collapsed {
+            max-height: 0;
+            opacity: 0;
+            margin-top: -20px;
+        }
+
+        /* Selection Styles */
+        .design-card {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .design-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .design-card.selected {
+            border: 3px solid #22c55e;
+            box-shadow: 0 4px 16px rgba(34, 197, 94, 0.3);
+        }
+
+        .design-card.selected::after {
+            content: "✓";
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 36px;
+            height: 36px;
+            background: #22c55e;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            z-index: 10;
+        }
+
+        .design-card.official.selected {
+            border: 3px solid #22c55e;
+        }
+
+        @media (max-width: 768px) {
+            .design-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .project-meta {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .pros-cons-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1 style="line-height: 1.4; margin-bottom: 15px;">100 & Main Delivery Signage Upgrade</h1>
+            <h2 style="font-size: 18px; font-weight: 500; color: #64748b; margin: 15px 0; line-height: 1.6;">
+                "DO NOT USE INTERCOM TO CALL RESIDENTS<br>FOLLOW ARROW TO PACKAGE ROOM"
+            </h2>
+            <span class="status-badge">For Board Review</span>
+        </div>
+
+        <!-- STEP 1: Text & Wording -->
+        <div class="section">
+            <div class="accordion-header" data-section="step1">
+                <span class="step-badge">Step 1 of 4</span>
+                <h2>Select Sign Text & Wording</h2>
+                <span class="accordion-toggle expanded">+</span>
+            </div>
+            <div class="accordion-content" id="step1-content">
+                <p style="margin-bottom: 25px; color: #666; font-size: 15px;">
+                    Choose what the sign will say. This text can be combined with any color scheme in Step 2.
+                </p>
+
+            <div class="design-grid">
+                <!-- Text Option 1: Underlined Emphasis -->
+                <div class="design-card" data-step="text" data-option="text2">
+                    <div class="design-header" style="background: #2c5aa0;">
+                        <div class="design-title">Option 1: Maximum Impact</div>
+                        <div class="design-subtitle">Stop drivers in their tracks—impossible to miss</div>
+                    </div>
+                    <div class="design-preview">
+                        <div class="sign-mockup" style="background: #000000; color: white; border: none;">
+                            <div class="sign-text-line" style="font-size: 28px; font-weight: 700; text-decoration: underline;">DO NOT USE INTERCOM</div>
+                            <div class="sign-text-line" style="font-size: 28px; margin-top: 10px;">AMAZON DELIVERIES</div>
+                            <div class="sign-arrow" style="margin: 20px 0;">→</div>
+                            <div class="sign-text-line" style="font-size: 24px;">USE EXTERIOR SIDE DOOR</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Option 2: AMAZON DELIVERIES -->
+                <div class="design-card" data-step="text" data-option="text3">
+                    <div class="design-header" style="background: #2c5aa0;">
+                        <div class="design-title">Option 2: Amazon-First</div>
+                        <div class="design-subtitle">Speak their language—target 80% of delivery traffic</div>
+                    </div>
+                    <div class="design-preview">
+                        <div class="sign-mockup" style="background: #000000; color: white; border: none;">
+                            <div class="sign-text-line" style="font-size: 32px; font-weight: 600; margin-bottom: 15px; text-decoration: underline; text-underline-offset: 8px;">AMAZON DELIVERIES</div>
+                            <div class="sign-text-line" style="font-size: 28px; margin: 20px 0;">DO NOT USE INTERCOM</div>
+                            <div class="sign-arrow" style="margin: 30px 0;">→</div>
+                            <div class="sign-text-line" style="font-size: 24px;">USE EXTERIOR SIDE DOOR</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Option 3: Full Details -->
+                <div class="design-card" data-step="text" data-option="text5">
+                    <div class="design-header" style="background: #2c5aa0;">
+                        <div class="design-title">Option 3: Visual Frame</div>
+                        <div class="design-subtitle">Authority signaling—regulatory compliance aesthetic</div>
+                    </div>
+                    <div class="design-preview">
+                        <div class="sign-mockup" style="background: #000000; color: white; border: none;">
+                            <div class="sign-text-line" style="font-size: 28px; margin-bottom: 15px; border: 3px solid white; padding: 10px; display: inline-block;"><span style="text-decoration: underline;">DO NOT</span> USE INTERCOM</div>
+                            <div class="sign-text-line" style="font-size: 28px; margin: 15px 0;">FOR PACKAGE DELIVERIES</div>
+                            <div class="sign-arrow" style="margin: 30px 0;">→</div>
+                            <div class="sign-text-line" style="font-size: 24px;">USE EXTERIOR SIDE DOOR</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Option 4: AMAZON (Optimized Design) -->
+                <div class="design-card" data-step="text" data-option="text6">
+                    <div class="design-header" style="background: #2c5aa0;">
+                        <div class="design-title">Option 4: Complete Guidance</div>
+                        <div class="design-subtitle">Leave nothing to chance—end-to-end wayfinding</div>
+                    </div>
+                    <div class="design-preview">
+                        <div class="sign-mockup" style="background: #000000; color: white; border: none;">
+                            <div class="sign-text-line" style="font-size: 40px; font-weight: 700; margin-bottom: 15px;">AMAZON</div>
+                            <div class="sign-text-line" style="font-size: 26px; margin: 15px 0;"><span style="text-decoration: underline;">DO NOT</span> USE INTERCOM</div>
+                            <div class="sign-arrow" style="margin: 30px 0;">→</div>
+                            <div class="sign-text-line" style="font-size: 24px; margin-top: 10px;">PACKAGE ROOM ENTRANCE</div>
+                            <div class="sign-text-line" style="font-size: 24px; margin-top: 5px;">AROUND CORNER</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Next Step Button -->
+            <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 2px solid #e5e7eb;">
+                <button class="next-step-btn" data-current="text" style="
+                    background: #2c5aa0;
+                    color: white;
+                    border: none;
+                    padding: 15px 40px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 2px 8px rgba(44, 90, 160, 0.3);
+                " onmouseover="this.style.background='#1e3a5f'" onmouseout="this.style.background='#2c5aa0'">
+                    Continue to Step 2: Color Scheme →
+                </button>
+            </div>
+            </div>
+        </div>
+
+        <!-- STEP 2: Color Scheme -->
+        <div class="section">
+            <div class="accordion-header" data-section="step2">
+                <span class="step-badge">Step 2 of 4</span>
+                <h2>Select Color Scheme</h2>
+                <span class="accordion-toggle expanded">+</span>
+            </div>
+            <div class="accordion-content" id="step2-content">
+                <p style="margin-bottom: 25px; color: #666; font-size: 15px;">
+                    Choose the color scheme for your sign. The text you selected in Step 1 will appear below in each color option.
+                </p>
+
+            <div class="design-grid">
+                <!-- Color Option 4: Official Black Background -->
+                <div class="design-card official" data-step="color" data-option="color4">
+                    <div class="official-badge">Official Building Standard</div>
+                    <div class="design-header">
+                        <div class="design-title">Black Background (Exterior)</div>
+                        <div class="design-subtitle">Matches existing building standards</div>
+                    </div>
+                    <div class="design-preview" data-color-preview="color4">
+                        <div class="sign-mockup" style="background: #000000; color: white; border: none;">
+                            <p style="color: #999; font-size: 16px;">Select text in Step 1 to preview</p>
+                        </div>
+                    </div>
+                    <div class="design-details">
+                        <div class="detail-row">
+                            <span class="detail-label">Tone</span>
+                            <span class="detail-value">Official, Professional</span>
+                        </div>
+                        <div class="pros-cons-container">
+                            <div class="pros-list">
+                                <h4>Pros</h4>
+                                <ul>
+                                    <li>Matches existing exterior signage perfectly</li>
+                                    <li>High contrast for excellent readability</li>
+                                    <li>Professional, official appearance</li>
+                                </ul>
+                            </div>
+                            <div class="cons-list">
+                                <h4>Cons</h4>
+                                <ul>
+                                    <li>May be less visible in low light without reflective material</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Color Option 1: Gray Building Match -->
+                <div class="design-card" data-step="color" data-option="color1">
+                    <div class="design-header">
+                        <div class="design-title">Gray Building Match</div>
+                        <div class="design-subtitle">Blends seamlessly with gray concrete exterior</div>
+                    </div>
+                    <div class="design-preview" data-color-preview="color1">
+                        <div class="sign-mockup" style="background: #5A5A5A; color: white; border: 1px solid #E0E0E0; border-radius: 0;">
+                            <p style="color: #ccc; font-size: 16px;">Select text in Step 1 to preview</p>
+                        </div>
+                    </div>
+                    <div class="design-details">
+                        <div class="detail-row">
+                            <span class="detail-label">Tone</span>
+                            <span class="detail-value">Neutral, Architectural</span>
+                        </div>
+                        <div class="pros-cons-container">
+                            <div class="pros-list">
+                                <h4>Pros</h4>
+                                <ul>
+                                    <li>Blends seamlessly with gray concrete exterior</li>
+                                    <li>Doesn't clash with building aesthetic</li>
+                                    <li>Subtle, integrated appearance</li>
+                                </ul>
+                            </div>
+                            <div class="cons-list">
+                                <h4>Cons</h4>
+                                <ul>
+                                    <li>Lower contrast, less attention-grabbing</li>
+                                    <li>May not stand out enough</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Color Option 2: Black Minimal -->
+                <div class="design-card" data-step="color" data-option="color2">
+                    <div class="design-header">
+                        <div class="design-title">Black Minimal</div>
+                        <div class="design-subtitle">Matches building's dark charcoal doors perfectly</div>
+                    </div>
+                    <div class="design-preview" data-color-preview="color2">
+                        <div class="sign-mockup" style="background: #1A1A1A; color: white; border: none;">
+                            <p style="color: #999; font-size: 16px;">Select text in Step 1 to preview</p>
+                        </div>
+                    </div>
+                    <div class="design-details">
+                        <div class="detail-row">
+                            <span class="detail-label">Tone</span>
+                            <span class="detail-value">Modern, Sophisticated</span>
+                        </div>
+                        <div class="pros-cons-container">
+                            <div class="pros-list">
+                                <h4>Pros</h4>
+                                <ul>
+                                    <li>Matches building's dark charcoal doors perfectly</li>
+                                    <li>Modern, minimal aesthetic</li>
+                                    <li>Elegant, sophisticated appearance</li>
+                                </ul>
+                            </div>
+                            <div class="cons-list">
+                                <h4>Cons</h4>
+                                <ul>
+                                    <li>Less visible during daytime</li>
+                                    <li>Relies heavily on reflective material</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Color Option 3: Black with Yellow Border -->
+                <div class="design-card" data-step="color" data-option="color3">
+                    <div class="design-header">
+                        <div class="design-title">Black with Yellow Border</div>
+                        <div class="design-subtitle">Yellow border grabs attention instantly</div>
+                    </div>
+                    <div class="design-preview" data-color-preview="color3">
+                        <div class="sign-mockup" style="background: #1A1A1A; color: white; border: 6px solid #FFCC00; border-radius: 8px;">
+                            <p style="color: #999; font-size: 16px;">Select text in Step 1 to preview</p>
+                        </div>
+                    </div>
+                    <div class="design-details">
+                        <div class="detail-row">
+                            <span class="detail-label">Tone</span>
+                            <span class="detail-value">High Visibility</span>
+                        </div>
+                        <div class="pros-cons-container">
+                            <div class="pros-list">
+                                <h4>Pros</h4>
+                                <ul>
+                                    <li>Yellow border grabs attention instantly</li>
+                                    <li>High contrast for maximum visibility</li>
+                                    <li>Warning/caution aesthetic</li>
+                                </ul>
+                            </div>
+                            <div class="cons-list">
+                                <h4>Cons</h4>
+                                <ul>
+                                    <li>May feel more industrial</li>
+                                    <li>Yellow may fade over time outdoors</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Next Step Button -->
+            <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 2px solid #e5e7eb;">
+                <button class="next-step-btn" data-current="color" style="
+                    background: #2c5aa0;
+                    color: white;
+                    border: none;
+                    padding: 15px 40px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 2px 8px rgba(44, 90, 160, 0.3);
+                " onmouseover="this.style.background='#1e3a5f'" onmouseout="this.style.background='#2c5aa0'">
+                    Continue to Step 3: Material →
+                </button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Selection state
+        const selections = {
+            text: null,
+            color: null
+        };
+
+        // Color scheme backgrounds
+        const colorSchemes = {
+            color1: { bg: '#5A5A5A', text: 'white', border: '1px solid #E0E0E0' },
+            color2: { bg: '#1A1A1A', text: 'white', border: 'none' },
+            color3: { bg: '#1A1A1A', text: 'white', border: '6px solid #FFCC00' },
+            color4: { bg: '#000000', text: 'white', border: 'none' }
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Accordion functionality
+            setupAccordion();
+
+            // Selection functionality
+            setupSelections();
+
+            // Initialize: Only Step 1 open
+            initializeSteps();
+        });
+
+        function initializeSteps() {
+            // Close step 2
+            const step2Content = document.getElementById('step2-content');
+            const step2Header = document.querySelector('[data-section="step2"]');
+            const step2Toggle = step2Header?.querySelector('.accordion-toggle');
+
+            if (step2Content) {
+                step2Content.classList.add('collapsed');
+            }
+            if (step2Toggle) {
+                step2Toggle.classList.remove('expanded');
+                step2Toggle.classList.add('collapsed');
+            }
+
+            // Ensure step1 is open
+            const step1Content = document.getElementById('step1-content');
+            const step1Header = document.querySelector('[data-section="step1"]');
+            const step1Toggle = step1Header?.querySelector('.accordion-toggle');
+
+            if (step1Content) {
+                step1Content.classList.remove('collapsed');
+            }
+            if (step1Toggle) {
+                step1Toggle.classList.remove('collapsed');
+                step1Toggle.classList.add('expanded');
+            }
+
+            // Setup Next Step buttons
+            setupNextStepButtons();
+        }
+
+        function setupNextStepButtons() {
+            const nextButtons = document.querySelectorAll('.next-step-btn');
+            nextButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const currentStep = this.getAttribute('data-current');
+                    advanceToNextStep(currentStep);
+                });
+            });
+        }
+
+        function setupAccordion() {
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const sectionId = this.getAttribute('data-section');
+                    const content = document.getElementById(sectionId + '-content');
+                    const toggle = this.querySelector('.accordion-toggle');
+
+                    content.classList.toggle('collapsed');
+
+                    if (content.classList.contains('collapsed')) {
+                        toggle.classList.remove('expanded');
+                        toggle.classList.add('collapsed');
+                    } else {
+                        toggle.classList.remove('collapsed');
+                        toggle.classList.add('expanded');
+                    }
+                });
+            });
+        }
+
+        function setupSelections() {
+            const cards = document.querySelectorAll('.design-card[data-step]');
+
+            cards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    if (e.target.closest('.accordion-header')) return;
+
+                    const step = this.getAttribute('data-step');
+                    const option = this.getAttribute('data-option');
+
+                    // Remove selection from other cards in same step
+                    document.querySelectorAll(`.design-card[data-step="${step}"]`).forEach(c => {
+                        c.classList.remove('selected');
+                    });
+
+                    // Add selection to clicked card
+                    this.classList.add('selected');
+
+                    // Update selection state
+                    selections[step] = option;
+
+                    // If text was selected, update color previews
+                    if (step === 'text') {
+                        updateColorPreviews(this);
+                    }
+                });
+            });
+        }
+
+        function updateColorPreviews(selectedTextCard) {
+            // Get the sign-mockup HTML from the selected text card
+            const sourcePreview = selectedTextCard.querySelector('.design-preview .sign-mockup');
+            if (!sourcePreview) return;
+
+            // Get the inner HTML (all the text lines)
+            const textHTML = sourcePreview.innerHTML;
+
+            // Update each color preview
+            document.querySelectorAll('[data-color-preview]').forEach(colorPreview => {
+                const colorOption = colorPreview.getAttribute('data-color-preview');
+                const colorScheme = colorSchemes[colorOption];
+                const mockup = colorPreview.querySelector('.sign-mockup');
+
+                if (mockup && colorScheme) {
+                    // Apply the color scheme styling
+                    mockup.style.background = colorScheme.bg;
+                    mockup.style.color = colorScheme.text;
+                    mockup.style.border = colorScheme.border;
+
+                    // Copy the text content
+                    mockup.innerHTML = textHTML;
+                }
+            });
+        }
+
+        function advanceToNextStep(currentStep) {
+            const stepToSection = {
+                'text': 'step1',
+                'color': 'step2'
+            };
+
+            const stepProgression = {
+                'text': 'color'
+            };
+
+            const nextStep = stepProgression[currentStep];
+            if (!nextStep) return;
+
+            const currentSectionId = stepToSection[currentStep];
+            const nextSectionId = stepToSection[nextStep];
+
+            // Collapse current step
+            const currentContent = document.getElementById(`${currentSectionId}-content`);
+            const currentHeader = document.querySelector(`[data-section="${currentSectionId}"]`);
+            const currentToggle = currentHeader?.querySelector('.accordion-toggle');
+
+            if (currentContent) {
+                currentContent.classList.add('collapsed');
+            }
+            if (currentToggle) {
+                currentToggle.classList.remove('expanded');
+                currentToggle.classList.add('collapsed');
+            }
+
+            // Expand next step
+            const nextContent = document.getElementById(`${nextSectionId}-content`);
+            const nextHeader = document.querySelector(`[data-section="${nextSectionId}"]`);
+            const nextToggle = nextHeader?.querySelector('.accordion-toggle');
+
+            if (nextContent) {
+                nextContent.classList.remove('collapsed');
+            }
+            if (nextToggle) {
+                nextToggle.classList.remove('collapsed');
+                nextToggle.classList.add('expanded');
+            }
+
+            // Scroll to next step
+            if (nextHeader) {
+                setTimeout(() => {
+                    const section = nextHeader.closest('.section');
+                    if (section) {
+                        const yOffset = -20;
+                        const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                        window.scrollTo({
+                            top: y,
+                            behavior: 'smooth'
+                        });
+                    }
+                }, 450);
+            }
+        }
+    </script>
+</body>
+</html>

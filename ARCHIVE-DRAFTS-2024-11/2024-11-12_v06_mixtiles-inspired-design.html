@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100 & Main - Delivery Signage Selection</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #F5EDE7 0%, #FAF0E6 100%);
+            min-height: 100vh;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Top Cart Banner */
+        .cart-banner {
+            background: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .cart-banner-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .project-tag {
+            background: linear-gradient(135deg, #E91E63 0%, #FF1493 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .cart-total {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1A1A1A;
+        }
+
+        .cart-total-label {
+            color: #666;
+            margin-right: 8px;
+        }
+
+        /* Main Container */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px 120px 20px;
+        }
+
+        /* Progress Steps */
+        .progress-steps {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .progress-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            opacity: 0.4;
+            transition: opacity 0.3s ease;
+        }
+
+        .progress-step.active {
+            opacity: 1;
+        }
+
+        .step-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid #DDD;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 20px;
+            color: #999;
+            transition: all 0.3s ease;
+        }
+
+        .progress-step.active .step-circle {
+            background: linear-gradient(135deg, #E91E63 0%, #FF1493 100%);
+            border-color: #E91E63;
+            color: white;
+            box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+        }
+
+        .progress-step.completed .step-circle {
+            background: #4CAF50;
+            border-color: #4CAF50;
+            color: white;
+        }
+
+        .step-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .progress-step.active .step-label {
+            color: #E91E63;
+        }
+
+        /* Preview Area */
+        .preview-container {
+            background: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .preview-mockup {
+            max-width: 600px;
+            width: 100%;
+            background: #2A2A2A;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            text-align: center;
+            color: white;
+            aspect-ratio: 4/3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .preview-text {
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+
+        .preview-subtext {
+            font-size: 18px;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        .preview-arrow {
+            font-size: 36px;
+            margin-top: 10px;
+        }
+
+        .preview-placeholder {
+            color: #999;
+            font-size: 18px;
+        }
+
+        /* Selection Section */
+        .selection-section {
+            margin-bottom: 40px;
+        }
+
+        .selection-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1A1A1A;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .selection-cards-wrapper {
+            position: relative;
+            padding: 10px 0;
+        }
+
+        .selection-cards {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 10px 20px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .selection-cards::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .selection-cards::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.5);
+            border-radius: 4px;
+        }
+
+        .selection-cards::-webkit-scrollbar-thumb {
+            background: #E91E63;
+            border-radius: 4px;
+        }
+
+        .selection-card {
+            min-width: 200px;
+            background: white;
+            border: 3px solid #E5E5E5;
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            text-align: center;
+        }
+
+        .selection-card:hover {
+            border-color: #FFB3D9;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.15);
+        }
+
+        .selection-card.selected {
+            border-color: #E91E63;
+            background: #FFF0F6;
+            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.2);
+        }
+
+        .card-visual {
+            width: 100%;
+            height: 120px;
+            background: #F5F5F5;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .selection-card.selected .card-visual {
+            background: linear-gradient(135deg, #FFE6F0 0%, #FFF0F6 100%);
+        }
+
+        .card-label {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1A1A1A;
+            margin-bottom: 8px;
+        }
+
+        .card-description {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        .card-price {
+            font-size: 15px;
+            font-weight: 700;
+            color: #E91E63;
+            margin-top: 10px;
+        }
+
+        /* Material-specific visuals */
+        .material-pvc {
+            background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+        }
+
+        .material-acrylic {
+            background: linear-gradient(135deg, #F3E5F5 0%, #E1BEE7 100%);
+        }
+
+        .material-dibond {
+            background: linear-gradient(135deg, #E8EAF6 0%, #C5CAE9 100%);
+        }
+
+        /* Size checkbox cards */
+        .size-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .size-visual {
+            width: 80px;
+            height: 80px;
+            border: 3px solid #DDD;
+            border-radius: 8px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .selection-card.selected .size-visual {
+            border-color: #E91E63;
+            background: #FFF0F6;
+        }
+
+        .size-dimensions {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1A1A1A;
+        }
+
+        /* Bottom Action Bar */
+        .bottom-action-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 20px 30px;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .action-summary {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .summary-label {
+            font-size: 13px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .summary-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1A1A1A;
+        }
+
+        .action-button {
+            background: linear-gradient(135deg, #E91E63 0%, #FF1493 100%);
+            color: white;
+            border: none;
+            padding: 18px 50px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+        }
+
+        .action-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4);
+        }
+
+        .action-button:active {
+            transform: translateY(0);
+        }
+
+        .action-button:disabled {
+            background: #CCC;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        /* Hidden class */
+        .hidden {
+            display: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cart-banner {
+                flex-direction: column;
+                gap: 10px;
+                padding: 15px 20px;
+            }
+
+            .progress-steps {
+                gap: 20px;
+            }
+
+            .step-circle {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+
+            .step-label {
+                font-size: 11px;
+            }
+
+            .preview-container {
+                padding: 40px 20px;
+                min-height: 400px;
+            }
+
+            .preview-mockup {
+                padding: 30px;
+            }
+
+            .preview-text {
+                font-size: 22px;
+            }
+
+            .preview-subtext {
+                font-size: 16px;
+            }
+
+            .selection-card {
+                min-width: 160px;
+            }
+
+            .bottom-action-bar {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px 20px;
+            }
+
+            .action-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Cart Banner -->
+    <div class="cart-banner">
+        <div class="cart-banner-left">
+            <div class="project-tag">🎯 100 & Main Signage</div>
+        </div>
+        <div class="cart-total">
+            <span class="cart-total-label">Total:</span>
+            <span id="total-price">$0.00</span>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+
+        <!-- Progress Steps -->
+        <div class="progress-steps">
+            <div class="progress-step active" data-step="1">
+                <div class="step-circle">1</div>
+                <div class="step-label">Text & Wording</div>
+            </div>
+            <div class="progress-step" data-step="2">
+                <div class="step-circle">2</div>
+                <div class="step-label">Color Scheme</div>
+            </div>
+            <div class="progress-step" data-step="3">
+                <div class="step-circle">3</div>
+                <div class="step-label">Material & Size</div>
+            </div>
+            <div class="progress-step" data-step="4">
+                <div class="step-circle">4</div>
+                <div class="step-label">Quantity</div>
+            </div>
+        </div>
+
+        <!-- Preview Area -->
+        <div class="preview-container">
+            <div class="preview-mockup" id="preview-mockup">
+                <div class="preview-placeholder">Select options to preview your sign</div>
+            </div>
+        </div>
+
+        <!-- Step 1: Text & Wording -->
+        <div class="selection-section" id="step-1" data-step="1">
+            <div class="selection-title">Select Sign Text & Wording</div>
+            <div class="selection-cards-wrapper">
+                <div class="selection-cards">
+                    <div class="selection-card" data-step="text" data-value="maximum-impact">
+                        <div class="card-visual">📦</div>
+                        <div class="card-label">Maximum Impact</div>
+                        <div class="card-description">Complete directions with all details</div>
+                    </div>
+                    <div class="selection-card" data-step="text" data-value="simple-direct">
+                        <div class="card-visual">✉️</div>
+                        <div class="card-label">Simple & Direct</div>
+                        <div class="card-description">Clear, minimal messaging</div>
+                    </div>
+                    <div class="selection-card" data-step="text" data-value="friendly-reminder">
+                        <div class="card-visual">😊</div>
+                        <div class="card-label">Friendly Reminder</div>
+                        <div class="card-description">Polite and courteous tone</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2: Color Scheme -->
+        <div class="selection-section hidden" id="step-2" data-step="2">
+            <div class="selection-title">Select Color Scheme</div>
+            <div class="selection-cards-wrapper">
+                <div class="selection-cards">
+                    <div class="selection-card" data-step="color" data-value="white-black">
+                        <div class="card-visual" style="background: linear-gradient(135deg, white 50%, black 50%);">
+                        </div>
+                        <div class="card-label">White on Black</div>
+                        <div class="card-description">High contrast, bold</div>
+                    </div>
+                    <div class="selection-card" data-step="color" data-value="black-white">
+                        <div class="card-visual" style="background: linear-gradient(135deg, black 50%, white 50%);">
+                        </div>
+                        <div class="card-label">Black on White</div>
+                        <div class="card-description">Classic, clean</div>
+                    </div>
+                    <div class="selection-card" data-step="color" data-value="red-white">
+                        <div class="card-visual" style="background: linear-gradient(135deg, #E91E63 50%, white 50%);">
+                        </div>
+                        <div class="card-label">Red on White</div>
+                        <div class="card-description">Attention-grabbing</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 3: Material & Size -->
+        <div class="selection-section hidden" id="step-3" data-step="3">
+            <div class="selection-title">Select Material</div>
+            <div class="selection-cards-wrapper">
+                <div class="selection-cards" id="material-cards">
+                    <div class="selection-card" data-step="material" data-value="pvc">
+                        <div class="card-visual material-pvc">🔷</div>
+                        <div class="card-label">PVC</div>
+                        <div class="card-description">Durable, weather-resistant plastic</div>
+                        <div class="card-price">From $28.68</div>
+                    </div>
+                    <div class="selection-card" data-step="material" data-value="acrylic">
+                        <div class="card-visual material-acrylic">💎</div>
+                        <div class="card-label">Acrylic</div>
+                        <div class="card-description">Premium glass-like finish</div>
+                        <div class="card-price">From $56.06</div>
+                    </div>
+                    <div class="selection-card" data-step="material" data-value="dibond">
+                        <div class="card-visual material-dibond">🔩</div>
+                        <div class="card-label">Dibond/Aluminum</div>
+                        <div class="card-description">Professional metal composite</div>
+                        <div class="card-price">From $53.02</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="size-selection" class="hidden" style="margin-top: 40px;">
+                <div class="selection-title">Select Size</div>
+                <div class="selection-cards-wrapper">
+                    <div class="selection-cards" id="size-cards">
+                        <!-- Size cards will be inserted here dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 4: Quantity -->
+        <div class="selection-section hidden" id="step-4" data-step="4">
+            <div class="selection-title">Select Quantity</div>
+            <div class="selection-cards-wrapper">
+                <div class="selection-cards">
+                    <div class="selection-card" data-step="quantity" data-value="1">
+                        <div class="card-visual">1</div>
+                        <div class="card-label">1 Sign</div>
+                    </div>
+                    <div class="selection-card" data-step="quantity" data-value="2">
+                        <div class="card-visual">2</div>
+                        <div class="card-label">2 Signs</div>
+                    </div>
+                    <div class="selection-card" data-step="quantity" data-value="3">
+                        <div class="card-visual">3</div>
+                        <div class="card-label">3 Signs</div>
+                    </div>
+                    <div class="selection-card" data-step="quantity" data-value="4">
+                        <div class="card-visual">4</div>
+                        <div class="card-label">4 Signs</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bottom Action Bar -->
+    <div class="bottom-action-bar">
+        <div class="action-summary">
+            <div class="summary-label">Current Selection</div>
+            <div class="summary-value" id="current-selection">No selections yet</div>
+        </div>
+        <button class="action-button" id="next-button" onclick="nextStep()">Continue</button>
+    </div>
+
+    <script>
+        // Pricing data (FASTSIGNS estimates with 8.4% tax)
+        const TAX_RATE = 0.084;
+        const PRICING = {
+            pvc: {
+                small: 26.46,
+                medium: 51.76,
+                large: 82.04
+            },
+            acrylic: {
+                small: 51.72,
+                medium: 97.02,
+                large: 225.00
+            },
+            dibond: {
+                small: 48.91,
+                medium: 119.83,
+                large: 232.81
+            }
+        };
+
+        const SIZES = {
+            small: { label: 'Small', dimensions: '11" × 9"' },
+            medium: { label: 'Medium', dimensions: '24" × 19.6"' },
+            large: { label: 'Large', dimensions: '36" × 29.5"' }
+        };
+
+        // State
+        let currentStep = 1;
+        let selections = {
+            text: null,
+            color: null,
+            material: null,
+            size: null,
+            quantity: 1
+        };
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            attachCardListeners();
+            updateUI();
+        });
+
+        function attachCardListeners() {
+            const cards = document.querySelectorAll('.selection-card');
+            cards.forEach(card => {
+                card.addEventListener('click', function() {
+                    handleCardClick(this);
+                });
+            });
+        }
+
+        function handleCardClick(card) {
+            const step = card.getAttribute('data-step');
+            const value = card.getAttribute('data-value');
+
+            // Remove selected from siblings
+            const siblings = card.parentElement.querySelectorAll(`.selection-card[data-step="${step}"]`);
+            siblings.forEach(sibling => sibling.classList.remove('selected'));
+
+            // Add selected to clicked card
+            card.classList.add('selected');
+
+            // Update state
+            selections[step] = value;
+
+            // Special handling for material selection
+            if (step === 'material') {
+                showSizeOptions(value);
+            }
+
+            // Update UI
+            updatePreview();
+            updatePricing();
+            updateCurrentSelection();
+            updateNextButton();
+        }
+
+        function showSizeOptions(material) {
+            const sizeSelection = document.getElementById('size-selection');
+            const sizeCards = document.getElementById('size-cards');
+
+            // Clear existing size cards
+            sizeCards.innerHTML = '';
+
+            // Create size cards for selected material
+            Object.keys(SIZES).forEach(sizeKey => {
+                const size = SIZES[sizeKey];
+                const price = PRICING[material][sizeKey];
+                const priceWithTax = price * (1 + TAX_RATE);
+
+                const card = document.createElement('div');
+                card.className = 'selection-card';
+                card.setAttribute('data-step', 'size');
+                card.setAttribute('data-value', sizeKey);
+                card.innerHTML = `
+                    <div class="size-card">
+                        <div class="size-visual"></div>
+                        <div class="size-dimensions">${size.dimensions}</div>
+                    </div>
+                    <div class="card-label">${size.label}</div>
+                    <div class="card-price">$${priceWithTax.toFixed(2)}</div>
+                `;
+                card.addEventListener('click', function() {
+                    handleCardClick(this);
+                });
+                sizeCards.appendChild(card);
+            });
+
+            // Show size selection
+            sizeSelection.classList.remove('hidden');
+        }
+
+        function updatePreview() {
+            const mockup = document.getElementById('preview-mockup');
+
+            if (selections.text && selections.color) {
+                const textContent = getTextContent(selections.text);
+                const colors = getColorScheme(selections.color);
+
+                mockup.style.background = colors.background;
+                mockup.style.color = colors.text;
+                mockup.innerHTML = `
+                    <div class="preview-text">${textContent.main}</div>
+                    <div class="preview-subtext">${textContent.sub}</div>
+                    ${textContent.arrow ? `<div class="preview-arrow">${textContent.arrow}</div>` : ''}
+                `;
+            } else {
+                mockup.style.background = '#2A2A2A';
+                mockup.style.color = 'white';
+                mockup.innerHTML = '<div class="preview-placeholder">Select options to preview your sign</div>';
+            }
+        }
+
+        function getTextContent(textValue) {
+            const textOptions = {
+                'maximum-impact': {
+                    main: 'DO NOT USE INTERCOM FOR PACKAGE DELIVERIES',
+                    sub: 'DELIVERIES THIS WAY',
+                    arrow: '→'
+                },
+                'simple-direct': {
+                    main: 'PACKAGE DELIVERIES',
+                    sub: 'THIS WAY',
+                    arrow: '→'
+                },
+                'friendly-reminder': {
+                    main: 'Please deliver packages here',
+                    sub: 'Thank you!',
+                    arrow: '→'
+                }
+            };
+            return textOptions[textValue] || { main: '', sub: '', arrow: '' };
+        }
+
+        function getColorScheme(colorValue) {
+            const colorSchemes = {
+                'white-black': { background: '#1A1A1A', text: 'white' },
+                'black-white': { background: 'white', text: '#1A1A1A' },
+                'red-white': { background: 'white', text: '#E91E63' }
+            };
+            return colorSchemes[colorValue] || { background: '#2A2A2A', text: 'white' };
+        }
+
+        function updatePricing() {
+            const totalPriceEl = document.getElementById('total-price');
+
+            if (selections.material && selections.size) {
+                const basePrice = PRICING[selections.material][selections.size];
+                const priceWithTax = basePrice * (1 + TAX_RATE);
+                const quantity = selections.quantity || 1;
+                const total = priceWithTax * quantity;
+
+                totalPriceEl.textContent = `$${total.toFixed(2)}`;
+            } else {
+                totalPriceEl.textContent = '$0.00';
+            }
+        }
+
+        function updateCurrentSelection() {
+            const summaryEl = document.getElementById('current-selection');
+            const parts = [];
+
+            if (selections.text) parts.push(getTextLabel(selections.text));
+            if (selections.color) parts.push(getColorLabel(selections.color));
+            if (selections.material) parts.push(getMaterialLabel(selections.material));
+            if (selections.size) parts.push(getSizeLabel(selections.size));
+            if (selections.quantity) parts.push(`${selections.quantity} sign${selections.quantity > 1 ? 's' : ''}`);
+
+            summaryEl.textContent = parts.length > 0 ? parts.join(' • ') : 'No selections yet';
+        }
+
+        function getTextLabel(value) {
+            const labels = {
+                'maximum-impact': 'Maximum Impact',
+                'simple-direct': 'Simple & Direct',
+                'friendly-reminder': 'Friendly Reminder'
+            };
+            return labels[value] || value;
+        }
+
+        function getColorLabel(value) {
+            const labels = {
+                'white-black': 'White on Black',
+                'black-white': 'Black on White',
+                'red-white': 'Red on White'
+            };
+            return labels[value] || value;
+        }
+
+        function getMaterialLabel(value) {
+            const labels = {
+                'pvc': 'PVC',
+                'acrylic': 'Acrylic',
+                'dibond': 'Dibond/Aluminum'
+            };
+            return labels[value] || value;
+        }
+
+        function getSizeLabel(value) {
+            return SIZES[value] ? SIZES[value].label : value;
+        }
+
+        function updateNextButton() {
+            const button = document.getElementById('next-button');
+            let canProceed = false;
+            let buttonText = 'Continue';
+
+            if (currentStep === 1 && selections.text) {
+                canProceed = true;
+            } else if (currentStep === 2 && selections.color) {
+                canProceed = true;
+            } else if (currentStep === 3 && selections.material && selections.size) {
+                canProceed = true;
+            } else if (currentStep === 4 && selections.quantity) {
+                canProceed = true;
+                buttonText = 'Review Order';
+            }
+
+            button.disabled = !canProceed;
+            button.textContent = buttonText;
+        }
+
+        function nextStep() {
+            if (currentStep < 4) {
+                currentStep++;
+                updateStepDisplay();
+            } else {
+                // Final step - show summary
+                alert('Order review functionality would go here!\n\nYour selections:\n' +
+                      JSON.stringify(selections, null, 2));
+            }
+        }
+
+        function updateStepDisplay() {
+            // Hide all steps
+            document.querySelectorAll('.selection-section').forEach(section => {
+                section.classList.add('hidden');
+            });
+
+            // Show current step
+            const currentSection = document.getElementById(`step-${currentStep}`);
+            if (currentSection) {
+                currentSection.classList.remove('hidden');
+            }
+
+            // Update progress indicators
+            document.querySelectorAll('.progress-step').forEach((step, index) => {
+                const stepNum = index + 1;
+                step.classList.remove('active', 'completed');
+
+                if (stepNum < currentStep) {
+                    step.classList.add('completed');
+                } else if (stepNum === currentStep) {
+                    step.classList.add('active');
+                }
+            });
+
+            // Update button
+            updateNextButton();
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function updateUI() {
+            updatePreview();
+            updatePricing();
+            updateCurrentSelection();
+            updateNextButton();
+        }
+    </script>
+
+</body>
+</html>

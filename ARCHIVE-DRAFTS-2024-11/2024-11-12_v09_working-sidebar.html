@@ -165,10 +165,11 @@
         }
 
         .sign-arrow {
-            font-size: 96px;
-            font-weight: 700;
+            font-size: 120px;
+            font-weight: 900;
             margin: 30px 0;
             line-height: 1;
+            text-shadow: 0 0 2px currentColor;
         }
 
         .design-details {
@@ -197,12 +198,12 @@
         .pros-cons-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 15px;
+            gap: 12px;
+            margin-top: 10px;
         }
 
         .pros-list, .cons-list {
-            padding: 15px;
+            padding: 10px;
             border-radius: 4px;
         }
 
@@ -217,11 +218,11 @@
         }
 
         .pros-list h4, .cons-list h4 {
-            margin-bottom: 10px;
-            font-size: 15px;
+            margin-bottom: 6px;
+            font-size: 13px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
 
         .pros-list h4 {
@@ -239,9 +240,9 @@
         }
 
         .pros-list li, .cons-list li {
-            padding: 6px 0;
-            font-size: 14px;
-            line-height: 1.5;
+            padding: 3px 0;
+            font-size: 13px;
+            line-height: 1.4;
         }
 
         .pros-list li:before {
@@ -421,12 +422,22 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <h1>100 & Main Delivery Signage Project</h1>
-            <div class="project-meta">
-                <div>Updated: November 10, 2025</div>
-                <div>Budget: ~$230</div>
+            <h1 style="line-height: 1.4; margin-bottom: 15px;">100 & Main Delivery Signage Upgrade</h1>
+            <h2 style="font-size: 18px; font-weight: 500; color: #64748b; margin: 15px 0; line-height: 1.6;">
+                "DO NOT USE INTERCOM TO CALL RESIDENTS<br>FOLLOW ARROW TO PACKAGE ROOM"
+            </h2>
+            <span class="status-badge">For Board Review</span>
+        </div>
+
+        <!-- Quick Reference Diagram -->
+        <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 25px; margin-bottom: 30px;">
+            <h3 style="color: #1e293b; font-size: 18px; font-weight: 700; margin-bottom: 15px; text-align: center;">📍 Quick Reference: Sign Locations</h3>
+            <div style="text-align: center;">
+                <img src="assets/diagram.jpg" alt="Building diagram showing sign locations" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
             </div>
-            <span class="status-badge">Ready for Board Review</span>
+            <p style="color: #64748b; font-size: 14px; text-align: center; margin-top: 15px; font-style: italic;">
+                Building layout showing primary and additional sign placement locations
+            </p>
         </div>
 
         <!-- STEP 1: Text & Wording -->
@@ -442,136 +453,96 @@
                 </p>
 
             <div class="design-grid">
-                <!-- Text Option 1: Do Not Use Intercom -->
+                <!-- Text Option 1: Underlined Emphasis -->
                 <div class="design-card" data-step="text" data-option="text2">
                     <div class="design-header" style="background: #2c5aa0;">
-                        <div class="design-title">Option 1: Do Not Use Intercom</div>
-                        <div class="design-subtitle">Clear prohibition + direction</div>
-                    </div>
-                    <div class="design-preview">
-                        <div class="sign-mockup" style="background: #5A5A5A; color: white; border: 1px solid #E0E0E0;">
-                            <div class="sign-text-line">DO NOT USE INTERCOM</div>
-                            <div class="sign-text-line">FOR PACKAGE DELIVERIES</div>
-                            <div class="sign-arrow" style="margin: 30px 0;">→</div>
-                            <div class="sign-text-line" style="font-size: 22px; opacity: 0.9;">USE EXTERIOR SIDE DOOR</div>
-                        </div>
-                    </div>
-                    <div class="design-details">
-                        <div class="detail-row">
-                            <span class="detail-label">Text Content</span>
-                            <span class="detail-value">Do Not Use Intercom + Directions</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Best For</span>
-                            <span class="detail-value">Maximum clarity</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Text Option 2: FOR AMAZON DELIVERIES -->
-                <div class="design-card" data-step="text" data-option="text3">
-                    <div class="design-header" style="background: #2c5aa0;">
-                        <div class="design-title">Option 2: FOR AMAZON DELIVERIES</div>
-                        <div class="design-subtitle">Targeted Amazon messaging</div>
+                        <div class="design-title">Option 1: Maximum Impact</div>
+                        <div class="design-subtitle">Stop drivers in their tracks—impossible to miss</div>
                     </div>
                     <div class="design-preview">
                         <div class="sign-mockup" style="background: #000000; color: white; border: none;">
-                            <div class="sign-text-line" style="font-size: 32px; font-weight: 600; margin-bottom: 15px;">FOR AMAZON DELIVERIES</div>
-                            <div class="sign-text-line" style="font-size: 28px; margin: 20px 0;">DO NOT USE INTERCOM</div>
-                            <div class="sign-arrow" style="margin: 30px 0;">→</div>
-                            <div class="sign-text-line" style="font-size: 24px;">USE SIDE ENTRANCE</div>
-                        </div>
-                    </div>
-                    <div class="design-details">
-                        <div class="detail-row">
-                            <span class="detail-label">Text Content</span>
-                            <span class="detail-value">FOR AMAZON DELIVERIES + Prohibition + Direction</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Best For</span>
-                            <span class="detail-value">Targeted Amazon compliance</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Text Option 3: Underlined Prohibition -->
-                <div class="design-card" data-step="text" data-option="text4">
-                    <div class="design-header" style="background: #2c5aa0;">
-                        <div class="design-title">Option 3: Underlined Emphasis</div>
-                        <div class="design-subtitle">Key prohibition underlined</div>
-                    </div>
-                    <div class="design-preview">
-                        <div class="sign-mockup" style="background: #1A1A1A; color: white; border: none;">
-                            <div class="sign-text-line" style="font-size: 28px; text-decoration: underline; text-underline-offset: 6px;">DO NOT USE INTERCOM</div>
-                            <div class="sign-text-line" style="font-size: 28px; margin-top: 10px;">FOR DELIVERIES</div>
+                            <div class="sign-text-line" style="font-size: 28px; font-weight: 700; text-decoration: underline;">DO NOT USE INTERCOM</div>
+                            <div class="sign-text-line" style="font-size: 28px; margin-top: 10px;">AMAZON DELIVERIES</div>
                             <div class="sign-arrow" style="margin: 20px 0;">→</div>
                             <div class="sign-text-line" style="font-size: 24px;">USE EXTERIOR SIDE DOOR</div>
                         </div>
                     </div>
                     <div class="design-details">
-                        <div class="detail-row">
-                            <span class="detail-label">Text Content</span>
-                            <span class="detail-value"><u>DO NOT USE INTERCOM</u> emphasized</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Best For</span>
-                            <span class="detail-value">Strong prohibition focus</span>
-                        </div>
                     </div>
                 </div>
 
-                <!-- Text Option 4: AMAZON (Simple & Direct) -->
-                <div class="design-card" data-step="text" data-option="text5">
+                <!-- Text Option 2: AMAZON DELIVERIES -->
+                <div class="design-card" data-step="text" data-option="text3">
                     <div class="design-header" style="background: #2c5aa0;">
-                        <div class="design-title">Option 4: AMAZON (Simple & Direct)</div>
-                        <div class="design-subtitle">Minimal, high-impact messaging</div>
+                        <div class="design-title">Option 2: Amazon-First</div>
+                        <div class="design-subtitle">Speak their language—target 80% of delivery traffic</div>
                     </div>
                     <div class="design-preview">
                         <div class="sign-mockup" style="background: #000000; color: white; border: none;">
-                            <div class="sign-text-line" style="font-size: 48px; font-weight: 700; margin-bottom: 30px;">AMAZON</div>
-                            <div class="sign-text-line" style="font-size: 32px; margin: 20px 0;">NO INTERCOM</div>
+                            <div class="sign-text-line" style="font-size: 32px; font-weight: 600; margin-bottom: 15px; text-decoration: underline; text-underline-offset: 8px;">AMAZON DELIVERIES</div>
+                            <div class="sign-text-line" style="font-size: 28px; margin: 20px 0;">DO NOT USE INTERCOM</div>
                             <div class="sign-arrow" style="margin: 30px 0;">→</div>
-                            <div class="sign-text-line" style="font-size: 24px;">SIDE DOOR</div>
+                            <div class="sign-text-line" style="font-size: 24px;">USE EXTERIOR SIDE DOOR</div>
                         </div>
                     </div>
                     <div class="design-details">
-                        <div class="detail-row">
-                            <span class="detail-label">Text Content</span>
-                            <span class="detail-value">AMAZON + Symbols + Minimal Text</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Best For</span>
-                            <span class="detail-value">Maximum impact, fastest read</span>
-                        </div>
                     </div>
                 </div>
 
-                <!-- Text Option 5: AMAZON (Optimized Design) -->
+                <!-- Text Option 3: Full Details -->
+                <div class="design-card" data-step="text" data-option="text5">
+                    <div class="design-header" style="background: #2c5aa0;">
+                        <div class="design-title">Option 3: Visual Frame</div>
+                        <div class="design-subtitle">Authority signaling—regulatory compliance aesthetic</div>
+                    </div>
+                    <div class="design-preview">
+                        <div class="sign-mockup" style="background: #000000; color: white; border: none;">
+                            <div class="sign-text-line" style="font-size: 28px; margin-bottom: 15px; border: 3px solid white; padding: 10px; display: inline-block;"><span style="text-decoration: underline;">DO NOT</span> USE INTERCOM</div>
+                            <div class="sign-text-line" style="font-size: 28px; margin: 15px 0;">FOR PACKAGE DELIVERIES</div>
+                            <div class="sign-arrow" style="margin: 30px 0;">→</div>
+                            <div class="sign-text-line" style="font-size: 24px;">USE EXTERIOR SIDE DOOR</div>
+                        </div>
+                    </div>
+                    <div class="design-details">
+                    </div>
+                </div>
+
+                <!-- Text Option 4: AMAZON (Optimized Design) -->
                 <div class="design-card" data-step="text" data-option="text6">
                     <div class="design-header" style="background: #2c5aa0;">
-                        <div class="design-title">Option 5: AMAZON (Optimized Design)</div>
-                        <div class="design-subtitle">Research-backed optimal layout</div>
+                        <div class="design-title">Option 4: Complete Guidance</div>
+                        <div class="design-subtitle">Leave nothing to chance—end-to-end wayfinding</div>
                     </div>
                     <div class="design-preview">
                         <div class="sign-mockup" style="background: #000000; color: white; border: none;">
                             <div class="sign-text-line" style="font-size: 40px; font-weight: 700; margin-bottom: 15px;">AMAZON</div>
-                            <div class="sign-text-line" style="font-size: 26px; margin: 15px 0;">DO NOT USE INTERCOM</div>
+                            <div class="sign-text-line" style="font-size: 26px; margin: 15px 0;"><span style="text-decoration: underline;">DO NOT</span> USE INTERCOM</div>
                             <div class="sign-arrow" style="margin: 30px 0;">→</div>
-                            <div class="sign-text-line" style="font-size: 28px;">PACKAGE ROOM THIS WAY</div>
-                            <div class="sign-text-line" style="font-size: 20px; opacity: 0.9;">(Around Corner Left)</div>
+                            <div class="sign-text-line" style="font-size: 24px; margin-top: 10px;">PACKAGE ROOM ENTRANCE</div>
+                            <div class="sign-text-line" style="font-size: 24px; margin-top: 5px;">AROUND CORNER</div>
                         </div>
                     </div>
                     <div class="design-details">
-                        <div class="detail-row">
-                            <span class="detail-label">Text Content</span>
-                            <span class="detail-value">AMAZON + Prohibition + Full Direction</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Best For</span>
-                            <span class="detail-value">Best practice compliance (75-85%)</span>
-                        </div>
                     </div>
                 </div>
+            </div>
+
+            <!-- Next Step Button -->
+            <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 2px solid #e5e7eb;">
+                <button class="next-step-btn" data-current="text" style="
+                    background: #2c5aa0;
+                    color: white;
+                    border: none;
+                    padding: 15px 40px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 2px 8px rgba(44, 90, 160, 0.3);
+                " onmouseover="this.style.background='#1e3a5f'" onmouseout="this.style.background='#2c5aa0'">
+                    Continue to Step 2: Color Scheme →
+                </button>
             </div>
             </div>
         </div>
@@ -589,7 +560,48 @@
                 </p>
 
             <div class="design-grid">
-                <!-- Color Option 1: Gray Building Match -->
+                <!-- Color Option 4: Official Black Background -->
+                <div class="design-card official" data-step="color" data-option="color4">
+                    <div class="official-badge">Official Building Standard</div>
+                    <div class="design-header">
+                        <div class="design-title">Black Background (Exterior)</div>
+                        <div class="design-subtitle">Matches existing building standards</div>
+                    </div>
+                    <div class="design-preview">
+                        <div class="sign-mockup" style="background: #000000; color: white; border: none;">
+                            <div style="font-size: 48px; font-weight: 400; letter-spacing: 2px; margin-bottom: 40px;">Parcel/Package Delivery</div>
+                            <div style="margin: 40px 0;">
+                                <svg width="400" height="120" viewBox="0 0 400 120">
+                                    <polygon points="0,60 300,60 300,30 400,75 300,120 300,90 0,90" fill="white"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="design-details">
+                        <div class="detail-row">
+                            <span class="detail-label">Tone</span>
+                            <span class="detail-value">Official, Professional</span>
+                        </div>
+                        <div class="pros-cons-container">
+                            <div class="pros-list">
+                                <h4>Pros</h4>
+                                <ul>
+                                    <li>Matches existing exterior signage perfectly</li>
+                                    <li>High contrast for excellent readability</li>
+                                    <li>Professional, official appearance</li>
+                                </ul>
+                            </div>
+                            <div class="cons-list">
+                                <h4>Cons</h4>
+                                <ul>
+                                    <li>May be less visible in low light without reflective material</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+<!-- Color Option 1: Gray Building Match -->
                 <div class="design-card" data-step="color" data-option="color1">
                     <div class="design-header">
                         <div class="design-title">Gray Building Match</div>
@@ -606,14 +618,6 @@
                         </div>
                     </div>
                     <div class="design-details">
-                        <div class="detail-row">
-                            <span class="detail-label">Background</span>
-                            <span class="detail-value">Medium Gray (#5A5A5A)</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Border</span>
-                            <span class="detail-value">Light Gray (#E0E0E0)</span>
-                        </div>
                         <div class="detail-row">
                             <span class="detail-label">Tone</span>
                             <span class="detail-value">Neutral, Architectural</span>
@@ -638,7 +642,7 @@
                     </div>
                 </div>
 
-                <!-- Color Option 2: Black Minimal -->
+<!-- Color Option 2: Black Minimal -->
                 <div class="design-card" data-step="color" data-option="color2">
                     <div class="design-header">
                         <div class="design-title">Black Minimal</div>
@@ -655,14 +659,6 @@
                         </div>
                     </div>
                     <div class="design-details">
-                        <div class="detail-row">
-                            <span class="detail-label">Background</span>
-                            <span class="detail-value">Dark Charcoal (#1A1A1A)</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Border</span>
-                            <span class="detail-value">White (#FFFFFF)</span>
-                        </div>
                         <div class="detail-row">
                             <span class="detail-label">Tone</span>
                             <span class="detail-value">Modern, Sophisticated</span>
@@ -687,7 +683,7 @@
                     </div>
                 </div>
 
-                <!-- Color Option 3: Black with Yellow Border -->
+<!-- Color Option 3: Black with Yellow Border -->
                 <div class="design-card" data-step="color" data-option="color3">
                     <div class="design-header">
                         <div class="design-title">Black with Yellow Border</div>
@@ -703,14 +699,6 @@
                         </div>
                     </div>
                     <div class="design-details">
-                        <div class="detail-row">
-                            <span class="detail-label">Background</span>
-                            <span class="detail-value">Black (#1A1A1A)</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Border</span>
-                            <span class="detail-value">Safety Yellow (#FFCC00)</span>
-                        </div>
                         <div class="detail-row">
                             <span class="detail-label">Tone</span>
                             <span class="detail-value">High Visibility</span>
@@ -735,111 +723,14 @@
                     </div>
                 </div>
 
-                <!-- Color Option 4: Official Black Background -->
-                <div class="design-card official" data-step="color" data-option="color4">
-                    <div class="official-badge">Official Building Standard</div>
-                    <div class="design-header">
-                        <div class="design-title">Black Background (Exterior)</div>
-                        <div class="design-subtitle">Matches existing building standards</div>
-                    </div>
-                    <div class="design-preview">
-                        <div class="sign-mockup" style="background: #000000; color: white; border: none;">
-                            <div style="font-size: 48px; font-weight: 400; letter-spacing: 2px; margin-bottom: 40px;">Parcel/Package Delivery</div>
-                            <div style="margin: 40px 0;">
-                                <svg width="400" height="120" viewBox="0 0 400 120">
-                                    <polygon points="0,60 300,60 300,30 400,75 300,120 300,90 0,90" fill="white"/>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="design-details">
-                        <div class="detail-row">
-                            <span class="detail-label">Background</span>
-                            <span class="detail-value">Pure Black (#000000)</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Text</span>
-                            <span class="detail-value">White (#FFFFFF)</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Tone</span>
-                            <span class="detail-value">Official, Professional</span>
-                        </div>
-                        <div class="pros-cons-container">
-                            <div class="pros-list">
-                                <h4>Pros</h4>
-                                <ul>
-                                    <li>Matches existing exterior signage perfectly</li>
-                                    <li>High contrast for excellent readability</li>
-                                    <li>Professional, official appearance</li>
-                                </ul>
-                            </div>
-                            <div class="cons-list">
-                                <h4>Cons</h4>
-                                <ul>
-                                    <li>May be less visible in low light without reflective material</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Color Option 5: White Background -->
-                <div class="design-card official" data-step="color" data-option="color5">
-                    <div class="official-badge">Official Building Standard</div>
-                    <div class="design-header">
-                        <div class="design-title">White Background (Interior)</div>
-                        <div class="design-subtitle">Matches interior building standards</div>
-                    </div>
-                    <div class="design-preview">
-                        <div class="sign-mockup" style="background: #FFFFFF; color: #000000; border: 3px solid #000;">
-                            <div class="sign-text-line">DO NOT USE INTERCOM</div>
-                            <div class="sign-text-line">FOR DELIVERIES</div>
-                            <div class="sign-arrow">→</div>
-                            <div class="sign-text-line" style="font-size: 24px; margin-top: 15px;">USE EXTERIOR SIDE DOOR</div>
-                        </div>
-                    </div>
-                    <div class="design-details">
-                        <div class="detail-row">
-                            <span class="detail-label">Background</span>
-                            <span class="detail-value">White (#FFFFFF)</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Text/Border</span>
-                            <span class="detail-value">Black (#000000)</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Tone</span>
-                            <span class="detail-value">Clean, Professional</span>
-                        </div>
-                        <div class="pros-cons-container">
-                            <div class="pros-list">
-                                <h4>Pros</h4>
-                                <ul>
-                                    <li>Matches interior signage standards</li>
-                                    <li>Clean, professional appearance</li>
-                                    <li>High visibility in all lighting</li>
-                                </ul>
-                            </div>
-                            <div class="cons-list">
-                                <h4>Cons</h4>
-                                <ul>
-                                    <li>May show dirt more easily outdoors</li>
-                                    <li>Requires regular cleaning</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Color Option 6: Navy Professional -->
+<!-- Color Option 6: Brushed Metal Aluminum Premium -->
                 <div class="design-card" data-step="color" data-option="color6">
                     <div class="design-header">
-                        <div class="design-title">Navy Professional</div>
-                        <div class="design-subtitle">Professional, sophisticated appearance</div>
+                        <div class="design-title">Brushed Metal - Aluminum Premium</div>
+                        <div class="design-subtitle">Optimized for aluminum material, industrial premium finish</div>
                     </div>
                     <div class="design-preview">
-                        <div class="sign-mockup" style="background: #1e3a5f; color: white; border: none;">
+                        <div class="sign-mockup" style="background: linear-gradient(135deg, #b8bfc6 0%, #8a9199 25%, #bcc3ca 50%, #8a9199 75%, #b8bfc6 100%); color: #1a1a1a; border: 2px solid #7f8c8d; box-shadow: inset 0 1px 3px rgba(255,255,255,0.5), inset 0 -1px 3px rgba(0,0,0,0.2);">
                             <div class="sign-text-line">DO NOT USE INTERCOM</div>
                             <div class="sign-text-line">FOR DELIVERIES</div>
                             <div class="sign-arrow">→</div>
@@ -848,84 +739,49 @@
                     </div>
                     <div class="design-details">
                         <div class="detail-row">
-                            <span class="detail-label">Background</span>
-                            <span class="detail-value">Deep Navy (#1e3a5f)</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Text</span>
-                            <span class="detail-value">White (#FFFFFF)</span>
-                        </div>
-                        <div class="detail-row">
                             <span class="detail-label">Tone</span>
-                            <span class="detail-value">Professional, Modern</span>
+                            <span class="detail-value">Industrial Premium, Metallic</span>
                         </div>
                         <div class="pros-cons-container">
                             <div class="pros-list">
                                 <h4>Pros</h4>
                                 <ul>
-                                    <li>Professional, sophisticated appearance</li>
-                                    <li>High contrast visibility</li>
-                                    <li>Modern alternative to black</li>
+                                    <li>Specifically optimized for aluminum substrate</li>
+                                    <li>Premium brushed metal aesthetic</li>
+                                    <li>Unique, distinctive appearance</li>
+                                    <li>Subtle metallic sheen adds sophistication</li>
+                                    <li>High-end commercial look</li>
                                 </ul>
                             </div>
                             <div class="cons-list">
                                 <h4>Cons</h4>
                                 <ul>
-                                    <li>Not an official building standard</li>
-                                    <li>May not match existing signage</li>
+                                    <li>Best suited for aluminum material only</li>
+                                    <li>May not match existing building signage</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Color Option 7: Safety Yellow -->
-                <div class="design-card" data-step="color" data-option="color7">
-                    <div class="design-header">
-                        <div class="design-title">Safety Yellow</div>
-                        <div class="design-subtitle">Maximum visibility day and night</div>
-                    </div>
-                    <div class="design-preview">
-                        <div class="sign-mockup" style="background: #FFCC00; color: #000000; border: 4px solid #000;">
-                            <div class="sign-text-line">DO NOT USE INTERCOM</div>
-                            <div class="sign-text-line">FOR DELIVERIES</div>
-                            <div class="sign-arrow">→</div>
-                            <div class="sign-text-line" style="font-size: 24px; margin-top: 15px;">USE EXTERIOR SIDE DOOR</div>
-                        </div>
-                    </div>
-                    <div class="design-details">
-                        <div class="detail-row">
-                            <span class="detail-label">Background</span>
-                            <span class="detail-value">Safety Yellow (#FFCC00)</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Text/Border</span>
-                            <span class="detail-value">Black (#000000)</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Tone</span>
-                            <span class="detail-value">High Visibility, Warning</span>
-                        </div>
-                        <div class="pros-cons-container">
-                            <div class="pros-list">
-                                <h4>Pros</h4>
-                                <ul>
-                                    <li>Maximum visibility day and night</li>
-                                    <li>Universally recognized warning color</li>
-                                    <li>Extremely attention-grabbing</li>
-                                </ul>
-                            </div>
-                            <div class="cons-list">
-                                <h4>Cons</h4>
-                                <ul>
-                                    <li>May feel too industrial/construction-like</li>
-                                    <li>Not subtle, very bold</li>
-                                    <li>Yellow may fade faster outdoors</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            </div>
+
+            <!-- Next Step Button -->
+            <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 2px solid #e5e7eb;">
+                <button class="next-step-btn" data-current="color" style="
+                    background: #2c5aa0;
+                    color: white;
+                    border: none;
+                    padding: 15px 40px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 2px 8px rgba(44, 90, 160, 0.3);
+                " onmouseover="this.style.background='#1e3a5f'" onmouseout="this.style.background='#2c5aa0'">
+                    Continue to Step 3: Material →
+                </button>
             </div>
             </div>
         </div>
@@ -934,13 +790,20 @@
         <div class="section">
             <div class="accordion-header" data-section="step3">
                 <span class="step-badge">Step 3 of 4</span>
-                <h2>Select Material (Primary Sign Only)</h2>
+                <h2>Select Material</h2>
                 <span class="accordion-toggle expanded">+</span>
             </div>
             <div class="accordion-content" id="step3-content">
                 <p style="margin-bottom: 25px; color: #666; font-size: 15px;">
-                    Choose the material for the primary sign above the intercom. Material affects durability, appearance, and cost.
+                    Choose the material for all signs. Material affects durability, appearance, and cost. All signs will use the same material.
                 </p>
+
+                <div style="background: #eff6ff; border-left: 4px solid #2563eb; padding: 15px; margin-bottom: 25px; border-radius: 4px;">
+                    <p style="color: #1e40af; font-size: 14px; line-height: 1.6;">
+                        <strong>Recommended Size:</strong> 18" x 24" for all signs (consistent, professional appearance)<br>
+                        <strong>Pricing:</strong> Cost estimates shown below are per sign. Total cost will depend on number of additional signs selected in Step 4.
+                    </p>
+                </div>
 
             <div class="design-grid">
                 <!-- Material Option 1: Aluminum -->
@@ -975,6 +838,14 @@
                                 <div class="spec-row">
                                     <span class="spec-label">Installation</span>
                                     <span class="spec-value">Drill-mounted or adhesive</span>
+                                </div>
+                                <div class="spec-row" style="border-top: 2px solid #e5e7eb; margin-top: 15px; padding-top: 15px;">
+                                    <span class="spec-label" style="font-weight: 700; font-size: 16px;">Size</span>
+                                    <span class="spec-value" style="font-weight: 700;">18" x 24"</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-label" style="font-weight: 700; font-size: 16px;">Price Per Sign</span>
+                                    <span class="spec-value" style="font-weight: 700; color: #16a34a; font-size: 18px;">$60-75</span>
                                 </div>
                             </div>
                         </div>
@@ -1035,6 +906,18 @@
                                     <span class="spec-label">Installation</span>
                                     <span class="spec-value">Adhesive or lightweight mounting</span>
                                 </div>
+                                <div class="spec-row" style="border-top: 2px solid #e5e7eb; margin-top: 15px; padding-top: 15px;">
+                                    <span class="spec-label" style="font-weight: 700; font-size: 16px;">Size</span>
+                                    <span class="spec-value" style="font-weight: 700;">18" x 24"</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-label" style="font-weight: 700; font-size: 16px;">Price Per Sign</span>
+                                    <span class="spec-value" style="font-weight: 700; color: #16a34a; font-size: 18px;">~$80-90</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-label" style="font-size: 13px; color: #666;">Based on FastSigns pricing</span>
+                                    <span class="spec-value" style="font-size: 13px; color: #666;">($35 for 8"x10" scaled up)</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1094,6 +977,14 @@
                                 <div class="spec-row">
                                     <span class="spec-label">Installation</span>
                                     <span class="spec-value">Self-adhesive (apply to surface)</span>
+                                </div>
+                                <div class="spec-row" style="border-top: 2px solid #e5e7eb; margin-top: 15px; padding-top: 15px;">
+                                    <span class="spec-label" style="font-weight: 700; font-size: 16px;">Size</span>
+                                    <span class="spec-value" style="font-weight: 700;">18" x 24"</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-label" style="font-weight: 700; font-size: 16px;">Price Per Sign</span>
+                                    <span class="spec-value" style="font-weight: 700; color: #16a34a; font-size: 18px;">$25-40</span>
                                 </div>
                             </div>
                         </div>
@@ -1190,256 +1081,205 @@
                     <strong>Aluminum with reflective vinyl</strong> is the industry standard for outdoor signage and offers the best balance of durability, visibility, and professional appearance. For a ~$230 budget, aluminum is the recommended choice.
                 </p>
             </div>
+
+            <!-- Next Step Button -->
+            <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 2px solid #e5e7eb;">
+                <button class="next-step-btn" data-current="material" style="
+                    background: #2c5aa0;
+                    color: white;
+                    border: none;
+                    padding: 15px 40px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 2px 8px rgba(44, 90, 160, 0.3);
+                " onmouseover="this.style.background='#1e3a5f'" onmouseout="this.style.background='#2c5aa0'">
+                    Continue to Step 4: Arrows →
+                </button>
+            </div>
             </div>
         </div>
 
-        <!-- STEP 4: Wayfinding Arrows -->
+        <!-- STEP 4: Additional Signage -->
         <div class="section">
             <div class="accordion-header" data-section="step4">
                 <span class="step-badge">Step 4 of 4</span>
-                <h2>Select Wayfinding Arrow System (Optional)</h2>
+                <h2>Select Additional Signs (Optional - Check All That Apply)</h2>
                 <span class="accordion-toggle expanded">+</span>
             </div>
             <div class="accordion-content" id="step4-content">
                 <p style="margin-bottom: 25px; color: #666; font-size: 15px;">
-                    Add directional arrow signs to guide drivers from the intercom to the package room door. Choose how many arrows and where to place them.
+                    Add additional directional signs beyond the primary intercom sign. Select all locations where you want signs installed.
                 </p>
 
-            <div class="design-grid">
-                <!-- Arrow Option 1: No Additional Arrows -->
-                <div class="design-card" data-step="arrows" data-option="arrows1">
-                    <div class="design-header" style="background: #6B7280;">
-                        <div class="design-title">Option 1: Primary Sign Only</div>
-                        <div class="design-subtitle">No additional wayfinding arrows</div>
-                    </div>
-                    <div class="design-preview" style="background: #f0f0f0;">
-                        <div style="text-align: center; padding: 40px;">
-                            <div style="font-size: 48px; margin-bottom: 20px;"></div>
-                            <h3 style="margin-bottom: 15px; color: #1A1A1A;">Single Sign Above Intercom</h3>
-                            <p style="color: #666; line-height: 1.6;">
-                                Just the primary sign with clear text and arrow. Drivers must find the side door themselves after reading the sign.
-                            </p>
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+                <!-- Sign 1: Above Intercom (Always included, shown as reference) -->
+                <div style="background: #f0fdf4; border: 2px solid #22c55e; border-radius: 8px; padding: 25px;">
+                    <div style="display: flex; align-items: flex-start; gap: 15px;">
+                        <div style="flex-shrink: 0; margin-top: 5px;">
+                            <div style="width: 28px; height: 28px; background: #22c55e; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 18px;">✓</div>
                         </div>
-                    </div>
-                    <div class="design-details">
-                        <div class="detail-row">
-                            <span class="detail-label">Number of Signs</span>
-                            <span class="detail-value">1 (primary sign only)</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Estimated Cost</span>
-                            <span class="detail-value">~$85-120</span>
-                        </div>
-                        <div class="pros-cons-container">
-                            <div class="pros-list">
-                                <h4>Pros</h4>
-                                <ul>
-                                    <li>Lowest cost option</li>
-                                    <li>Minimal visual clutter</li>
-                                    <li>Simplest installation</li>
-                                </ul>
-                            </div>
-                            <div class="cons-list">
-                                <h4>Cons</h4>
-                                <ul>
-                                    <li>Drivers may still get confused finding side door</li>
-                                    <li>No visual guidance along the path</li>
-                                    <li>May not fully solve the problem</li>
-                                </ul>
+                        <div style="flex-grow: 1;">
+                            <h3 style="font-size: 20px; font-weight: 700; color: #16a34a; margin-bottom: 8px;">Sign 1: Above Intercom (Included)</h3>
+                            <p style="color: #166534; margin-bottom: 15px; font-size: 15px;">Primary sign using your selections from Steps 1-3. Always included in order.</p>
+                            <div style="background: white; padding: 20px; border-radius: 6px;">
+                                <p style="font-weight: 600; color: #1A1A1A; margin-bottom: 8px;">Location: Above building intercom</p>
+                                <p style="color: #666; font-size: 14px; line-height: 1.6;">Uses the text, color scheme, and material you selected in previous steps.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Arrow Option 2: 3-Arrow System -->
-                <div class="design-card" data-step="arrows" data-option="arrows2">
-                    <div class="design-header" style="background: #6B7280;">
-                        <div class="design-title">Option 2: 3-Arrow Wayfinding System (Recommended)</div>
-                        <div class="design-subtitle">Complete path guidance</div>
-                    </div>
-                    <div class="design-preview" style="background: #f0f0f0;">
-                        <div style="text-align: left; padding: 30px;">
-                            <h3 style="margin-bottom: 20px; color: #1A1A1A;">Complete Wayfinding Solution</h3>
-                            <div style="background: white; padding: 20px; border-radius: 4px; margin-bottom: 20px;">
-                                <p style="color: #1A1A1A; font-weight: 600; margin-bottom: 10px;">Arrow 1: Exit Point</p>
-                                <p style="color: #666; font-size: 14px;">Placed near lobby exit, points left toward exterior path</p>
-                            </div>
-                            <div style="background: white; padding: 20px; border-radius: 4px; margin-bottom: 20px;">
-                                <p style="color: #1A1A1A; font-weight: 600; margin-bottom: 10px;">Arrow 2: Corner Turn</p>
-                                <p style="color: #666; font-size: 14px;">At building corner, guides drivers around corner to left</p>
-                            </div>
-                            <div style="background: white; padding: 20px; border-radius: 4px;">
-                                <p style="color: #1A1A1A; font-weight: 600; margin-bottom: 10px;">Arrow 3: Final Destination</p>
-                                <p style="color: #666; font-size: 14px;">At package room door with "Deliveries" label</p>
+                <!-- Sign 2: Corner Sign (Checkbox) -->
+                <label style="background: #fafafa; border: 2px solid #ddd; border-radius: 8px; padding: 25px; cursor: pointer; display: block; transition: all 0.3s ease;">
+                    <div style="display: flex; align-items: flex-start; gap: 15px;">
+                        <input type="checkbox" class="sign-checkbox" data-sign="sign2" checked style="width: 24px; height: 24px; margin-top: 5px; cursor: pointer;">
+                        <div style="flex-grow: 1;">
+                            <h3 style="font-size: 18px; font-weight: 700; color: #1A1A1A; margin-bottom: 8px;">Sign 2: Corner Sign</h3>
+                            <p style="color: #666; margin-bottom: 15px; font-size: 14px;">Directs drivers from intercom area around corner to package room</p>
+                            <div style="background: white; padding: 15px; border-radius: 6px; border: 1px solid #e5e7eb;">
+                                <p style="font-weight: 600; color: #1A1A1A; margin-bottom: 8px;">Text Content:</p>
+                                <div style="background: #000; color: white; padding: 20px; text-align: center; border-radius: 4px;">
+                                    <div style="font-size: 24px; font-weight: 700;">PACKAGE ROOM</div>
+                                    <div style="font-size: 22px; margin: 10px 0;">AMAZON DELIVERIES</div>
+                                    <div style="font-size: 60px; margin: 15px 0;">→</div>
+                                    <div style="font-size: 20px;">AROUND CORNER</div>
+                                </div>
+                                <p style="color: #666; font-size: 13px; margin-top: 12px;"><strong>Location:</strong> At building corner adjacent to intercom</p>
                             </div>
                         </div>
                     </div>
-                    <div class="design-details">
-                        <div class="detail-row">
-                            <span class="detail-label">Number of Signs</span>
-                            <span class="detail-value">4 total (1 primary + 3 arrows)</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Estimated Cost</span>
-                            <span class="detail-value">~$185-230</span>
-                        </div>
-                        <div class="pros-cons-container">
-                            <div class="pros-list">
-                                <h4>Pros</h4>
-                                <ul>
-                                    <li>Complete guidance from intercom to door</li>
-                                    <li>Eliminates all confusion about path</li>
-                                    <li>Maximum effectiveness for problem-solving</li>
-                                    <li>Professional wayfinding system</li>
-                                </ul>
-                            </div>
-                            <div class="cons-list">
-                                <h4>Cons</h4>
-                                <ul>
-                                    <li>Higher total cost (~$230)</li>
-                                    <li>More signs to install and maintain</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </label>
 
-                <!-- Arrow Option 3: Ground Decals -->
-                <div class="design-card" data-step="arrows" data-option="arrows3">
-                    <div class="design-header" style="background: #6B7280;">
-                        <div class="design-title">Option 3: Ground Decal Path</div>
-                        <div class="design-subtitle">Floor-mounted directional arrows</div>
-                    </div>
-                    <div class="design-preview" style="background: #f0f0f0;">
-                        <div style="text-align: center; padding: 40px;">
-                            <div style="font-size: 64px; margin-bottom: 20px;">️</div>
-                            <h3 style="margin-bottom: 15px; color: #1A1A1A;">Non-Slip Floor Arrows</h3>
-                            <p style="color: #666; line-height: 1.6; margin-bottom: 20px;">
-                                Weather-resistant vinyl arrows applied to ground/walkway. Creates a visual path to follow.
-                            </p>
-                            <div style="background: white; padding: 15px; border-radius: 4px; display: inline-block;">
-                                <p style="color: #666; font-size: 13px; margin-bottom: 5px;">Placement:</p>
-                                <p style="color: #1A1A1A; font-weight: 600;">3-5 arrows from lobby to package door</p>
+                <!-- Sign 3: Long Stone Wall Sign (Checkbox) -->
+                <label style="background: #fafafa; border: 2px solid #ddd; border-radius: 8px; padding: 25px; cursor: pointer; display: block; transition: all 0.3s ease;">
+                    <div style="display: flex; align-items: flex-start; gap: 15px;">
+                        <input type="checkbox" class="sign-checkbox" data-sign="sign3" style="width: 24px; height: 24px; margin-top: 5px; cursor: pointer;">
+                        <div style="flex-grow: 1;">
+                            <h3 style="font-size: 18px; font-weight: 700; color: #1A1A1A; margin-bottom: 8px;">Sign 3: Long Stone Wall (Comprehensive)</h3>
+                            <p style="color: #666; margin-bottom: 15px; font-size: 14px;">Large wayfinding sign on long stone wall near fountain - arrow points right</p>
+                            <div style="background: white; padding: 15px; border-radius: 6px; border: 1px solid #e5e7eb;">
+                                <p style="font-weight: 600; color: #1A1A1A; margin-bottom: 8px;">Text Content:</p>
+                                <div style="background: #000; color: white; padding: 20px; text-align: center; border-radius: 4px;">
+                                    <div style="font-size: 24px; font-weight: 700;">PACKAGE ROOM</div>
+                                    <div style="font-size: 22px; margin: 10px 0;">AMAZON DELIVERIES</div>
+                                    <div style="font-size: 60px; margin: 15px 0;">→</div>
+                                    <div style="font-size: 20px;">USE EXTERIOR SIDE DOOR</div>
+                                </div>
+                                <p style="color: #666; font-size: 13px; margin-top: 12px;"><strong>Location:</strong> Long stone wall side, next to fountain area</p>
+                                <p style="color: #666; font-size: 13px;"><strong>Size:</strong> Larger format (spans wall length)</p>
                             </div>
                         </div>
                     </div>
-                    <div class="design-details">
-                        <div class="detail-row">
-                            <span class="detail-label">Number of Decals</span>
-                            <span class="detail-value">3-5 ground arrows</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Estimated Cost</span>
-                            <span class="detail-value">~$40-80 (add-on)</span>
-                        </div>
-                        <div class="pros-cons-container">
-                            <div class="pros-list">
-                                <h4>Pros</h4>
-                                <ul>
-                                    <li>Creates clear visual path to follow</li>
-                                    <li>Can complement wall-mounted signs</li>
-                                    <li>Eye-catching and unusual</li>
-                                </ul>
-                            </div>
-                            <div class="cons-list">
-                                <h4>Cons</h4>
-                                <ul>
-                                    <li>May wear out faster from foot traffic</li>
-                                    <li>Can collect dirt/debris</li>
-                                    <li>Drivers focused ahead may miss floor arrows</li>
-                                    <li>Requires surface suitable for adhesive</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </label>
 
-                <!-- Arrow Option 4: Single Directional Sign -->
-                <div class="design-card" data-step="arrows" data-option="arrows4">
-                    <div class="design-header" style="background: #6B7280;">
-                        <div class="design-title">Option 4: Single Wall Arrow</div>
-                        <div class="design-subtitle">One additional directional sign</div>
-                    </div>
-                    <div class="design-preview" style="background: #f0f0f0;">
-                        <div style="text-align: center; padding: 40px;">
-                            <div style="font-size: 72px; margin-bottom: 20px;">→</div>
-                            <h3 style="margin-bottom: 15px; color: #1A1A1A;">Single Directional Arrow</h3>
-                            <p style="color: #666; line-height: 1.6; margin-bottom: 20px;">
-                                One large arrow sign at the critical turning point (building corner)
-                            </p>
-                            <div style="background: white; padding: 15px; border-radius: 4px; display: inline-block;">
-                                <p style="color: #666; font-size: 13px; margin-bottom: 5px;">Placement:</p>
-                                <p style="color: #1A1A1A; font-weight: 600;">At building corner + package room door label</p>
+                <!-- Sign 4: Fairgate Side Sign (Checkbox) -->
+                <label style="background: #fafafa; border: 2px solid #ddd; border-radius: 8px; padding: 25px; cursor: pointer; display: block; transition: all 0.3s ease;">
+                    <div style="display: flex; align-items: flex-start; gap: 15px;">
+                        <input type="checkbox" class="sign-checkbox" data-sign="sign4" style="width: 24px; height: 24px; margin-top: 5px; cursor: pointer;">
+                        <div style="flex-grow: 1;">
+                            <h3 style="font-size: 18px; font-weight: 700; color: #1A1A1A; margin-bottom: 8px;">Sign 4: Package Room Corridor</h3>
+                            <p style="color: #666; margin-bottom: 15px; font-size: 14px;">Mirror of Sign 3 but arrow points left (into package room corridor)</p>
+                            <div style="background: white; padding: 15px; border-radius: 6px; border: 1px solid #e5e7eb;">
+                                <p style="font-weight: 600; color: #1A1A1A; margin-bottom: 8px;">Text Content:</p>
+                                <div style="background: #000; color: white; padding: 20px; text-align: center; border-radius: 4px;">
+                                    <div style="font-size: 28px; font-weight: 700; text-decoration: underline;">AMAZON DELIVERIES</div>
+                                    <div style="font-size: 70px; margin: 20px 0;">←</div>
+                                </div>
+                                <p style="color: #666; font-size: 13px; margin-top: 12px;"><strong>Location:</strong> Into package room corridor</p>
+                                <p style="color: #666; font-size: 13px;"><strong>Arrow Direction:</strong> Points left (opposite of Sign 3)</p>
                             </div>
                         </div>
                     </div>
-                    <div class="design-details">
-                        <div class="detail-row">
-                            <span class="detail-label">Number of Signs</span>
-                            <span class="detail-value">2-3 total (primary + 1-2 arrows)</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Estimated Cost</span>
-                            <span class="detail-value">~$125-160</span>
-                        </div>
-                        <div class="pros-cons-container">
-                            <div class="pros-list">
-                                <h4>Pros</h4>
-                                <ul>
-                                    <li>More affordable than full system</li>
-                                    <li>Focuses on critical turning point</li>
-                                    <li>Still provides guidance beyond primary sign</li>
-                                </ul>
-                            </div>
-                            <div class="cons-list">
-                                <h4>Cons</h4>
-                                <ul>
-                                    <li>Less comprehensive than 3-arrow system</li>
-                                    <li>Drivers may miss the turn point</li>
-                                    <li>Incomplete path guidance</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </label>
             </div>
 
-            <div style="margin-top: 30px; padding: 20px; background: #f9f9f9; border-left: 4px solid #2c5aa0; border-radius: 4px;">
-                <p style="font-weight: 600; margin-bottom: 10px; color: #1A1A1A;">Recommendation:</p>
-                <p style="color: #666; line-height: 1.6;">
-                    <strong>3-Arrow Wayfinding System (Option 2)</strong> provides the most comprehensive solution for ~$230 total. This ensures drivers can't get lost between the intercom and package room door, maximizing the effectiveness of your investment.
-                </p>
+            <!-- Next Step Button -->
+            <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 2px solid #e5e7eb;">
+                <button class="next-step-btn" data-current="arrows" style="
+                    background: #22c55e;
+                    color: white;
+                    border: none;
+                    padding: 15px 40px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 2px 8px rgba(34, 197, 94, 0.3);
+                " onmouseover="this.style.background='#16a34a'" onmouseout="this.style.background='#22c55e'">
+                    Continue to Checkout →
+                </button>
             </div>
             </div>
         </div>
-
-        <!-- Next Steps -->
-        <div class="section">
-            <div class="accordion-header" data-section="nextsteps">
-                <h2>Next Steps</h2>
+        <!-- Checkout / Submit Order -->
+        <div class="section" id="checkout-section" style="margin-top: 40px;">
+            <div class="accordion-header" data-section="checkout">
+                <h2>Submit Your Selections</h2>
                 <span class="accordion-toggle expanded">+</span>
             </div>
-            <div class="accordion-content" id="nextsteps-content">
-            <div style="line-height: 1.8; color: #333;">
-                <p style="margin-bottom: 15px;"><strong>1. Review Selections:</strong> Go through each step above and note your preferences</p>
-                <p style="margin-bottom: 15px;"><strong>2. Board Approval:</strong> Present selections to board with total budget (~$230 for complete system)</p>
-                <p style="margin-bottom: 15px;"><strong>3. Vendor Quote:</strong> Send specifications to Quick Fast Signs with your selected options</p>
-                <p style="margin-bottom: 15px;"><strong>4. Production:</strong> Vendor produces signs (5-7 business days)</p>
-                <p style="margin-bottom: 15px;"><strong>5. Installation:</strong> Install signs and begin tracking delivery call reduction</p>
-            </div>
+            <div class="accordion-content" id="checkout-content">
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <!-- Selection Summary -->
+                    <div id="selection-summary" style="background: #f8fafc; padding: 25px; border-radius: 8px; margin-bottom: 25px; border: 2px solid #e2e8f0;">
+                        <h3 style="margin-bottom: 20px; color: #1e293b; font-size: 20px;">Your Selections</h3>
+                        <div id="summary-content" style="line-height: 2;">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
 
-            <div style="margin-top: 30px; padding: 25px; background: #f0fdf4; border-radius: 8px; border: 2px solid #22c55e;">
-                <h3 style="color: #16a34a; margin-bottom: 15px; font-size: 18px;">Recommended Configuration</h3>
-                <div style="background: white; padding: 20px; border-radius: 4px; margin-bottom: 15px;">
-                    <p style="color: #666; margin-bottom: 8px;"><strong>Step 1 - Text:</strong> Option 2 (Do Not Use Intercom) or Option 1 (Parcel/Package Delivery)</p>
-                    <p style="color: #666; margin-bottom: 8px;"><strong>Step 2 - Color:</strong> Gray Building Match or Official Black Background</p>
-                    <p style="color: #666; margin-bottom: 8px;"><strong>Step 3 - Material:</strong> Aluminum with reflective vinyl</p>
-                    <p style="color: #666;"><strong>Step 4 - Arrows:</strong> 3-Arrow Wayfinding System</p>
+                    <!-- Submit Button -->
+                    <div style="text-align: center;">
+                        <button type="button" id="submit-order-btn" onclick="submitOrder()" style="
+                            background: #22c55e;
+                            color: white;
+                            border: none;
+                            padding: 18px 40px;
+                            font-size: 18px;
+                            font-weight: 700;
+                            border-radius: 8px;
+                            cursor: pointer;
+                            box-shadow: 0 4px 6px rgba(34, 197, 94, 0.3);
+                            transition: all 0.3s ease;
+                        " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 8px rgba(34, 197, 94, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(34, 197, 94, 0.3)'">
+                            Submit Order Request
+                        </button>
+                        <p style="margin-top: 15px; color: #64748b; font-size: 14px;">This will send your selections to Project Manager, David Ta</p>
+                    </div>
+
+                    <!-- Confirmation Message (hidden initially) -->
+                    <div id="confirmation-message" style="display: none; background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); border: 3px solid #3b82f6; padding: 35px; border-radius: 12px; margin-top: 30px; text-align: left; box-shadow: 0 8px 16px rgba(59, 130, 246, 0.3);">
+                        <div style="text-align: center; font-size: 48px; margin-bottom: 15px;">📧</div>
+                        <h3 style="color: #1e40af; margin-bottom: 15px; font-size: 24px; font-weight: 700; text-align: center;">Email Your Selections</h3>
+
+                        <!-- Instructions -->
+                        <div style="background: #eff6ff; border: 2px solid #60a5fa; border-radius: 8px; padding: 20px; margin-bottom: 20px;">
+                            <h4 style="color: #1e40af; margin-bottom: 12px; font-size: 16px; font-weight: 700;">How to Submit:</h4>
+                            <ol style="color: #1e3a8a; font-size: 14px; line-height: 1.8; margin-left: 20px; padding-left: 0;">
+                                <li style="margin-bottom: 8px;">Click the <strong>"Copy to Clipboard"</strong> button below</li>
+                                <li style="margin-bottom: 8px;">Open your email (Gmail, Outlook, etc.) or text message app</li>
+                                <li style="margin-bottom: 8px;">Create a new message to: <strong style="color: #3b82f6;">100mainhm@gmail.com</strong></li>
+                                <li style="margin-bottom: 8px;">Paste the copied content (Cmd+V or Ctrl+V)</li>
+                                <li>Send the message!</li>
+                            </ol>
+                        </div>
+
+                        <div style="background: white; border: 2px solid #3b82f6; border-radius: 8px; padding: 20px; margin-bottom: 20px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                <strong style="color: #1e40af;">Your Selection Details:</strong>
+                                <button onclick="copyEmailContent()" style="background: #3b82f6; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 600; box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3); transition: all 0.2s;" onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 4px 6px rgba(59, 130, 246, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 4px rgba(59, 130, 246, 0.3)'">
+                                    📋 Copy to Clipboard
+                                </button>
+                            </div>
+                            <textarea id="email-content" readonly style="width: 100%; min-height: 250px; padding: 15px; border: 1px solid #cbd5e1; border-radius: 6px; font-family: monospace; font-size: 13px; line-height: 1.6; resize: vertical;"></textarea>
+                        </div>
+
+                        <p style="color: #3b82f6; font-size: 12px; text-align: center;">Timestamp: <span id="submission-time"></span></p>
+                    </div>
                 </div>
-                <p style="color: #666; font-size: 14px; font-style: italic;">
-                    This configuration provides maximum effectiveness while matching building aesthetics. Total estimated cost: ~$230
-                </p>
-            </div>
             </div>
         </div>
 
@@ -1463,48 +1303,40 @@
         // Text content templates
         const textTemplates = {
             text2: {
-                type: 'detailed',
+                type: 'underlined',
                 lines: [
-                    'DO NOT USE INTERCOM',
-                    'FOR PACKAGE DELIVERIES',
+                    { text: 'DO NOT USE INTERCOM', underline: true },
+                    { text: 'AMAZON DELIVERIES', underline: false },
                     { text: '→', isArrow: true },
-                    'USE EXTERIOR SIDE DOOR'
+                    { text: 'USE EXTERIOR SIDE DOOR', underline: false }
                 ]
             },
             text3: {
                 type: 'amazon-deliveries',
                 lines: [
-                    { text: 'FOR AMAZON DELIVERIES', size: '32px', weight: '600', margin: '15px' },
+                    { text: 'AMAZON DELIVERIES', size: '32px', weight: '600', margin: '15px', underline: true },
                     { text: 'DO NOT USE INTERCOM', size: '28px', weight: '400', margin: '20px' },
                     { text: '→', isArrow: true },
-                    { text: 'USE SIDE ENTRANCE', size: '24px', weight: '400', margin: '0' }
-                ]
-            },
-            text4: {
-                type: 'underlined',
-                lines: [
-                    { text: 'DO NOT USE INTERCOM', underline: true },
-                    { text: 'FOR DELIVERIES', underline: false },
-                    { text: '→', isArrow: true },
-                    { text: 'USE EXTERIOR SIDE DOOR', underline: false }
+                    { text: 'USE EXTERIOR SIDE DOOR', size: '24px', weight: '400', margin: '0' }
                 ]
             },
             text5: {
-                type: 'amazon-simple',
+                type: 'full-details',
                 lines: [
-                    { text: 'AMAZON', size: '48px', weight: '700', margin: '30px' },
-                    { text: 'NO INTERCOM', size: '32px', weight: '400', margin: '20px' },
+                    { text: 'DO NOT USE INTERCOM', boxed: true, underlineWords: 'DO NOT' },
+                    'FOR PACKAGE DELIVERIES',
                     { text: '→', isArrow: true },
-                    { text: 'SIDE DOOR', size: '24px', weight: '400', margin: '0' }
+                    'USE EXTERIOR SIDE DOOR'
                 ]
             },
             text6: {
                 type: 'amazon-optimized',
                 lines: [
                     { text: 'AMAZON', size: '40px', weight: '700', margin: '15px' },
-                    { text: 'DO NOT USE INTERCOM', size: '26px', weight: '400', margin: '15px' },
+                    { text: 'DO NOT USE INTERCOM', size: '26px', weight: '400', margin: '15px', underlineWords: 'DO NOT' },
                     { text: '→', isArrow: true },
-                    { text: 'PACKAGE ROOM THIS WAY', size: '28px', weight: '400', margin: '0' }
+                    { text: 'PACKAGE ROOM ENTRANCE', size: '24px', weight: '400', margin: '10px' },
+                    { text: 'AROUND CORNER', size: '24px', weight: '400', margin: '5px' }
                 ]
             }
         };
@@ -1516,23 +1348,73 @@
             color3: { bg: '#1A1A1A', text: 'white', border: '6px solid #FFCC00' },
             color4: { bg: '#000000', text: 'white', border: 'none' },
             color5: { bg: '#FFFFFF', text: '#000000', border: '3px solid #000' },
-            color6: { bg: '#1e3a5f', text: 'white', border: 'none' },
+            color6: { bg: 'linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #2c3e50 100%)', text: 'white', border: '2px solid #7f8c8d' },
             color7: { bg: '#FFCC00', text: '#000000', border: '4px solid #000' }
         };
 
         document.addEventListener('DOMContentLoaded', function() {
-            // Load saved selections
-            loadSelections();
-
             // Accordion functionality
             setupAccordion();
 
             // Selection functionality
             setupSelections();
 
-            // Initial preview update
-            updateAllPreviews();
+            // Setup checkout
+            setupCheckout();
+
+            // Initialize: Only Step 1 open, rest collapsed
+            initializeSteps();
+
+            // Auto-select first option in Step 1
+            const firstTextOption = document.querySelector('.design-card[data-step="text"]');
+            if (firstTextOption) {
+                firstTextOption.click();
+            }
         });
+
+        function initializeSteps() {
+            // Close all steps except step1
+            const steps = ['step2', 'step3', 'step4', 'nextsteps', 'checkout'];
+            steps.forEach(stepId => {
+                const content = document.getElementById(`${stepId}-content`);
+                const header = document.querySelector(`[data-section="${stepId}"]`);
+                const toggle = header?.querySelector('.accordion-toggle');
+
+                if (content) {
+                    content.classList.add('collapsed');
+                }
+                if (toggle) {
+                    toggle.classList.remove('expanded');
+                    toggle.classList.add('collapsed');
+                }
+            });
+
+            // Ensure step1 is open
+            const step1Content = document.getElementById('step1-content');
+            const step1Header = document.querySelector('[data-section="step1"]');
+            const step1Toggle = step1Header?.querySelector('.accordion-toggle');
+
+            if (step1Content) {
+                step1Content.classList.remove('collapsed');
+            }
+            if (step1Toggle) {
+                step1Toggle.classList.remove('collapsed');
+                step1Toggle.classList.add('expanded');
+            }
+
+            // Setup Next Step buttons
+            setupNextStepButtons();
+        }
+
+        function setupNextStepButtons() {
+            const nextButtons = document.querySelectorAll('.next-step-btn');
+            nextButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const currentStep = this.getAttribute('data-current');
+                    advanceToNextStep(currentStep);
+                });
+            });
+        }
 
         function setupAccordion() {
             const accordionHeaders = document.querySelectorAll('.accordion-header');
@@ -1551,6 +1433,11 @@
                     } else {
                         toggle.classList.remove('collapsed');
                         toggle.classList.add('expanded');
+
+                        // Update summary when checkout section opens
+                        if (sectionId === 'checkout') {
+                            setTimeout(updateSelectionSummary, 100);
+                        }
                     }
                 });
             });
@@ -1578,16 +1465,11 @@
                     // Update selection state
                     selections[step] = option;
 
-                    // Save to localStorage
-                    saveSelections();
-
                     // Update previews in subsequent steps
                     updateAllPreviews();
 
-                    // Auto-advance to next step
-                    setTimeout(() => {
-                        advanceToNextStep(step);
-                    }, 400); // Small delay for visual feedback
+                    // Update checkout summary
+                    updateSelectionSummary();
                 });
             });
         }
@@ -1606,7 +1488,7 @@
                 'text': 'color',
                 'color': 'material',
                 'material': 'arrows',
-                'arrows': 'nextsteps'
+                'arrows': 'checkout'
             };
 
             const nextStep = stepProgression[currentStep];
@@ -1614,7 +1496,7 @@
 
             // Get section IDs
             const currentSectionId = stepToSection[currentStep];
-            const nextSectionId = nextStep === 'nextsteps' ? 'nextsteps' : stepToSection[nextStep];
+            const nextSectionId = nextStep === 'checkout' ? 'checkout' : stepToSection[nextStep];
 
             // Collapse current step
             const currentContent = document.getElementById(`${currentSectionId}-content`);
@@ -1642,15 +1524,23 @@
                 nextToggle.classList.add('expanded');
             }
 
-            // Scroll to next step smoothly
+            // Scroll to next step - position at top
             if (nextHeader) {
                 setTimeout(() => {
-                    nextHeader.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start',
-                        inline: 'nearest'
-                    });
-                }, 100); // Small delay for collapse animation
+                    // Get the section element
+                    const section = nextHeader.closest('.section');
+                    if (section) {
+                        // Calculate position with some padding
+                        const yOffset = -20;
+                        const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+                        // Scroll to exact position
+                        window.scrollTo({
+                            top: y,
+                            behavior: 'smooth'
+                        });
+                    }
+                }, 450); // Delay for accordion animation
             }
         }
 
@@ -1700,12 +1590,24 @@
         }
 
         function generateTextContent(template) {
-            if (template.type === 'detailed') {
+            if (template.type === 'detailed' || template.type === 'full-details') {
                 return template.lines.map((line, idx) => {
                     // Check if line is an arrow object
                     if (typeof line === 'object' && line.isArrow) {
                         return `<div class="sign-arrow" style="font-size: 60px; font-weight: 700; margin: 25px 0; line-height: 1;">${line.text}</div>`;
                     }
+
+                    // Check if line is a boxed text object
+                    if (typeof line === 'object' && line.boxed) {
+                        let displayText = line.text;
+                        if (line.underlineWords) {
+                            displayText = displayText.replace(line.underlineWords, `<span style="text-decoration: underline;">${line.underlineWords}</span>`);
+                        }
+                        return `<div style="font-size: 28px; font-weight: 400; margin: 15px 0; line-height: 1.3; border: 3px solid white; padding: 10px; display: inline-block;">${displayText}</div>`;
+                    }
+
+                    // Handle string lines
+                    const lineText = typeof line === 'string' ? line : line.text;
 
                     // Regular text lines
                     let fontSize = '28px';
@@ -1713,15 +1615,15 @@
                     let margin = '15px 0';
 
                     if (idx === 0) { // First line (DO NOT USE INTERCOM)
-                        fontSize = '32px';
-                        fontWeight = '600';
-                    } else if (idx === 1) { // Second line (FOR DELIVERIES)
+                        fontSize = '28px';
+                        fontWeight = '400';
+                    } else if (idx === 1) { // Second line (FOR PACKAGE DELIVERIES)
                         fontSize = '28px';
                     } else if (idx > 2) { // Action line
                         fontSize = '24px';
                     }
 
-                    return `<div style="font-size: ${fontSize}; font-weight: ${fontWeight}; margin: ${margin}; line-height: 1.3;">${line}</div>`;
+                    return `<div style="font-size: ${fontSize}; font-weight: ${fontWeight}; margin: ${margin}; line-height: 1.3;">${lineText}</div>`;
                 }).join('');
             } else if (template.type === 'amazon-deliveries' || template.type === 'amazon-simple' || template.type === 'amazon-optimized') {
                 return template.lines.map(line => {
@@ -1730,7 +1632,15 @@
                         return `<div class="sign-arrow" style="font-size: 60px; font-weight: 700; margin: 25px 0; line-height: 1;">${line.text}</div>`;
                     }
                     const opacityStyle = line.opacity ? `opacity: ${line.opacity};` : '';
-                    return `<div style="font-size: ${line.size}; font-weight: ${line.weight}; margin: ${line.margin} 0; line-height: 1.3; ${opacityStyle}">${line.text}</div>`;
+                    const underlineStyle = line.underline ? 'text-decoration: underline; text-underline-offset: 8px;' : '';
+
+                    // Handle underlineWords (partial underline)
+                    let displayText = line.text;
+                    if (line.underlineWords) {
+                        displayText = displayText.replace(line.underlineWords, `<span style="text-decoration: underline;">${line.underlineWords}</span>`);
+                    }
+
+                    return `<div style="font-size: ${line.size}; font-weight: ${line.weight}; margin: ${line.margin} 0; line-height: 1.3; ${opacityStyle} ${underlineStyle}">${displayText}</div>`;
                 }).join('');
             } else if (template.type === 'underlined') {
                 return template.lines.map(line => {
@@ -1738,33 +1648,240 @@
                         return `<div class="sign-arrow" style="font-size: 60px; font-weight: 700; margin: 25px 0; line-height: 1;">${line.text}</div>`;
                     }
                     const underlineStyle = line.underline ? 'text-decoration: underline; text-underline-offset: 6px;' : '';
-                    const fontSize = line.underline ? '32px' : '24px';
-                    const fontWeight = line.underline ? '600' : '400';
+                    const fontSize = line.underline ? '28px' : '24px';
+                    const fontWeight = line.underline ? '700' : '400';
                     const margin = line.underline ? '10px 0' : '15px 0';
-                    return `<div style="font-size: ${fontSize}; font-weight: ${fontWeight}; ${underlineStyle} margin: ${margin}; line-height: 1.3;">${line.text}</div>`;
+
+                    // Handle underlineWords (partial underline)
+                    let displayText = line.text;
+                    if (line.underlineWords) {
+                        displayText = displayText.replace(line.underlineWords, `<span style="text-decoration: underline;">${line.underlineWords}</span>`);
+                    }
+
+                    return `<div style="font-size: ${fontSize}; font-weight: ${fontWeight}; ${underlineStyle} margin: ${margin}; line-height: 1.3;">${displayText}</div>`;
                 }).join('');
             }
         }
 
-        function saveSelections() {
-            localStorage.setItem('signageSelections', JSON.stringify(selections));
+        // Selections no longer saved - reset on page refresh
+
+        function setupCheckout() {
+            // Update summary when selections change
+            updateSelectionSummary();
+
+            // Setup submit button
+            const submitBtn = document.getElementById('submit-order-btn');
+            if (submitBtn) {
+                console.log('Submit button found, attaching click listener');
+                submitBtn.addEventListener('click', submitOrder);
+            } else {
+                console.error('Submit button not found!');
+            }
+
+            // Add event listeners to checkboxes to update summary when changed
+            const checkboxes = document.querySelectorAll('.sign-checkbox');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', updateSelectionSummary);
+            });
         }
 
-        function loadSelections() {
-            const saved = localStorage.getItem('signageSelections');
-            if (saved) {
-                Object.assign(selections, JSON.parse(saved));
+        function updateSelectionSummary() {
+            const summaryContent = document.getElementById('summary-content');
+            if (!summaryContent) return;
 
-                // Apply selected class to saved selections
-                Object.keys(selections).forEach(step => {
-                    if (selections[step]) {
-                        const card = document.querySelector(`.design-card[data-step="${step}"][data-option="${selections[step]}"]`);
-                        if (card) {
-                            card.classList.add('selected');
-                        }
-                    }
-                });
+            const optionNames = {
+                text2: 'Option 1: Maximum Impact',
+                text3: 'Option 2: Amazon-First',
+                text5: 'Option 3: Visual Frame',
+                text6: 'Option 4: Complete Guidance',
+                color1: 'Gray Building Match',
+                color2: 'Dark Charcoal',
+                color3: 'Black with Yellow Border',
+                color4: 'Black Background (Exterior) - Official',
+                color6: 'Brushed Metal - Aluminum Premium',
+                material1: 'Aluminum (Recommended)',
+                material2: 'PVC/Plastic',
+                material3: 'Laminated Vinyl',
+                arrows1: '1-Arrow Minimum',
+                arrows2: '2-Arrow Enhanced',
+                arrows3: '3-Arrow Wayfinding System'
+            };
+
+            let html = '';
+
+            if (selections.text) {
+                html += `<p><strong>Text Option:</strong> ${optionNames[selections.text] || selections.text}</p>`;
+            } else {
+                html += `<p style="color: #94a3b8;"><strong>Text Option:</strong> Not selected</p>`;
             }
+
+            if (selections.color) {
+                html += `<p><strong>Color Scheme:</strong> ${optionNames[selections.color] || selections.color}</p>`;
+            } else {
+                html += `<p style="color: #94a3b8;"><strong>Color Scheme:</strong> Not selected</p>`;
+            }
+
+            if (selections.material) {
+                html += `<p><strong>Material:</strong> ${optionNames[selections.material] || selections.material}</p>`;
+            } else {
+                html += `<p style="color: #94a3b8;"><strong>Material:</strong> Not selected</p>`;
+            }
+
+            // Get checked additional signs
+            const checkedSigns = Array.from(document.querySelectorAll('.sign-checkbox:checked'));
+            const signNames = {
+                sign2: 'Corner Sign (Package Room/Amazon Deliveries → Around Corner)',
+                sign3: 'Long Stone Wall Sign (Package Room/Amazon Deliveries → Use Exterior Side Door)',
+                sign4: 'Package Room Corridor Sign (Amazon Deliveries ←)'
+            };
+
+            if (checkedSigns.length > 0) {
+                html += `<p><strong>Additional Signs:</strong></p><ul style="margin-left: 20px;">`;
+                checkedSigns.forEach(checkbox => {
+                    const signId = checkbox.getAttribute('data-sign');
+                    html += `<li>${signNames[signId] || signId}</li>`;
+                });
+                html += `</ul>`;
+            } else {
+                html += `<p><strong>Additional Signs:</strong> None (Primary sign only)</p>`;
+            }
+
+            summaryContent.innerHTML = html;
+        }
+
+        function submitOrder() {
+            console.log('submitOrder function called');
+            console.log('Current selections:', selections);
+
+            // Check if required selections are made (Step 4 is optional checkboxes)
+            const allSelected = selections.text && selections.color && selections.material;
+
+            if (!allSelected) {
+                alert('Please make selections in Steps 1-3 before submitting.');
+                return;
+            }
+
+            console.log('Validation passed, proceeding with submission...');
+
+            // Get checked additional signs from Step 4
+            const checkedSigns = Array.from(document.querySelectorAll('.sign-checkbox:checked'))
+                .map(cb => {
+                    const signNum = cb.getAttribute('data-sign');
+                    return optionsText['sign' + signNum.slice(-1)];
+                });
+
+            selections.additionalSigns = checkedSigns;
+
+            const additionalSignsList = checkedSigns.length > 0
+                ? checkedSigns.join(', ')
+                : 'None (Primary sign only)';
+
+            // Prepare submission data
+            const submissionData = {
+                wordingVerbiage: optionsText[selections.text],
+                colorScheme: optionsText[selections.color],
+                material: optionsText[selections.material],
+                additionalSigns: additionalSignsList,
+                timestamp: new Date().toLocaleString()
+            };
+
+            // Create email body
+            const subject = encodeURIComponent('100 & Main - Delivery Signage Order Request');
+            const emailBody = encodeURIComponent(`
+100 & Main - Delivery Signage Order Request
+============================================
+
+Wording/Verbiage: ${submissionData.wordingVerbiage}
+
+Color Scheme: ${submissionData.colorScheme}
+
+Material: ${submissionData.material}
+
+Additional Signs: ${submissionData.additionalSigns}
+
+Timestamp: ${submissionData.timestamp}
+
+Please review these selections and provide feedback.
+Thank you!
+            `);
+
+            // Try multiple methods to open email client
+            const mailtoLink = `mailto:100mainhm@gmail.com?subject=${subject}&body=${emailBody}`;
+
+            // Method 1: Create a temporary link and click it
+            const link = document.createElement('a');
+            link.href = mailtoLink;
+            link.target = '_blank';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            // Method 2: Also try window.location as backup
+            setTimeout(() => {
+                window.location.href = mailtoLink;
+            }, 100);
+
+            // Prepare email content for display
+            const emailContent = `Subject: 100 & Main - Delivery Signage Order Request
+
+To: 100mainhm@gmail.com
+
+---
+
+100 & Main - Delivery Signage Order Request
+============================================
+
+Wording/Verbiage: ${submissionData.wordingVerbiage}
+
+Color Scheme: ${submissionData.colorScheme}
+
+Material: ${submissionData.material}
+
+Additional Signs: ${submissionData.additionalSigns}
+
+Timestamp: ${submissionData.timestamp}
+
+Please review these selections and provide feedback.
+Thank you!`;
+
+            // Show confirmation message
+            setTimeout(() => {
+                document.getElementById('submission-time').textContent = submissionData.timestamp;
+                document.getElementById('email-content').value = emailContent;
+                document.getElementById('confirmation-message').style.display = 'block';
+
+                const submitBtn = document.getElementById('submit-order-btn');
+                submitBtn.textContent = 'Ready to Email ✓';
+                submitBtn.style.background = '#3b82f6';
+                submitBtn.disabled = true;
+                submitBtn.style.opacity = '1';
+                submitBtn.style.cursor = 'not-allowed';
+
+                document.getElementById('confirmation-message').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                console.log('Email content ready:', submissionData);
+            }, 500);
+        }
+
+        function copyEmailContent() {
+            const textarea = document.getElementById('email-content');
+            textarea.select();
+            document.execCommand('copy');
+
+            // Show feedback
+            const copyBtn = event.target;
+            const originalText = copyBtn.textContent;
+            copyBtn.textContent = 'Copied! ✓';
+            copyBtn.style.background = '#16a34a';
+
+            setTimeout(() => {
+                copyBtn.textContent = originalText;
+                copyBtn.style.background = '#3b82f6';
+            }, 2000);
+        }
+
+        // Update summary whenever selections change (no longer saving to localStorage)
+        function updateSelectionsAndSummary() {
+            updateSelectionSummary();
         }
     </script>
 </body>

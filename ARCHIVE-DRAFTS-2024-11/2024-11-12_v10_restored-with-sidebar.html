@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100 & Main - Delivery Signage Selection</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            margin-right: 400px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .step {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .step h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .step-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .options {
+            display: grid;
+            gap: 20px;
+        }
+
+        .option-card {
+            border: 3px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .option-card:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
+        }
+
+        .option-card.selected {
+            border-color: #667eea;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+        }
+
+        .option-card h3 {
+            color: #333;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .option-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .color-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .color-card {
+            border: 3px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .color-card:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
+        }
+
+        .color-card.selected {
+            border-color: #667eea;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+        }
+
+        .color-preview {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            margin: 0 auto 15px;
+            border: 2px solid #ddd;
+        }
+
+        .color-card h4 {
+            color: #333;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+
+        .color-card p {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .material-section {
+            margin-bottom: 30px;
+        }
+
+        .material-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+
+        .material-header:hover {
+            background: #e9ecef;
+        }
+
+        .material-info h3 {
+            color: #333;
+            font-size: 1.3em;
+            margin-bottom: 5px;
+        }
+
+        .material-info p {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .size-grid {
+            display: none;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .size-grid.active {
+            display: grid;
+        }
+
+        .size-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .size-option:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        .size-option input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .size-details {
+            flex: 1;
+        }
+
+        .size-details strong {
+            display: block;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .size-details .price {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        /* Live Sidebar */
+        .live-sidebar {
+            position: fixed;
+            top: 40px;
+            right: 40px;
+            width: 350px;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-height: calc(100vh - 80px);
+            overflow-y: auto;
+        }
+
+        .live-sidebar h3 {
+            color: #667eea;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .sidebar-section {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .sidebar-section:last-child {
+            border-bottom: none;
+        }
+
+        .sidebar-section h4 {
+            color: #333;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .sidebar-section p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .sidebar-total {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        .sidebar-total h4 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .sidebar-total .price {
+            font-size: 2em;
+            font-weight: 700;
+        }
+
+        @media (max-width: 1400px) {
+            .container {
+                margin-right: 0;
+                max-width: 100%;
+            }
+
+            .live-sidebar {
+                position: static;
+                width: 100%;
+                margin-top: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Live Sidebar -->
+    <div class="live-sidebar">
+        <h3>Your Selection</h3>
+
+        <div class="sidebar-section">
+            <h4>Text Selection</h4>
+            <p id="sb-text">No selection yet</p>
+        </div>
+
+        <div class="sidebar-section">
+            <h4>Color</h4>
+            <p id="sb-color">No selection yet</p>
+        </div>
+
+        <div class="sidebar-section">
+            <h4>Material & Sizes</h4>
+            <p id="sb-material">No selection yet</p>
+        </div>
+
+        <div class="sidebar-total">
+            <h4>Estimated Total</h4>
+            <div class="price" id="sb-total">$0.00</div>
+            <p style="font-size: 0.9em; margin-top: 10px; opacity: 0.9;">Includes 8.4% sales tax</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>🏢 100 & Main</h1>
+            <p>Delivery & Package Signage Selection</p>
+        </div>
+
+        <!-- Step 1: Text Selection -->
+        <div class="step">
+            <h2>
+                <span class="step-number">1</span>
+                Choose Your Text
+            </h2>
+            <div class="options">
+                <div class="option-card" onclick="selectText('Option 1', 'DELIVERIES & PACKAGES', 'This option keeps the wording simple and direct')">
+                    <h3>Option 1: DELIVERIES & PACKAGES</h3>
+                    <p>This option keeps the wording simple and direct</p>
+                </div>
+
+                <div class="option-card" onclick="selectText('Option 2', 'DELIVERIES & PACKAGES TO BE PLACED ON SHELVES', 'This option provides more specific instruction to delivery personnel')">
+                    <h3>Option 2: DELIVERIES & PACKAGES TO BE PLACED ON SHELVES</h3>
+                    <p>This option provides more specific instruction to delivery personnel</p>
+                </div>
+
+                <div class="option-card" onclick="selectText('Option 3', 'DELIVERIES & PACKAGES TO BE PLACED ON SHELVES (FEDEX & UPS)', 'This option specifically calls out the two major carriers')">
+                    <h3>Option 3: DELIVERIES & PACKAGES TO BE PLACED ON SHELVES (FEDEX & UPS)</h3>
+                    <p>This option specifically calls out the two major carriers</p>
+                </div>
+
+                <div class="option-card" onclick="selectText('Option 4', 'DELIVERIES & PACKAGES TO BE PLACED ON SHELVES (USPS CONTINUE TO MAILBOXES)', 'This option provides complete instruction for all carriers')">
+                    <h3>Option 4: DELIVERIES & PACKAGES TO BE PLACED ON SHELVES (USPS CONTINUE TO MAILBOXES)</h3>
+                    <p>This option provides complete instruction for all carriers</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2: Color Selection -->
+        <div class="step">
+            <h2>
+                <span class="step-number">2</span>
+                Choose Your Color Scheme
+            </h2>
+            <div class="color-options">
+                <div class="color-card" onclick="selectColor('Classic Black on White', '#000000', '#FFFFFF')">
+                    <div class="color-preview" style="background: white; border: 3px solid black;"></div>
+                    <h4>Classic Black on White</h4>
+                    <p>Timeless and highly readable</p>
+                </div>
+
+                <div class="color-card" onclick="selectColor('Bold White on Black', '#FFFFFF', '#000000')">
+                    <div class="color-preview" style="background: black; border: 3px solid white;"></div>
+                    <h4>Bold White on Black</h4>
+                    <p>High contrast and modern</p>
+                </div>
+
+                <div class="color-card" onclick="selectColor('Professional Navy on White', '#003366', '#FFFFFF')">
+                    <div class="color-preview" style="background: white; border: 3px solid #003366;"></div>
+                    <h4>Professional Navy on White</h4>
+                    <p>Corporate and clean</p>
+                </div>
+
+                <div class="color-card" onclick="selectColor('Elegant Black on Cream', '#000000', '#F5F5DC')">
+                    <div class="color-preview" style="background: #F5F5DC; border: 3px solid black;"></div>
+                    <h4>Elegant Black on Cream</h4>
+                    <p>Sophisticated warmth</p>
+                </div>
+
+                <div class="color-card" onclick="selectColor('Modern Charcoal on Light Gray', '#333333', '#E8E8E8')">
+                    <div class="color-preview" style="background: #E8E8E8; border: 3px solid #333333;"></div>
+                    <h4>Modern Charcoal on Light Gray</h4>
+                    <p>Contemporary and subtle</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 3: Material and Size Selection -->
+        <div class="step">
+            <h2>
+                <span class="step-number">3</span>
+                Choose Material & Sizes
+            </h2>
+
+            <!-- PVC Material -->
+            <div class="material-section">
+                <div class="material-header" onclick="toggleMaterial('pvc')">
+                    <div class="material-info">
+                        <h3>1/8" PVC (Sintra)</h3>
+                        <p>Lightweight, budget-friendly, ideal for indoor use</p>
+                    </div>
+                    <span>▼</span>
+                </div>
+                <div id="pvc-sizes" class="size-grid">
+                    <label class="size-option">
+                        <input type="checkbox" onchange="updateSidebarPricing()">
+                        <div class="size-details">
+                            <strong>6" x 18"</strong>
+                            <span class="price">$17.31</span>
+                        </div>
+                    </label>
+                    <label class="size-option">
+                        <input type="checkbox" onchange="updateSidebarPricing()">
+                        <div class="size-details">
+                            <strong>8" x 24"</strong>
+                            <span class="price">$30.80</span>
+                        </div>
+                    </label>
+                    <label class="size-option">
+                        <input type="checkbox" onchange="updateSidebarPricing()">
+                        <div class="size-details">
+                            <strong>12" x 18"</strong>
+                            <span class="price">$34.65</span>
+                        </div>
+                    </label>
+                    <label class="size-option">
+                        <input type="checkbox" onchange="updateSidebarPricing()">
+                        <div class="size-details">
+                            <strong>18" x 24"</strong>
+                            <span class="price">$69.30</span>
+                        </div>
+                    </label>
+                    <label class="size-option">
+                        <input type="checkbox" onchange="updateSidebarPricing()">
+                        <div class="size-details">
+                            <strong>24" x 36"</strong>
+                            <span class="price">$138.60</span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Acrylic Material -->
+            <div class="material-section">
+                <div class="material-header" onclick="toggleMaterial('acrylic')">
+                    <div class="material-info">
+                        <h3>1/8" Clear Acrylic</h3>
+                        <p>Premium look, excellent durability, modern aesthetic</p>
+                    </div>
+                    <span>▼</span>
+                </div>
+                <div id="acrylic-sizes" class="size-grid">
+                    <label class="size-option">
+                        <input type="checkbox" onchange="updateSidebarPricing()">
+                        <div class="size-details">
+                            <strong>6" x 18"</strong>
+                            <span class="price">$44.79</span>
+                        </div>
+                    </label>
+                    <label class="size-option">
+                        <input type="checkbox" onchange="updateSidebarPricing()">
+                        <div class="size-details">
+                            <strong>8" x 24"</strong>
+                            <span class="price">$79.62</span>
+                        </div>
+                    </label>
+                    <label class="size-option">
+                        <input type="checkbox" onchange="updateSidebarPricing()">
+                        <div class="size-details">
+                            <strong>12" x 18"</strong>
+                            <span class="price">$89.58</span>
+                        </div>
+                    </label>
+                    <label class="size-option">
+                        <input type="checkbox" onchange="updateSidebarPricing()">
+                        <div class="size-details">
+                            <strong>18" x 24"</strong>
+                            <span class="price">$179.15</span>
+                        </div>
+                    </label>
+                    <label class="size-option">
+                        <input type="checkbox" onchange="updateSidebarPricing()">
+                        <div class="size-details">
+                            <strong>24" x 36"</strong>
+                            <span class="price">$358.30</span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Dibond Material -->
+            <div class="material-section">
+                <div class="material-header" onclick="toggleMaterial('dibond')">
+                    <div class="material-info">
+                        <h3>1/8" Dibond (Aluminum Composite)</h3>
+                        <p>Professional grade, weather-resistant, long-lasting</p>
+                    </div>
+                    <span>▼</span>
+                </div>
+                <div id="dibond-sizes" class="size-grid">
+                    <label class="size-option">
+                        <input type="checkbox" onchange="updateSidebarPricing()">
+                        <div class="size-details">
+                            <strong>6" x 18"</strong>
+                            <span class="price">$30.80</span>
+                        </div>
+                    </label>
+                    <label class="size-option">
+                        <input type="checkbox" onchange="updateSidebarPricing()">
+                        <div class="size-details">
+                            <strong>8" x 24"</strong>
+                            <span class="price">$54.77</span>
+                        </div>
+                    </label>
+                    <label class="size-option">
+                        <input type="checkbox" onchange="updateSidebarPricing()">
+                        <div class="size-details">
+                            <strong>12" x 18"</strong>
+                            <span class="price">$61.60</span>
+                        </div>
+                    </label>
+                    <label class="size-option">
+                        <input type="checkbox" onchange="updateSidebarPricing()">
+                        <div class="size-details">
+                            <strong>18" x 24"</strong>
+                            <span class="price">$123.20</span>
+                        </div>
+                    </label>
+                    <label class="size-option">
+                        <input type="checkbox" onchange="updateSidebarPricing()">
+                        <div class="size-details">
+                            <strong>24" x 36"</strong>
+                            <span class="price">$246.40</span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // State management
+        let selectedText = null;
+        let selectedColor = null;
+        const TAX_RATE = 0.084;
+
+        // Text selection
+        function selectText(optionName, textContent, description) {
+            // Remove previous selection
+            document.querySelectorAll('.option-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+
+            // Add selection to clicked card
+            event.currentTarget.classList.add('selected');
+
+            // Update state
+            selectedText = {
+                option: optionName,
+                text: textContent,
+                description: description
+            };
+
+            // Update sidebar
+            updateSidebar();
+        }
+
+        // Color selection
+        function selectColor(name, textColor, bgColor) {
+            // Remove previous selection
+            document.querySelectorAll('.color-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+
+            // Add selection to clicked card
+            event.currentTarget.classList.add('selected');
+
+            // Update state
+            selectedColor = {
+                name: name,
+                textColor: textColor,
+                bgColor: bgColor
+            };
+
+            // Update sidebar
+            updateSidebar();
+        }
+
+        // Toggle material section
+        function toggleMaterial(materialId) {
+            const sizeGrid = document.getElementById(`${materialId}-sizes`);
+            sizeGrid.classList.toggle('active');
+        }
+
+        // Update sidebar with selections
+        function updateSidebar() {
+            // Update text selection
+            const textElement = document.getElementById('sb-text');
+            if (selectedText) {
+                textElement.innerHTML = `<strong>${selectedText.option}</strong><br>${selectedText.text}`;
+            } else {
+                textElement.textContent = 'No selection yet';
+            }
+
+            // Update color selection
+            const colorElement = document.getElementById('sb-color');
+            if (selectedColor) {
+                colorElement.innerHTML = `<strong>${selectedColor.name}</strong><br>Text: ${selectedColor.textColor}<br>Background: ${selectedColor.bgColor}`;
+            } else {
+                colorElement.textContent = 'No selection yet';
+            }
+
+            // Update pricing
+            updateSidebarPricing();
+        }
+
+        // Update sidebar pricing
+        function updateSidebarPricing() {
+            const materialElement = document.getElementById('sb-material');
+            const totalElement = document.getElementById('sb-total');
+
+            // Get all checked sizes
+            const checkedBoxes = document.querySelectorAll('.size-option input[type="checkbox"]:checked');
+
+            if (checkedBoxes.length === 0) {
+                materialElement.textContent = 'No selection yet';
+                totalElement.textContent = '$0.00';
+                return;
+            }
+
+            // Build material summary and calculate total
+            let materialSummary = [];
+            let subtotal = 0;
+
+            checkedBoxes.forEach(checkbox => {
+                const sizeOption = checkbox.closest('.size-option');
+                const sizeText = sizeOption.querySelector('strong').textContent;
+                const priceText = sizeOption.querySelector('.price').textContent;
+                const price = parseFloat(priceText.replace('$', ''));
+
+                // Determine material type
+                let material = '';
+                if (sizeOption.closest('#pvc-sizes')) {
+                    material = 'PVC';
+                } else if (sizeOption.closest('#acrylic-sizes')) {
+                    material = 'Acrylic';
+                } else if (sizeOption.closest('#dibond-sizes')) {
+                    material = 'Dibond';
+                }
+
+                materialSummary.push(`${material} ${sizeText}: ${priceText}`);
+                subtotal += price;
+            });
+
+            // Calculate total with tax
+            const tax = subtotal * TAX_RATE;
+            const total = subtotal + tax;
+
+            // Update sidebar
+            materialElement.innerHTML = materialSummary.join('<br>');
+            totalElement.textContent = `$${total.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>

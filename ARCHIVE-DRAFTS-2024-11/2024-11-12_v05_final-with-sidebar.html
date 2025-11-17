@@ -1,0 +1,2334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100 & Main - Delivery Signage Selection (with Pricing)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f5f5;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            text-align: center;
+            border-top: 4px solid #000;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #1A1A1A;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: #000;
+            color: white;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .step-badge {
+            display: inline-block;
+            background: #2c5aa0;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            font-size: 24px;
+            color: #1A1A1A;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #000;
+            font-weight: 600;
+        }
+
+        .design-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .design-card {
+            background: #fafafa;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border: 1px solid #ddd;
+        }
+
+        .design-card.official {
+            border: 3px solid #000;
+        }
+
+        .official-badge {
+            background: #000;
+            color: white;
+            padding: 8px 16px;
+            font-size: 11px;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .design-header {
+            padding: 20px;
+            background: #000;
+            color: white;
+        }
+
+        .design-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .design-subtitle {
+            font-size: 13px;
+            opacity: 0.8;
+        }
+
+        .design-preview {
+            padding: 40px;
+            background: white;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sign-mockup {
+            width: 100%;
+            max-width: 600px;
+            padding: 40px;
+            border-radius: 4px;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .sign-text-line {
+            font-size: 28px;
+            line-height: 1.3;
+            font-weight: 400;
+            margin: 15px 0;
+        }
+
+        .sign-arrow {
+            font-size: 120px;
+            font-weight: 900;
+            margin: 30px 0;
+            line-height: 1;
+            text-shadow: 0 0 2px currentColor;
+        }
+
+        .design-details {
+            padding: 20px;
+            background: #f5f5f5;
+            border-top: 1px solid #ddd;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+
+        .detail-label {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .detail-value {
+            color: #1A1A1A;
+            font-weight: 600;
+        }
+
+        .pros-cons-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .pros-list, .cons-list {
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .pros-list {
+            background: #f0fdf4;
+            border-left: 4px solid #22c55e;
+        }
+
+        .cons-list {
+            background: #fef2f2;
+            border-left: 4px solid #ef4444;
+        }
+
+        .pros-list h4, .cons-list h4 {
+            margin-bottom: 6px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pros-list h4 {
+            color: #16a34a;
+        }
+
+        .cons-list h4 {
+            color: #dc2626;
+        }
+
+        .pros-list ul, .cons-list ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .pros-list li, .cons-list li {
+            padding: 3px 0;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .pros-list li:before {
+            content: "✓ ";
+            color: #16a34a;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .cons-list li:before {
+            content: "✗ ";
+            color: #dc2626;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .material-specs {
+            background: #fafafa;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 15px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .spec-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .spec-row:last-child {
+            border-bottom: none;
+        }
+
+        .spec-label {
+            font-weight: 600;
+            color: #666;
+        }
+
+        .spec-value {
+            color: #1A1A1A;
+        }
+
+        .footer {
+            text-align: center;
+            color: #666;
+            margin-top: 50px;
+            padding: 30px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .footer-text {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .design-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .project-meta {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .pros-cons-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Accordion Styles */
+        .section {
+            transition: all 0.3s ease;
+        }
+
+        .accordion-header {
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+            padding-right: 50px;
+            transition: all 0.2s ease;
+        }
+
+        .accordion-header:hover {
+            opacity: 0.8;
+        }
+
+        .accordion-toggle {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+            color: white;
+            border-radius: 50%;
+            font-size: 24px;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-toggle.collapsed {
+            transform: translateY(-50%) rotate(0deg);
+        }
+
+        .accordion-toggle.expanded {
+            transform: translateY(-50%) rotate(45deg);
+        }
+
+        .accordion-content {
+            max-height: 5000px;
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.3s ease;
+            opacity: 1;
+            margin-top: 0;
+        }
+
+        .accordion-content.collapsed {
+            max-height: 0;
+            opacity: 0;
+            margin-top: -20px;
+        }
+
+        /* Selection Styles */
+        .design-card {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .design-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .design-card.selected {
+            border: 3px solid #22c55e;
+            box-shadow: 0 4px 16px rgba(34, 197, 94, 0.3);
+        }
+
+        .design-card.selected::after {
+            content: "✓";
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 36px;
+            height: 36px;
+            background: #22c55e;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            z-index: 10;
+        }
+
+        .design-card.official.selected {
+            border: 3px solid #22c55e;
+        }
+
+        /* ==================== PRICING STYLES ==================== */
+
+        /* Price Badges */
+        .price-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-left: 10px;
+        }
+
+        .price-badge.economy {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .price-badge.premium {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .price-badge.durable {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        /* Price Comparison Table */
+        .price-comparison-section {
+            background: #f8fafc;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border: 2px solid #e5e7eb;
+        }
+
+        .price-comparison-section h3 {
+            font-size: 20px;
+            color: #1e293b;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .price-table thead {
+            background: #f1f5f9;
+        }
+
+        .price-table th,
+        .price-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .price-table th {
+            font-weight: 700;
+            color: #1e293b;
+            font-size: 14px;
+        }
+
+        .price-table td {
+            font-size: 14px;
+            color: #475569;
+        }
+
+        .price-table tbody tr:hover {
+            background: #f9fafb;
+        }
+
+        .price-table .material-name {
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 15px;
+        }
+
+        .price-table .package-price {
+            font-weight: 700;
+            color: #16a34a;
+            font-size: 16px;
+        }
+
+        /* Size Selector */
+        .size-selector {
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .size-selector h4 {
+            font-size: 16px;
+            color: #1e293b;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .size-option {
+            display: flex;
+            align-items: center;
+            padding: 14px;
+            margin: 10px 0;
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .size-option:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
+        }
+
+        .size-option input[type="checkbox"] {
+            width: 22px;
+            height: 22px;
+            margin-right: 14px;
+            cursor: pointer;
+        }
+
+        .size-option input[type="checkbox"]:checked {
+            accent-color: #16a34a;
+        }
+
+        .size-details {
+            flex: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .size-name {
+            font-weight: 500;
+            color: #1e293b;
+            font-size: 15px;
+        }
+
+        .size-name .recommended {
+            color: #2563eb;
+            font-size: 13px;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .size-price {
+            font-weight: 700;
+            color: #16a34a;
+            font-size: 17px;
+        }
+
+        /* Package Pricing Box */
+        .package-pricing {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border: 3px solid #22c55e;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .package-header {
+            font-size: 18px;
+            font-weight: 700;
+            color: #166534;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .package-breakdown {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 15px;
+            color: #166534;
+        }
+
+        .price-row.total {
+            border-top: 2px solid #16a34a;
+            margin-top: 10px;
+            padding-top: 10px;
+            font-weight: 700;
+            font-size: 19px;
+        }
+
+        .vendor-note {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid #86efac;
+            font-size: 12px;
+            color: #166534;
+            text-align: center;
+        }
+
+        /* Floating Price Calculator */
+        .floating-calculator {
+            position: relative;
+            
+            background: white;
+            border: 3px solid #3b82f6;
+            border-radius: 12px;
+            padding: 22px;
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .floating-calculator h3 {
+            font-size: 19px;
+            color: #1e293b;
+            margin-bottom: 18px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .calc-section {
+            margin-bottom: 18px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .calc-section:last-of-type {
+            border-bottom: none;
+        }
+
+        .calc-section h4 {
+            font-size: 13px;
+            color: #64748b;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .calc-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 7px 0;
+            font-size: 14px;
+            color: #475569;
+        }
+
+        .calc-item .item-name {
+            flex: 1;
+        }
+
+        .calc-item .item-price {
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .calc-totals {
+            margin-top: 18px;
+            padding-top: 15px;
+            border-top: 2px solid #e5e7eb;
+        }
+
+        .calc-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 7px 0;
+            font-size: 15px;
+            color: #475569;
+        }
+
+        .calc-row.subtotal {
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .calc-row.total {
+            border-top: 2px solid #000;
+            margin-top: 12px;
+            padding-top: 12px;
+            font-weight: 700;
+            font-size: 20px;
+            color: #16a34a;
+        }
+
+        .calc-note {
+            margin-top: 15px;
+            padding-top: 12px;
+            border-top: 1px solid #e5e7eb;
+            font-size: 11px;
+            color: #64748b;
+            line-height: 1.5;
+        }
+
+        .calc-note small {
+            display: block;
+            margin: 3px 0;
+        }
+
+        @media (max-width: 1200px) {
+            .floating-calculator {
+                position: relative;
+                max-width: 100%;
+                margin: 20px 0;
+            }
+        }
+
+        /* Responsive Price Table */
+        @media (max-width: 768px) {
+            .price-table {
+                font-size: 12px;
+            }
+
+            .price-table th,
+            .price-table td {
+                padding: 10px 8px;
+            }
+        }
+
+        /* Selected material card styling */
+        .design-card[data-step="material"].selected {
+            border: 4px solid #16a34a !important;
+            box-shadow: 0 4px 20px rgba(22, 163, 74, 0.3) !important;
+        }
+
+        .design-card[data-step="material"] {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .design-card[data-step="material"]:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* SIDEBAR */
+        .live-sidebar {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            width: 280px;
+            background: white;
+            border: 3px solid #22c55e;
+            border-radius: 10px;
+            padding: 18px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            z-index: 9999;
+        }
+        .live-sidebar h4 {
+            margin: 0 0 12px 0;
+            font-size: 15px;
+            color: #1A1A1A;
+            border-bottom: 2px solid #22c55e;
+            padding-bottom: 6px;
+        }
+        .sb-row {
+            margin: 6px 0;
+            font-size: 12px;
+            padding: 5px;
+            background: #f9f9f9;
+            border-radius: 3px;
+        }
+        .sb-label {
+            font-weight: 700;
+            color: #666;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="live-sidebar">
+        <h4>✓ Your Selections</h4>
+        <div class="sb-row"><span class="sb-label">Text:</span> <span id="sb-text">-</span></div>
+        <div class="sb-row"><span class="sb-label">Color:</span> <span id="sb-color">-</span></div>
+        <div class="sb-row"><span class="sb-label">Material:</span> <span id="sb-material">-</span></div>
+    </div>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1 style="line-height: 1.4; margin-bottom: 15px;">100 & Main Delivery Signage Upgrade</h1>
+            <h2 style="font-size: 18px; font-weight: 500; color: #64748b; margin: 15px 0; line-height: 1.6;">
+                "DO NOT USE INTERCOM TO CALL RESIDENTS<br>FOLLOW ARROW TO PACKAGE ROOM"
+            </h2>
+            <span class="status-badge">For Board Review</span>
+        </div>
+
+        <!-- Quick Reference Diagram -->
+        <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 25px; margin-bottom: 30px;">
+            <h3 style="color: #1e293b; font-size: 18px; font-weight: 700; margin-bottom: 15px; text-align: center;">📍 Quick Reference: Sign Locations</h3>
+            <div style="text-align: center;">
+                <img src="assets/diagram.jpg" alt="Building diagram showing sign locations" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+            </div>
+            <p style="color: #64748b; font-size: 14px; text-align: center; margin-top: 15px; font-style: italic;">
+                Building layout showing primary and additional sign placement locations
+            </p>
+        </div>
+
+
+        <!-- STEP 1: Text & Wording -->
+        <div class="section">
+            <div class="accordion-header" data-section="step1">
+                <span class="step-badge">Step 1 of 3</span>
+                <h2>Select Sign Text & Wording</h2>
+                <span class="accordion-toggle expanded">+</span>
+            </div>
+            <div class="accordion-content" id="step1-content">
+                <p style="margin-bottom: 25px; color: #666; font-size: 15px;">
+                    Choose what the sign will say. This text can be combined with any color scheme in Step 2.
+                </p>
+
+            <div class="design-grid">
+                <!-- Text Option 1: Underlined Emphasis -->
+                <div class="design-card" data-step="text" data-option="text2">
+                    <div class="design-header" style="background: #2c5aa0;">
+                        <div class="design-title">Option 1: Maximum Impact</div>
+                        <div class="design-subtitle">Stop drivers in their tracks—impossible to miss</div>
+                    </div>
+                    <div class="design-preview">
+                        <div class="sign-mockup" style="background: #000000; color: white; border: none;">
+                            <div class="sign-text-line" style="font-size: 28px; font-weight: 700; text-decoration: underline;">DO NOT USE INTERCOM</div>
+                            <div class="sign-text-line" style="font-size: 28px; margin-top: 10px;">AMAZON DELIVERIES</div>
+                            <div class="sign-arrow" style="margin: 20px 0;">→</div>
+                            <div class="sign-text-line" style="font-size: 24px;">USE EXTERIOR SIDE DOOR</div>
+                        </div>
+                    </div>
+                    <div class="design-details">
+                    </div>
+                </div>
+
+                <!-- Text Option 2: AMAZON DELIVERIES -->
+                <div class="design-card" data-step="text" data-option="text3">
+                    <div class="design-header" style="background: #2c5aa0;">
+                        <div class="design-title">Option 2: Amazon-First</div>
+                        <div class="design-subtitle">Speak their language—target 80% of delivery traffic</div>
+                    </div>
+                    <div class="design-preview">
+                        <div class="sign-mockup" style="background: #000000; color: white; border: none;">
+                            <div class="sign-text-line" style="font-size: 32px; font-weight: 600; margin-bottom: 15px; text-decoration: underline; text-underline-offset: 8px;">AMAZON DELIVERIES</div>
+                            <div class="sign-text-line" style="font-size: 28px; margin: 20px 0;">DO NOT USE INTERCOM</div>
+                            <div class="sign-arrow" style="margin: 30px 0;">→</div>
+                            <div class="sign-text-line" style="font-size: 24px;">USE EXTERIOR SIDE DOOR</div>
+                        </div>
+                    </div>
+                    <div class="design-details">
+                    </div>
+                </div>
+
+                <!-- Text Option 3: Full Details -->
+                <div class="design-card" data-step="text" data-option="text5">
+                    <div class="design-header" style="background: #2c5aa0;">
+                        <div class="design-title">Option 3: Visual Frame</div>
+                        <div class="design-subtitle">Authority signaling—regulatory compliance aesthetic</div>
+                    </div>
+                    <div class="design-preview">
+                        <div class="sign-mockup" style="background: #000000; color: white; border: none;">
+                            <div class="sign-text-line" style="font-size: 28px; margin-bottom: 15px; border: 3px solid white; padding: 10px; display: inline-block;"><span style="text-decoration: underline;">DO NOT</span> USE INTERCOM</div>
+                            <div class="sign-text-line" style="font-size: 28px; margin: 15px 0;">FOR PACKAGE DELIVERIES</div>
+                            <div class="sign-arrow" style="margin: 30px 0;">→</div>
+                            <div class="sign-text-line" style="font-size: 24px;">USE EXTERIOR SIDE DOOR</div>
+                        </div>
+                    </div>
+                    <div class="design-details">
+                    </div>
+                </div>
+
+                <!-- Text Option 4: AMAZON (Optimized Design) -->
+                <div class="design-card" data-step="text" data-option="text6">
+                    <div class="design-header" style="background: #2c5aa0;">
+                        <div class="design-title">Option 4: Complete Guidance</div>
+                        <div class="design-subtitle">Leave nothing to chance—end-to-end wayfinding</div>
+                    </div>
+                    <div class="design-preview">
+                        <div class="sign-mockup" style="background: #000000; color: white; border: none;">
+                            <div class="sign-text-line" style="font-size: 40px; font-weight: 700; margin-bottom: 15px;">AMAZON</div>
+                            <div class="sign-text-line" style="font-size: 26px; margin: 15px 0;"><span style="text-decoration: underline;">DO NOT</span> USE INTERCOM</div>
+                            <div class="sign-arrow" style="margin: 30px 0;">→</div>
+                            <div class="sign-text-line" style="font-size: 24px; margin-top: 10px;">PACKAGE ROOM ENTRANCE</div>
+                            <div class="sign-text-line" style="font-size: 24px; margin-top: 5px;">AROUND CORNER</div>
+                        </div>
+                    </div>
+                    <div class="design-details">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Next Step Button -->
+            <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 2px solid #e5e7eb;">
+                <button class="next-step-btn" data-current="text" style="
+                    background: #2c5aa0;
+                    color: white;
+                    border: none;
+                    padding: 15px 40px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 2px 8px rgba(44, 90, 160, 0.3);
+                " onmouseover="this.style.background='#1e3a5f'" onmouseout="this.style.background='#2c5aa0'">
+                    Continue to Step 2: Color Scheme →
+                </button>
+            </div>
+            </div>
+        </div>
+
+        <!-- STEP 2: Color Scheme -->
+        <div class="section">
+            <div class="accordion-header" data-section="step2">
+                <span class="step-badge">Step 2 of 3</span>
+                <h2>Select Color Scheme</h2>
+                <span class="accordion-toggle expanded">+</span>
+            </div>
+            <div class="accordion-content" id="step2-content">
+                <p style="margin-bottom: 25px; color: #666; font-size: 15px;">
+                    Choose the color scheme for your sign. Any text option from Step 1 can be applied to any color scheme below.
+                </p>
+
+            <div class="design-grid">
+                <!-- Color Option 4: Official Black Background -->
+                <div class="design-card official" data-step="color" data-option="color4">
+                    <div class="official-badge">Official Building Standard</div>
+                    <div class="design-header">
+                        <div class="design-title">Black Background (Exterior)</div>
+                        <div class="design-subtitle">Matches existing building standards</div>
+                    </div>
+                    <div class="design-preview">
+                        <div class="sign-mockup" style="background: #000000; color: white; border: none;">
+                            <div style="font-size: 48px; font-weight: 400; letter-spacing: 2px; margin-bottom: 40px;">Parcel/Package Delivery</div>
+                            <div style="margin: 40px 0;">
+                                <svg width="400" height="120" viewBox="0 0 400 120">
+                                    <polygon points="0,60 300,60 300,30 400,75 300,120 300,90 0,90" fill="white"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="design-details">
+                        <div class="detail-row">
+                            <span class="detail-label">Tone</span>
+                            <span class="detail-value">Official, Professional</span>
+                        </div>
+                        <div class="pros-cons-container">
+                            <div class="pros-list">
+                                <h4>Pros</h4>
+                                <ul>
+                                    <li>Matches existing exterior signage perfectly</li>
+                                    <li>High contrast for excellent readability</li>
+                                    <li>Professional, official appearance</li>
+                                </ul>
+                            </div>
+                            <div class="cons-list">
+                                <h4>Cons</h4>
+                                <ul>
+                                    <li>May be less visible in low light without reflective material</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+<!-- Color Option 1: Gray Building Match -->
+                <div class="design-card" data-step="color" data-option="color1">
+                    <div class="design-header">
+                        <div class="design-title">Gray Building Match</div>
+                        <div class="design-subtitle">Blends seamlessly with gray concrete exterior</div>
+                    </div>
+                    <div class="design-preview">
+                        <div class="sign-mockup" style="background: #5A5A5A; color: white; border: 1px solid #E0E0E0; border-radius: 0;">
+                            <div class="sign-text-line">DO NOT USE INTERCOM</div>
+                            <div class="sign-text-line">FOR PACKAGE DELIVERIES</div>
+                            <div class="sign-arrow" style="margin: 30px 0;">→</div>
+                            <div class="sign-text-line" style="font-size: 28px;">DELIVERIES THIS WAY</div>
+                            <div class="sign-text-line" style="font-size: 22px;">Package Room Entrance</div>
+                            <div class="sign-text-line" style="font-size: 22px;">Around Corner to Left</div>
+                        </div>
+                    </div>
+                    <div class="design-details">
+                        <div class="detail-row">
+                            <span class="detail-label">Tone</span>
+                            <span class="detail-value">Neutral, Architectural</span>
+                        </div>
+                        <div class="pros-cons-container">
+                            <div class="pros-list">
+                                <h4>Pros</h4>
+                                <ul>
+                                    <li>Blends seamlessly with gray concrete exterior</li>
+                                    <li>Doesn't clash with building aesthetic</li>
+                                    <li>Subtle, integrated appearance</li>
+                                </ul>
+                            </div>
+                            <div class="cons-list">
+                                <h4>Cons</h4>
+                                <ul>
+                                    <li>Lower contrast, less attention-grabbing</li>
+                                    <li>May not stand out enough</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+<!-- Color Option 2: Black Minimal -->
+                <div class="design-card" data-step="color" data-option="color2">
+                    <div class="design-header">
+                        <div class="design-title">Black Minimal</div>
+                        <div class="design-subtitle">Matches building's dark charcoal doors perfectly</div>
+                    </div>
+                    <div class="design-preview">
+                        <div class="sign-mockup" style="background: #1A1A1A; color: white; border: none;">
+                            <div class="sign-text-line">Do Not Use Intercom</div>
+                            <div class="sign-text-line">for Package Deliveries</div>
+                            <div class="sign-arrow" style="margin: 30px 0;">→</div>
+                            <div class="sign-text-line" style="font-size: 28px;">DELIVERIES THIS WAY</div>
+                            <div class="sign-text-line" style="font-size: 22px;">Package Room Entrance</div>
+                            <div class="sign-text-line" style="font-size: 22px;">Around Corner to Left</div>
+                        </div>
+                    </div>
+                    <div class="design-details">
+                        <div class="detail-row">
+                            <span class="detail-label">Tone</span>
+                            <span class="detail-value">Modern, Sophisticated</span>
+                        </div>
+                        <div class="pros-cons-container">
+                            <div class="pros-list">
+                                <h4>Pros</h4>
+                                <ul>
+                                    <li>Matches building's dark charcoal doors perfectly</li>
+                                    <li>Modern, minimal aesthetic</li>
+                                    <li>Elegant, sophisticated appearance</li>
+                                </ul>
+                            </div>
+                            <div class="cons-list">
+                                <h4>Cons</h4>
+                                <ul>
+                                    <li>Less visible during daytime</li>
+                                    <li>Relies heavily on reflective material</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+<!-- Color Option 3: Black with Yellow Border -->
+                <div class="design-card" data-step="color" data-option="color3">
+                    <div class="design-header">
+                        <div class="design-title">Black with Yellow Border</div>
+                        <div class="design-subtitle">Yellow border grabs attention instantly</div>
+                    </div>
+                    <div class="design-preview">
+                        <div class="sign-mockup" style="background: #1A1A1A; color: white; border: 6px solid #FFCC00; border-radius: 8px;">
+                            <div style="font-size: 24px; margin-bottom: 20px; font-weight: 600;">DELIVERY NOTICE</div>
+                            <div class="sign-text-line">DO NOT USE INTERCOM</div>
+                            <div class="sign-text-line">FOR DELIVERIES</div>
+                            <div class="sign-arrow" style="margin: 30px 0;">→</div>
+                            <div class="sign-text-line" style="font-size: 24px; margin-top: 20px;">USE EXTERIOR SIDE DOOR</div>
+                        </div>
+                    </div>
+                    <div class="design-details">
+                        <div class="detail-row">
+                            <span class="detail-label">Tone</span>
+                            <span class="detail-value">High Visibility</span>
+                        </div>
+                        <div class="pros-cons-container">
+                            <div class="pros-list">
+                                <h4>Pros</h4>
+                                <ul>
+                                    <li>Yellow border grabs attention instantly</li>
+                                    <li>High contrast for maximum visibility</li>
+                                    <li>Warning/caution aesthetic</li>
+                                </ul>
+                            </div>
+                            <div class="cons-list">
+                                <h4>Cons</h4>
+                                <ul>
+                                    <li>May feel more industrial</li>
+                                    <li>Yellow may fade over time outdoors</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+<!-- Color Option 6: Brushed Metal Aluminum Premium -->
+                <div class="design-card" data-step="color" data-option="color6">
+                    <div class="design-header">
+                        <div class="design-title">Brushed Metal - Aluminum Premium</div>
+                        <div class="design-subtitle">Optimized for aluminum material, industrial premium finish</div>
+                    </div>
+                    <div class="design-preview">
+                        <div class="sign-mockup" style="background: linear-gradient(135deg, #b8bfc6 0%, #8a9199 25%, #bcc3ca 50%, #8a9199 75%, #b8bfc6 100%); color: #1a1a1a; border: 2px solid #7f8c8d; box-shadow: inset 0 1px 3px rgba(255,255,255,0.5), inset 0 -1px 3px rgba(0,0,0,0.2);">
+                            <div class="sign-text-line">DO NOT USE INTERCOM</div>
+                            <div class="sign-text-line">FOR DELIVERIES</div>
+                            <div class="sign-arrow">→</div>
+                            <div class="sign-text-line" style="font-size: 24px; margin-top: 15px;">USE EXTERIOR SIDE DOOR</div>
+                        </div>
+                    </div>
+                    <div class="design-details">
+                        <div class="detail-row">
+                            <span class="detail-label">Tone</span>
+                            <span class="detail-value">Industrial Premium, Metallic</span>
+                        </div>
+                        <div class="pros-cons-container">
+                            <div class="pros-list">
+                                <h4>Pros</h4>
+                                <ul>
+                                    <li>Specifically optimized for aluminum substrate</li>
+                                    <li>Premium brushed metal aesthetic</li>
+                                    <li>Unique, distinctive appearance</li>
+                                    <li>Subtle metallic sheen adds sophistication</li>
+                                    <li>High-end commercial look</li>
+                                </ul>
+                            </div>
+                            <div class="cons-list">
+                                <h4>Cons</h4>
+                                <ul>
+                                    <li>Best suited for aluminum material only</li>
+                                    <li>May not match existing building signage</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Next Step Button -->
+            <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 2px solid #e5e7eb;">
+                <button class="next-step-btn" data-current="color" style="
+                    background: #2c5aa0;
+                    color: white;
+                    border: none;
+                    padding: 15px 40px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 2px 8px rgba(44, 90, 160, 0.3);
+                " onmouseover="this.style.background='#1e3a5f'" onmouseout="this.style.background='#2c5aa0'">
+                    Continue to Step 3: Material →
+                </button>
+            </div>
+            </div>
+        </div>
+
+        <!-- STEP 3: Material & Size Selection with Pricing -->
+        <div class="section">
+            <div class="accordion-header" data-section="step3">
+                <span class="step-badge">Step 3 of 3</span>
+                <h2>Select Material & Sizes</h2>
+                <span class="accordion-toggle expanded">+</span>
+            </div>
+            <div class="accordion-content" id="step3-content">
+                <p style="margin-bottom: 25px; color: #666; font-size: 15px;">
+                    Choose the material for your signs and select which sizes you need. All pricing is from FASTSIGNS (EST-12189).
+                </p>
+
+                <!-- Price Comparison Table -->
+                <div class="price-comparison-section">
+                    <h3>📊 Material Price Comparison</h3>
+                    <table class="price-table">
+                        <thead>
+                            <tr>
+                                <th>Material</th>
+                                <th>Small<br>(11" × 9")</th>
+                                <th>Medium<br>(24" × 19.6")</th>
+                                <th>Large<br>(36" × 29.5")</th>
+                                <th>All 3 Sizes Package</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="material-name">PVC 2mm</div>
+                                    <span class="price-badge economy">Most Economical</span>
+                                </td>
+                                <td>$26.46</td>
+                                <td>$51.76</td>
+                                <td>$82.04</td>
+                                <td><span class="package-price">$173.74</span><br><small style="color: #64748b;">(incl. tax)</small></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="material-name">Acrylic 1/4" Clear</div>
+                                    <span class="price-badge premium">Premium</span>
+                                </td>
+                                <td>$51.72</td>
+                                <td>$97.02</td>
+                                <td>$225.00</td>
+                                <td><span class="package-price">$409.32</span><br><small style="color: #64748b;">(incl. tax)</small></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="material-name">Dibond/Aluminum 3mm</div>
+                                    <span class="price-badge durable">Most Durable</span>
+                                </td>
+                                <td>$48.91</td>
+                                <td>$119.83</td>
+                                <td>$232.81</td>
+                                <td><span class="package-price">$440.01</span><br><small style="color: #64748b;">(incl. tax)</small></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="background: #eff6ff; border-left: 4px solid #2563eb; padding: 15px; margin-bottom: 25px; border-radius: 4px;">
+                    <p style="color: #1e40af; font-size: 14px; line-height: 1.6;">
+                        <strong>💡 Recommended:</strong> Medium size (24" × 19.6") provides optimal visibility at a balanced cost. Most customers order all 3 sizes for maximum coverage.
+                    </p>
+                </div>
+
+            <div class="design-grid">
+                <!-- Material Option 1: PVC (Economical) -->
+                <div class="design-card" data-step="material" data-option="pvc">
+                    <div class="design-header" style="background: #16a34a;">
+                        <div class="design-title">PVC 2mm <span class="price-badge economy">Most Economical</span></div>
+                        <div class="design-subtitle">Lightweight, budget-friendly option</div>
+                    </div>
+                    <div class="design-preview" style="background: #f0f0f0;">
+                        <div style="text-align: left; padding: 20px;">
+                            <h3 style="margin-bottom: 15px; color: #1A1A1A;">PVC Rigid Board Sign</h3>
+                            <p style="color: #666; line-height: 1.6; margin-bottom: 20px;">
+                                Rigid plastic board with UV-printed graphics. Lightweight and easy to install with adhesive backing.
+                            </p>
+
+                            <!-- Size Selector -->
+                            <div class="size-selector">
+                                <h4>Select Sizes Needed:</h4>
+                                <label class="size-option">
+                                    <input type="checkbox" class="size-checkbox"
+                                           data-material="pvc" data-size="small"
+                                           data-price="26.46" checked>
+                                    <div class="size-details">
+                                        <span class="size-name">Small (11" × 9")</span>
+                                        <span class="size-price">$26.46</span>
+                                    </div>
+                                </label>
+                                <label class="size-option">
+                                    <input type="checkbox" class="size-checkbox"
+                                           data-material="pvc" data-size="medium"
+                                           data-price="51.76" checked>
+                                    <div class="size-details">
+                                        <span class="size-name">Medium (24" × 19.6") <span class="recommended">✓ Recommended</span></span>
+                                        <span class="size-price">$51.76</span>
+                                    </div>
+                                </label>
+                                <label class="size-option">
+                                    <input type="checkbox" class="size-checkbox"
+                                           data-material="pvc" data-size="large"
+                                           data-price="82.04" checked>
+                                    <div class="size-details">
+                                        <span class="size-name">Large (36" × 29.5")</span>
+                                        <span class="size-price">$82.04</span>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <!-- Package Pricing -->
+                            <div class="package-pricing">
+                                <div class="package-header">📦 Package Deal (All 3 Sizes)</div>
+                                <div class="package-breakdown">
+                                    <div class="price-row">
+                                        <span>Subtotal:</span>
+                                        <span class="subtotal">$160.26</span>
+                                    </div>
+                                    <div class="price-row">
+                                        <span>Tax (8.4%):</span>
+                                        <span class="tax">$13.48</span>
+                                    </div>
+                                    <div class="price-row total">
+                                        <span>Total:</span>
+                                        <span class="total-price">$173.74</span>
+                                    </div>
+                                </div>
+                                <div class="vendor-note">
+                                    <small>FASTSIGNS EST-12189 | PVC 2mm</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="design-details">
+                        <div class="pros-cons-container">
+                            <div class="pros-list">
+                                <h4>Pros</h4>
+                                <ul>
+                                    <li><strong>Most affordable option</strong> - Best value for budget</li>
+                                    <li>Lightweight and easy to install with adhesive</li>
+                                    <li>Good for indoor or covered outdoor use</li>
+                                    <li>Professional UV-printed graphics</li>
+                                    <li>3-5 year outdoor lifespan</li>
+                                </ul>
+                            </div>
+                            <div class="cons-list">
+                                <h4>Cons</h4>
+                                <ul>
+                                    <li>Less durable than acrylic or aluminum</li>
+                                    <li>May warp in extreme temperatures</li>
+                                    <li>Colors can fade faster in direct sunlight</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Material Option 2: Acrylic (Premium) -->
+                <div class="design-card" data-step="material" data-option="acrylic">
+                    <div class="design-header" style="background: #d97706;">
+                        <div class="design-title">Acrylic 1/4" Clear <span class="price-badge premium">Premium</span></div>
+                        <div class="design-subtitle">Professional appearance, excellent durability</div>
+                    </div>
+                    <div class="design-preview" style="background: #f0f0f0;">
+                        <div style="text-align: left; padding: 20px;">
+                            <h3 style="margin-bottom: 15px; color: #1A1A1A;">Clear Acrylic Sign</h3>
+                            <p style="color: #666; line-height: 1.6; margin-bottom: 20px;">
+                                1/4" thick clear acrylic with high-quality printing. Premium look with excellent weather resistance.
+                            </p>
+
+                            <!-- Size Selector -->
+                            <div class="size-selector">
+                                <h4>Select Sizes Needed:</h4>
+                                <label class="size-option">
+                                    <input type="checkbox" class="size-checkbox"
+                                           data-material="acrylic" data-size="small"
+                                           data-price="51.72">
+                                    <div class="size-details">
+                                        <span class="size-name">Small (11" × 9")</span>
+                                        <span class="size-price">$51.72</span>
+                                    </div>
+                                </label>
+                                <label class="size-option">
+                                    <input type="checkbox" class="size-checkbox"
+                                           data-material="acrylic" data-size="medium"
+                                           data-price="97.02" checked>
+                                    <div class="size-details">
+                                        <span class="size-name">Medium (24" × 19.6") <span class="recommended">✓ Recommended</span></span>
+                                        <span class="size-price">$97.02</span>
+                                    </div>
+                                </label>
+                                <label class="size-option">
+                                    <input type="checkbox" class="size-checkbox"
+                                           data-material="acrylic" data-size="large"
+                                           data-price="225.00">
+                                    <div class="size-details">
+                                        <span class="size-name">Large (36" × 29.5")</span>
+                                        <span class="size-price">$225.00</span>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <!-- Package Pricing -->
+                            <div class="package-pricing">
+                                <div class="package-header">📦 Package Deal (All 3 Sizes)</div>
+                                <div class="package-breakdown">
+                                    <div class="price-row">
+                                        <span>Subtotal:</span>
+                                        <span class="subtotal">$373.74</span>
+                                    </div>
+                                    <div class="price-row">
+                                        <span>Tax (8.4%):</span>
+                                        <span class="tax">$35.58</span>
+                                    </div>
+                                    <div class="price-row total">
+                                        <span>Total:</span>
+                                        <span class="total-price">$409.32</span>
+                                    </div>
+                                </div>
+                                <div class="vendor-note">
+                                    <small>FASTSIGNS EST-12189 | Acrylic 1/4" Clear</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="design-details">
+                        <div class="pros-cons-container">
+                            <div class="pros-list">
+                                <h4>Pros</h4>
+                                <ul>
+                                    <li><strong>Premium professional appearance</strong></li>
+                                    <li>Excellent weather and UV resistance</li>
+                                    <li>Won't warp or degrade easily</li>
+                                    <li>7-10 year outdoor lifespan</li>
+                                    <li>Easy to clean and maintain</li>
+                                </ul>
+                            </div>
+                            <div class="cons-list">
+                                <h4>Cons</h4>
+                                <ul>
+                                    <li>Higher cost than PVC</li>
+                                    <li>Heavier (may require stronger mounting)</li>
+                                    <li>Can scratch if not handled carefully</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Material Option 3: Dibond/Aluminum (Most Durable) -->
+                <div class="design-card" data-step="material" data-option="dibond">
+                    <div class="design-header" style="background: #0369a1;">
+                        <div class="design-title">Dibond/Aluminum 3mm <span class="price-badge durable">Most Durable</span></div>
+                        <div class="design-subtitle">Maximum durability for long-term outdoor use</div>
+                    </div>
+                    <div class="design-preview" style="background: #f0f0f0;">
+                        <div style="text-align: left; padding: 20px;">
+                            <h3 style="margin-bottom: 15px; color: #1A1A1A;">Dibond/MaxMetal Aluminum Sign</h3>
+                            <p style="color: #666; line-height: 1.6; margin-bottom: 20px;">
+                                3mm aluminum composite panel with direct printing. Industry standard for outdoor signage.
+                            </p>
+
+                            <!-- Size Selector -->
+                            <div class="size-selector">
+                                <h4>Select Sizes Needed:</h4>
+                                <label class="size-option">
+                                    <input type="checkbox" class="size-checkbox"
+                                           data-material="dibond" data-size="small"
+                                           data-price="48.91">
+                                    <div class="size-details">
+                                        <span class="size-name">Small (11" × 9")</span>
+                                        <span class="size-price">$48.91</span>
+                                    </div>
+                                </label>
+                                <label class="size-option">
+                                    <input type="checkbox" class="size-checkbox"
+                                           data-material="dibond" data-size="medium"
+                                           data-price="119.83" checked>
+                                    <div class="size-details">
+                                        <span class="size-name">Medium (24" × 19.6") <span class="recommended">✓ Recommended</span></span>
+                                        <span class="size-price">$119.83</span>
+                                    </div>
+                                </label>
+                                <label class="size-option">
+                                    <input type="checkbox" class="size-checkbox"
+                                           data-material="dibond" data-size="large"
+                                           data-price="232.81">
+                                    <div class="size-details">
+                                        <span class="size-name">Large (36" × 29.5")</span>
+                                        <span class="size-price">$232.81</span>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <!-- Package Pricing -->
+                            <div class="package-pricing">
+                                <div class="package-header">📦 Package Deal (All 3 Sizes)</div>
+                                <div class="package-breakdown">
+                                    <div class="price-row">
+                                        <span>Subtotal:</span>
+                                        <span class="subtotal">$401.55</span>
+                                    </div>
+                                    <div class="price-row">
+                                        <span>Tax (8.4%):</span>
+                                        <span class="tax">$38.46</span>
+                                    </div>
+                                    <div class="price-row total">
+                                        <span>Total:</span>
+                                        <span class="total-price">$440.01</span>
+                                    </div>
+                                </div>
+                                <div class="vendor-note">
+                                    <small>FASTSIGNS EST-12189 | Dibond/MaxMetal 3mm</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="design-details">
+                        <div class="pros-cons-container">
+                            <div class="pros-list">
+                                <h4>Pros</h4>
+                                <ul>
+                                    <li><strong>Most durable option</strong> - 10+ years outdoor</li>
+                                    <li>Industry standard for professional signage</li>
+                                    <li>Excellent weather, UV, and impact resistance</li>
+                                    <li>Won't warp, fade, or degrade</li>
+                                    <li>Maintains appearance in all weather conditions</li>
+                                </ul>
+                            </div>
+                            <div class="cons-list">
+                                <h4>Cons</h4>
+                                <ul>
+                                    <li>Highest cost option</li>
+                                    <li>Heaviest material (requires secure mounting)</li>
+                                    <li>May require drilling for installation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-buttons" style="margin-top: 40px;">
+                <button class="btn-secondary" onclick="scrollToSection('step2-content')" style="
+                    background: #6B7280;
+                    color: white;
+                    border: none;
+                    padding: 14px 32px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 2px 8px rgba(107, 114, 128, 0.3);
+                " onmouseover="this.style.background='#4B5563'" onmouseout="this.style.background='#6B7280'">
+                    ← Back to Step 2: Colors
+                </button>
+                <button class="btn-primary" onclick="scrollToSection('step4-content')" style="
+                    background: #2c5aa0;
+                    color: white;
+                    border: none;
+                    padding: 14px 32px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 2px 8px rgba(44, 90, 160, 0.3);
+                " onmouseover="this.style.background='#1e3a5f'" onmouseout="this.style.background='#2c5aa0'">
+                    Review & Submit →
+                </button>
+            </div>
+            </div>
+        </div>
+
+        <!-- Price Summary Section -->
+        <div class="section" style="background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border: 3px solid #3b82f6;">
+            <h2 style="text-align: center; color: #1e40af; border-bottom: 2px solid #3b82f6;">💰 Your Configuration Summary</h2>
+            <div style="max-width: 600px; margin: 0 auto;">
+            <div class="floating-calculator" id="price-calculator">
+                <h3>💰 Your Configuration</h3>
+                <div class="calc-section">
+                    <h4>Selected Signs</h4>
+                    <div id="calc-signs-list">
+                        <div class="calc-item">
+                            <span class="item-name">No selections yet</span>
+                            <span class="item-price">$0.00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="calc-totals">
+                    <div class="calc-row subtotal">
+                        <span>Subtotal:</span>
+                        <span id="calc-subtotal">$0.00</span>
+                    </div>
+                    <div class="calc-row">
+                        <span>Tax (8.4%):</span>
+                        <span id="calc-tax">$0.00</span>
+                    </div>
+                    <div class="calc-row total">
+                        <span>Estimated Total:</span>
+                        <span id="calc-total">$0.00</span>
+                    </div>
+                </div>
+                <div class="calc-note">
+                    <small>* Prices from FASTSIGNS EST-12189</small>
+                    <small>* Includes 3% credit card surcharge</small>
+                    <small>* Select material and sizes in Step 3</small>
+                </div>
+            </div>
+        </div>
+
+    <script>
+        // Selection state
+        const selections = {
+            text: null,
+            color: null,
+            material: null,
+            arrows: null
+        };
+
+        // Text content templates
+        const textTemplates = {
+            text2: {
+                type: 'underlined',
+                lines: [
+                    { text: 'DO NOT USE INTERCOM', underline: true },
+                    { text: 'AMAZON DELIVERIES', underline: false },
+                    { text: '→', isArrow: true },
+                    { text: 'USE EXTERIOR SIDE DOOR', underline: false }
+                ]
+            },
+            text3: {
+                type: 'amazon-deliveries',
+                lines: [
+                    { text: 'AMAZON DELIVERIES', size: '32px', weight: '600', margin: '15px', underline: true },
+                    { text: 'DO NOT USE INTERCOM', size: '28px', weight: '400', margin: '20px' },
+                    { text: '→', isArrow: true },
+                    { text: 'USE EXTERIOR SIDE DOOR', size: '24px', weight: '400', margin: '0' }
+                ]
+            },
+            text5: {
+                type: 'full-details',
+                lines: [
+                    { text: 'DO NOT USE INTERCOM', boxed: true, underlineWords: 'DO NOT' },
+                    'FOR PACKAGE DELIVERIES',
+                    { text: '→', isArrow: true },
+                    'USE EXTERIOR SIDE DOOR'
+                ]
+            },
+            text6: {
+                type: 'amazon-optimized',
+                lines: [
+                    { text: 'AMAZON', size: '40px', weight: '700', margin: '15px' },
+                    { text: 'DO NOT USE INTERCOM', size: '26px', weight: '400', margin: '15px', underlineWords: 'DO NOT' },
+                    { text: '→', isArrow: true },
+                    { text: 'PACKAGE ROOM ENTRANCE', size: '24px', weight: '400', margin: '10px' },
+                    { text: 'AROUND CORNER', size: '24px', weight: '400', margin: '5px' }
+                ]
+            }
+        };
+
+        // Color schemes
+        const colorSchemes = {
+            color1: { bg: '#5A5A5A', text: 'white', border: '1px solid #E0E0E0' },
+            color2: { bg: '#1A1A1A', text: 'white', border: 'none' },
+            color3: { bg: '#1A1A1A', text: 'white', border: '6px solid #FFCC00' },
+            color4: { bg: '#000000', text: 'white', border: 'none' },
+            color5: { bg: '#FFFFFF', text: '#000000', border: '3px solid #000' },
+            color6: { bg: 'linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #2c3e50 100%)', text: 'white', border: '2px solid #7f8c8d' },
+            color7: { bg: '#FFCC00', text: '#000000', border: '4px solid #000' }
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Accordion functionality
+            setupAccordion();
+
+            // Selection functionality
+            setupSelections();
+
+            // Setup checkout
+            setupCheckout();
+
+            // Initialize: Only Step 1 open, rest collapsed
+            initializeSteps();
+
+            // Auto-select first option in Step 1
+            const firstTextOption = document.querySelector('.design-card[data-step="text"]');
+            if (firstTextOption) {
+                firstTextOption.click();
+            }
+        });
+
+        function initializeSteps() {
+            // Close all steps except step1
+            const steps = ['step2', 'step3', 'step4', 'nextsteps', 'checkout'];
+            steps.forEach(stepId => {
+                const content = document.getElementById(`${stepId}-content`);
+                const header = document.querySelector(`[data-section="${stepId}"]`);
+                const toggle = header?.querySelector('.accordion-toggle');
+
+                if (content) {
+                    content.classList.add('collapsed');
+                }
+                if (toggle) {
+                    toggle.classList.remove('expanded');
+                    toggle.classList.add('collapsed');
+                }
+            });
+
+            // Ensure step1 is open
+            const step1Content = document.getElementById('step1-content');
+            const step1Header = document.querySelector('[data-section="step1"]');
+            const step1Toggle = step1Header?.querySelector('.accordion-toggle');
+
+            if (step1Content) {
+                step1Content.classList.remove('collapsed');
+            }
+            if (step1Toggle) {
+                step1Toggle.classList.remove('collapsed');
+                step1Toggle.classList.add('expanded');
+            }
+
+            // Setup Next Step buttons
+            setupNextStepButtons();
+        }
+
+        function setupNextStepButtons() {
+            const nextButtons = document.querySelectorAll('.next-step-btn');
+            nextButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const currentStep = this.getAttribute('data-current');
+                    advanceToNextStep(currentStep);
+                });
+            });
+        }
+
+        function setupAccordion() {
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const sectionId = this.getAttribute('data-section');
+                    const content = document.getElementById(sectionId + '-content');
+                    const toggle = this.querySelector('.accordion-toggle');
+
+                    content.classList.toggle('collapsed');
+
+                    if (content.classList.contains('collapsed')) {
+                        toggle.classList.remove('expanded');
+                        toggle.classList.add('collapsed');
+                    } else {
+                        toggle.classList.remove('collapsed');
+                        toggle.classList.add('expanded');
+
+                        // Update summary when checkout section opens
+                        if (sectionId === 'checkout') {
+                            setTimeout(updateSelectionSummary, 100);
+                        }
+                    }
+                });
+            });
+        }
+
+        function setupSelections() {
+            const cards = document.querySelectorAll('.design-card[data-step]');
+
+            cards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    // Don't trigger if clicking on accordion header
+                    if (e.target.closest('.accordion-header')) return;
+
+                    const step = this.getAttribute('data-step');
+                    const option = this.getAttribute('data-option');
+
+                    // Remove selection from other cards in same step
+                    document.querySelectorAll(`.design-card[data-step="${step}"]`).forEach(c => {
+                        c.classList.remove('selected');
+                    });
+
+                    // Add selection to clicked card
+                    this.classList.add('selected');
+
+                    // Update selection state
+                    selections[step] = option;
+
+                    // Update previews in subsequent steps
+                    updateAllPreviews();
+
+                    // Update checkout summary
+                    updateSelectionSummary();
+
+                    // Update sidebar
+                    updateSidebar(step, this);
+                });
+            });
+        }
+
+        function updateSidebar(step, card) {
+            const titleEl = card.querySelector('.design-title');
+            if (!titleEl) return;
+
+            const text = titleEl.textContent;
+
+            if (step === 'text') {
+                document.getElementById('sb-text').textContent = text.split(':')[0];
+            } else if (step === 'color') {
+                document.getElementById('sb-color').textContent = text;
+            } else if (step === 'material') {
+                document.getElementById('sb-material').textContent = text;
+            }
+        }
+
+        function advanceToNextStep(currentStep) {
+            // Map data-step values to section IDs
+            const stepToSection = {
+                'text': 'step1',
+                'color': 'step2',
+                'material': 'step3',
+                'arrows': 'step4'
+            };
+
+            // Define progression
+            const stepProgression = {
+                'text': 'color',
+                'color': 'material',
+                'material': 'arrows',
+                'arrows': 'checkout'
+            };
+
+            const nextStep = stepProgression[currentStep];
+            if (!nextStep) return; // No next step
+
+            // Get section IDs
+            const currentSectionId = stepToSection[currentStep];
+            const nextSectionId = nextStep === 'checkout' ? 'checkout' : stepToSection[nextStep];
+
+            // Collapse current step
+            const currentContent = document.getElementById(`${currentSectionId}-content`);
+            const currentHeader = document.querySelector(`[data-section="${currentSectionId}"]`);
+            const currentToggle = currentHeader?.querySelector('.accordion-toggle');
+
+            if (currentContent) {
+                currentContent.classList.add('collapsed');
+            }
+            if (currentToggle) {
+                currentToggle.classList.remove('expanded');
+                currentToggle.classList.add('collapsed');
+            }
+
+            // Expand next step
+            const nextContent = document.getElementById(`${nextSectionId}-content`);
+            const nextHeader = document.querySelector(`[data-section="${nextSectionId}"]`);
+            const nextToggle = nextHeader?.querySelector('.accordion-toggle');
+
+            if (nextContent) {
+                nextContent.classList.remove('collapsed');
+            }
+            if (nextToggle) {
+                nextToggle.classList.remove('collapsed');
+                nextToggle.classList.add('expanded');
+            }
+
+            // Scroll to next step - position at top
+            if (nextHeader) {
+                setTimeout(() => {
+                    // Get the section element
+                    const section = nextHeader.closest('.section');
+                    if (section) {
+                        // Calculate position with some padding
+                        const yOffset = -20;
+                        const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+                        // Scroll to exact position
+                        window.scrollTo({
+                            top: y,
+                            behavior: 'smooth'
+                        });
+                    }
+                }, 450); // Delay for accordion animation
+            }
+        }
+
+        function updateAllPreviews() {
+            // Update color previews based on text selection
+            if (selections.text) {
+                updateColorPreviews();
+            }
+
+            // Update material previews based on text + color selection
+            if (selections.text && selections.color) {
+                updateMaterialPreviews();
+            }
+
+            // Update arrow previews based on text + color + material selection
+            if (selections.text && selections.color && selections.material) {
+                updateArrowPreviews();
+            }
+        }
+
+        function updateColorPreviews() {
+            const colorCards = document.querySelectorAll('.design-card[data-step="color"]');
+            const textTemplate = textTemplates[selections.text];
+
+            colorCards.forEach(card => {
+                const colorOption = card.getAttribute('data-option');
+                const colorScheme = colorSchemes[colorOption];
+                const preview = card.querySelector('.design-preview .sign-mockup');
+
+                if (preview && colorScheme && textTemplate) {
+                    preview.style.background = colorScheme.bg;
+                    preview.style.color = colorScheme.text;
+                    preview.style.border = colorScheme.border;
+                    preview.innerHTML = generateTextContent(textTemplate);
+                }
+            });
+        }
+
+        function updateMaterialPreviews() {
+            // Material cards show specifications, not live previews
+            // But we could add a small preview badge showing the selected combination
+        }
+
+        function updateArrowPreviews() {
+            // Arrow options are more about the system than visual preview
+            // Could add small preview badges here too
+        }
+
+        function generateTextContent(template) {
+            if (template.type === 'detailed' || template.type === 'full-details') {
+                return template.lines.map((line, idx) => {
+                    // Check if line is an arrow object
+                    if (typeof line === 'object' && line.isArrow) {
+                        return `<div class="sign-arrow" style="font-size: 60px; font-weight: 700; margin: 25px 0; line-height: 1;">${line.text}</div>`;
+                    }
+
+                    // Check if line is a boxed text object
+                    if (typeof line === 'object' && line.boxed) {
+                        let displayText = line.text;
+                        if (line.underlineWords) {
+                            displayText = displayText.replace(line.underlineWords, `<span style="text-decoration: underline;">${line.underlineWords}</span>`);
+                        }
+                        return `<div style="font-size: 28px; font-weight: 400; margin: 15px 0; line-height: 1.3; border: 3px solid white; padding: 10px; display: inline-block;">${displayText}</div>`;
+                    }
+
+                    // Handle string lines
+                    const lineText = typeof line === 'string' ? line : line.text;
+
+                    // Regular text lines
+                    let fontSize = '28px';
+                    let fontWeight = '400';
+                    let margin = '15px 0';
+
+                    if (idx === 0) { // First line (DO NOT USE INTERCOM)
+                        fontSize = '28px';
+                        fontWeight = '400';
+                    } else if (idx === 1) { // Second line (FOR PACKAGE DELIVERIES)
+                        fontSize = '28px';
+                    } else if (idx > 2) { // Action line
+                        fontSize = '24px';
+                    }
+
+                    return `<div style="font-size: ${fontSize}; font-weight: ${fontWeight}; margin: ${margin}; line-height: 1.3;">${lineText}</div>`;
+                }).join('');
+            } else if (template.type === 'amazon-deliveries' || template.type === 'amazon-simple' || template.type === 'amazon-optimized') {
+                return template.lines.map(line => {
+                    // Check if line is an arrow
+                    if (typeof line === 'object' && line.isArrow) {
+                        return `<div class="sign-arrow" style="font-size: 60px; font-weight: 700; margin: 25px 0; line-height: 1;">${line.text}</div>`;
+                    }
+                    const opacityStyle = line.opacity ? `opacity: ${line.opacity};` : '';
+                    const underlineStyle = line.underline ? 'text-decoration: underline; text-underline-offset: 8px;' : '';
+
+                    // Handle underlineWords (partial underline)
+                    let displayText = line.text;
+                    if (line.underlineWords) {
+                        displayText = displayText.replace(line.underlineWords, `<span style="text-decoration: underline;">${line.underlineWords}</span>`);
+                    }
+
+                    return `<div style="font-size: ${line.size}; font-weight: ${line.weight}; margin: ${line.margin} 0; line-height: 1.3; ${opacityStyle} ${underlineStyle}">${displayText}</div>`;
+                }).join('');
+            } else if (template.type === 'underlined') {
+                return template.lines.map(line => {
+                    if (line.isArrow) {
+                        return `<div class="sign-arrow" style="font-size: 60px; font-weight: 700; margin: 25px 0; line-height: 1;">${line.text}</div>`;
+                    }
+                    const underlineStyle = line.underline ? 'text-decoration: underline; text-underline-offset: 6px;' : '';
+                    const fontSize = line.underline ? '28px' : '24px';
+                    const fontWeight = line.underline ? '700' : '400';
+                    const margin = line.underline ? '10px 0' : '15px 0';
+
+                    // Handle underlineWords (partial underline)
+                    let displayText = line.text;
+                    if (line.underlineWords) {
+                        displayText = displayText.replace(line.underlineWords, `<span style="text-decoration: underline;">${line.underlineWords}</span>`);
+                    }
+
+                    return `<div style="font-size: ${fontSize}; font-weight: ${fontWeight}; ${underlineStyle} margin: ${margin}; line-height: 1.3;">${displayText}</div>`;
+                }).join('');
+            }
+        }
+
+        // Selections no longer saved - reset on page refresh
+
+        function setupCheckout() {
+            // Update summary when selections change
+            updateSelectionSummary();
+
+            // Setup submit button
+            const submitBtn = document.getElementById('submit-order-btn');
+            if (submitBtn) {
+                console.log('Submit button found, attaching click listener');
+                submitBtn.addEventListener('click', submitOrder);
+            } else {
+                console.error('Submit button not found!');
+            }
+
+            // Add event listeners to checkboxes to update summary when changed
+            const checkboxes = document.querySelectorAll('.sign-checkbox');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', updateSelectionSummary);
+            });
+        }
+
+        function updateSelectionSummary() {
+            const summaryContent = document.getElementById('summary-content');
+            if (!summaryContent) return;
+
+            const optionNames = {
+                text2: 'Option 1: Maximum Impact',
+                text3: 'Option 2: Amazon-First',
+                text5: 'Option 3: Visual Frame',
+                text6: 'Option 4: Complete Guidance',
+                color1: 'Gray Building Match',
+                color2: 'Dark Charcoal',
+                color3: 'Black with Yellow Border',
+                color4: 'Black Background (Exterior) - Official',
+                color6: 'Brushed Metal - Aluminum Premium',
+                material1: 'Aluminum (Recommended)',
+                material2: 'PVC/Plastic',
+                material3: 'Laminated Vinyl',
+                arrows1: '1-Arrow Minimum',
+                arrows2: '2-Arrow Enhanced',
+                arrows3: '3-Arrow Wayfinding System'
+            };
+
+            let html = '';
+
+            if (selections.text) {
+                html += `<p><strong>Text Option:</strong> ${optionNames[selections.text] || selections.text}</p>`;
+            } else {
+                html += `<p style="color: #94a3b8;"><strong>Text Option:</strong> Not selected</p>`;
+            }
+
+            if (selections.color) {
+                html += `<p><strong>Color Scheme:</strong> ${optionNames[selections.color] || selections.color}</p>`;
+            } else {
+                html += `<p style="color: #94a3b8;"><strong>Color Scheme:</strong> Not selected</p>`;
+            }
+
+            if (selections.material) {
+                html += `<p><strong>Material:</strong> ${optionNames[selections.material] || selections.material}</p>`;
+            } else {
+                html += `<p style="color: #94a3b8;"><strong>Material:</strong> Not selected</p>`;
+            }
+
+            // Get checked additional signs
+            const checkedSigns = Array.from(document.querySelectorAll('.sign-checkbox:checked'));
+            const signNames = {
+                sign2: 'Corner Sign (Package Room/Amazon Deliveries → Around Corner)',
+                sign3: 'Long Stone Wall Sign (Package Room/Amazon Deliveries → Use Exterior Side Door)',
+                sign4: 'Package Room Corridor Sign (Amazon Deliveries ←)'
+            };
+
+            if (checkedSigns.length > 0) {
+                html += `<p><strong>Additional Signs:</strong></p><ul style="margin-left: 20px;">`;
+                checkedSigns.forEach(checkbox => {
+                    const signId = checkbox.getAttribute('data-sign');
+                    html += `<li>${signNames[signId] || signId}</li>`;
+                });
+                html += `</ul>`;
+            } else {
+                html += `<p><strong>Additional Signs:</strong> None (Primary sign only)</p>`;
+            }
+
+            summaryContent.innerHTML = html;
+        }
+
+        function submitOrder() {
+            console.log('submitOrder function called');
+            console.log('Current selections:', selections);
+
+            // Check if required selections are made (Step 4 is optional checkboxes)
+            const allSelected = selections.text && selections.color && selections.material;
+
+            if (!allSelected) {
+                alert('Please make selections in Steps 1-3 before submitting.');
+                return;
+            }
+
+            console.log('Validation passed, proceeding with submission...');
+
+            // Get checked additional signs from Step 4
+            const checkedSigns = Array.from(document.querySelectorAll('.sign-checkbox:checked'))
+                .map(cb => {
+                    const signNum = cb.getAttribute('data-sign');
+                    return optionsText['sign' + signNum.slice(-1)];
+                });
+
+            selections.additionalSigns = checkedSigns;
+
+            const additionalSignsList = checkedSigns.length > 0
+                ? checkedSigns.join(', ')
+                : 'None (Primary sign only)';
+
+            // Prepare submission data
+            const submissionData = {
+                wordingVerbiage: optionsText[selections.text],
+                colorScheme: optionsText[selections.color],
+                material: optionsText[selections.material],
+                additionalSigns: additionalSignsList,
+                timestamp: new Date().toLocaleString()
+            };
+
+            // Create email body
+            const subject = encodeURIComponent('100 & Main - Delivery Signage Order Request');
+            const emailBody = encodeURIComponent(`
+100 & Main - Delivery Signage Order Request
+============================================
+
+Wording/Verbiage: ${submissionData.wordingVerbiage}
+
+Color Scheme: ${submissionData.colorScheme}
+
+Material: ${submissionData.material}
+
+Additional Signs: ${submissionData.additionalSigns}
+
+Timestamp: ${submissionData.timestamp}
+
+Please review these selections and provide feedback.
+Thank you!
+            `);
+
+            // Try multiple methods to open email client
+            const mailtoLink = `mailto:100mainhm@gmail.com?subject=${subject}&body=${emailBody}`;
+
+            // Method 1: Create a temporary link and click it
+            const link = document.createElement('a');
+            link.href = mailtoLink;
+            link.target = '_blank';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            // Method 2: Also try window.location as backup
+            setTimeout(() => {
+                window.location.href = mailtoLink;
+            }, 100);
+
+            // Prepare email content for display
+            const emailContent = `Subject: 100 & Main - Delivery Signage Order Request
+
+To: 100mainhm@gmail.com
+
+---
+
+100 & Main - Delivery Signage Order Request
+============================================
+
+Wording/Verbiage: ${submissionData.wordingVerbiage}
+
+Color Scheme: ${submissionData.colorScheme}
+
+Material: ${submissionData.material}
+
+Additional Signs: ${submissionData.additionalSigns}
+
+Timestamp: ${submissionData.timestamp}
+
+Please review these selections and provide feedback.
+Thank you!`;
+
+            // Show confirmation message
+            setTimeout(() => {
+                document.getElementById('submission-time').textContent = submissionData.timestamp;
+                document.getElementById('email-content').value = emailContent;
+                document.getElementById('confirmation-message').style.display = 'block';
+
+                const submitBtn = document.getElementById('submit-order-btn');
+                submitBtn.textContent = 'Ready to Email ✓';
+                submitBtn.style.background = '#3b82f6';
+                submitBtn.disabled = true;
+                submitBtn.style.opacity = '1';
+                submitBtn.style.cursor = 'not-allowed';
+
+                document.getElementById('confirmation-message').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                console.log('Email content ready:', submissionData);
+            }, 500);
+        }
+
+        function copyEmailContent() {
+            const textarea = document.getElementById('email-content');
+            textarea.select();
+            document.execCommand('copy');
+
+            // Show feedback
+            const copyBtn = event.target;
+            const originalText = copyBtn.textContent;
+            copyBtn.textContent = 'Copied! ✓';
+            copyBtn.style.background = '#16a34a';
+
+            setTimeout(() => {
+                copyBtn.textContent = originalText;
+                copyBtn.style.background = '#3b82f6';
+            }, 2000);
+        }
+
+        // Update summary whenever selections change (no longer saving to localStorage)
+        function updateSelectionsAndSummary() {
+            updateSelectionSummary();
+        }
+
+        // ==================== PRICING CALCULATOR ====================
+
+        // Pricing data from FASTSIGNS EST-12189
+        const pricingData = {
+            pvc: {
+                name: "PVC 2mm",
+                sizes: {
+                    small: { dimensions: '11" × 9"', price: 26.46 },
+                    medium: { dimensions: '24" × 19.6"', price: 51.76 },
+                    large: { dimensions: '36" × 29.5"', price: 82.04 }
+                },
+                packageTotal: 160.26,
+                tax: 13.48,
+                finalTotal: 173.74
+            },
+            acrylic: {
+                name: "Acrylic 1/4\" Clear",
+                sizes: {
+                    small: { dimensions: '11" × 9"', price: 51.72 },
+                    medium: { dimensions: '24" × 19.6"', price: 97.02 },
+                    large: { dimensions: '36" × 29.5"', price: 225.00 }
+                },
+                packageTotal: 373.74,
+                tax: 35.58,
+                finalTotal: 409.32
+            },
+            dibond: {
+                name: "Dibond/Aluminum 3mm",
+                sizes: {
+                    small: { dimensions: '11" × 9"', price: 48.91 },
+                    medium: { dimensions: '24" × 19.6"', price: 119.83 },
+                    large: { dimensions: '36" × 29.5"', price: 232.81 }
+                },
+                packageTotal: 401.55,
+                tax: 38.46,
+                finalTotal: 440.01
+            }
+        };
+
+        // Initialize price calculator
+        function initPriceCalculator() {
+            // Listen to all size checkboxes
+            const sizeCheckboxes = document.querySelectorAll('.size-checkbox');
+            sizeCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', updatePriceCalculator);
+            });
+
+
+            // Listen to material card selections
+            const materialCards = document.querySelectorAll('.design-card[data-step="material"]');
+            materialCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    // Mark as selected
+                    materialCards.forEach(c => c.classList.remove('selected'));
+                    this.classList.add('selected');
+
+                    // Update calculator
+                    updatePriceCalculator();
+                });
+            });
+
+            // Initial calculation
+            updatePriceCalculator();
+        }
+
+        // Update price calculator
+        // Update price calculator
+        function updatePriceCalculator() {
+            // Get selected material
+            const selectedMaterial = document.querySelector('.design-card[data-step="material"].selected');
+
+            if (!selectedMaterial) {
+                // No material selected yet
+                updateCalculatorDisplay([], 0, 0, 0);
+                return;
+            }
+
+            const materialType = selectedMaterial.dataset.option; // 'pvc', 'acrylic', or 'dibond'
+
+            // Get checked size checkboxes for this material
+            const sizeCheckboxes = selectedMaterial.querySelectorAll('.size-checkbox:checked');
+            let subtotal = 0;
+            const selectedSigns = [];
+
+            sizeCheckboxes.forEach(checkbox => {
+                const size = checkbox.dataset.size;
+                const price = parseFloat(checkbox.dataset.price);
+
+                subtotal += price;
+                selectedSigns.push({
+                    material: materialType,
+                    size,
+                    price,
+                    name: `${pricingData[materialType].name} - ${pricingData[materialType].sizes[size].dimensions}`
+                });
+            });
+
+            // Calculate tax (8.4%)
+            const taxRate = 0.084;
+            const tax = subtotal * taxRate;
+            const total = subtotal + tax;
+
+            // Update calculator display
+            updateCalculatorDisplay(selectedSigns, subtotal, tax, total);
+        }
+
+        // Update calculator display
+        function updateCalculatorDisplay(signs, subtotal, tax, total) {
+            const signsList = document.getElementById('calc-signs-list');
+
+            if (signs.length === 0) {
+                signsList.innerHTML = `
+                    <div class="calc-item">
+                        <span class="item-name">No selections yet</span>
+                        <span class="item-price">$0.00</span>
+                    </div>
+                `;
+            } else {
+                signsList.innerHTML = signs.map(sign => `
+                    <div class="calc-item">
+                        <span class="item-name">${sign.name}</span>
+                        <span class="item-price">$${sign.price.toFixed(2)}</span>
+                    </div>
+                `).join('');
+            }
+
+            document.getElementById('calc-subtotal').textContent = `$${subtotal.toFixed(2)}`;
+            document.getElementById('calc-tax').textContent = `$${tax.toFixed(2)}`;
+            document.getElementById('calc-total').textContent = `$${total.toFixed(2)}`;
+        }
+
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            initPriceCalculator();
+        });
+
+    </script>
+</body>
+</html>

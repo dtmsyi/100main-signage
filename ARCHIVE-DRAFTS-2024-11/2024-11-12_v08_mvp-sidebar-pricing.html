@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100 & Main - Delivery Signage Selection (MVP)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #F5EDE7 0%, #FAF0E6 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-right: 320px; /* Space for sidebar */
+        }
+
+        @media (max-width: 1400px) {
+            .container {
+                padding-right: 0;
+            }
+        }
+
+        .header {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 40px;
+            text-align: center;
+            border-top: 4px solid #E91E63;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #1A1A1A;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: linear-gradient(135deg, #E91E63 0%, #FF1493 100%);
+            color: white;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .step-badge {
+            display: inline-block;
+            background: #E91E63;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            font-size: 24px;
+            color: #1A1A1A;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #FFB3D9;
+            font-weight: 600;
+        }
+
+        .design-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .design-card {
+            background: #fafafa;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border: 3px solid #E5E5E5;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .design-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.15);
+            border-color: #FFB3D9;
+        }
+
+        .design-card.selected {
+            border: 3px solid #E91E63;
+            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.25);
+            background: #FFF0F6;
+        }
+
+        .design-card.selected::after {
+            content: "✓";
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 36px;
+            height: 36px;
+            background: #E91E63;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            z-index: 10;
+        }
+
+        .design-header {
+            padding: 20px;
+            background: #E91E63;
+            color: white;
+        }
+
+        .design-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .design-subtitle {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .design-preview {
+            padding: 40px;
+            background: white;
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sign-mockup {
+            width: 100%;
+            max-width: 500px;
+            padding: 30px;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .sign-text-line {
+            font-size: 24px;
+            line-height: 1.3;
+            margin: 12px 0;
+        }
+
+        .sign-arrow {
+            font-size: 80px;
+            font-weight: 900;
+            margin: 20px 0;
+        }
+
+        /* Size Selector */
+        .size-selector {
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .size-selector h4 {
+            font-size: 16px;
+            color: #1e293b;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .size-option {
+            display: flex;
+            align-items: center;
+            padding: 14px;
+            margin: 10px 0;
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .size-option:hover {
+            border-color: #E91E63;
+            box-shadow: 0 2px 8px rgba(233, 30, 99, 0.15);
+        }
+
+        .size-option input[type="checkbox"] {
+            width: 22px;
+            height: 22px;
+            margin-right: 14px;
+            cursor: pointer;
+            accent-color: #E91E63;
+        }
+
+        .size-details {
+            flex: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .size-name {
+            font-weight: 500;
+            color: #1e293b;
+            font-size: 15px;
+        }
+
+        .size-price {
+            font-weight: 700;
+            color: #E91E63;
+            font-size: 17px;
+        }
+
+        /* LIVE SIDEBAR */
+        .live-sidebar {
+            position: fixed;
+            top: 40px;
+            right: 20px;
+            width: 300px;
+            background: white;
+            border: 3px solid #E91E63;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 8px 30px rgba(233, 30, 99, 0.2);
+            z-index: 9999;
+            max-height: calc(100vh - 80px);
+            overflow-y: auto;
+        }
+
+        .live-sidebar h4 {
+            margin: 0 0 15px 0;
+            font-size: 16px;
+            color: #1A1A1A;
+            border-bottom: 2px solid #E91E63;
+            padding-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sb-section {
+            margin: 15px 0;
+            padding: 12px;
+            background: #FFF0F6;
+            border-radius: 8px;
+        }
+
+        .sb-label {
+            font-weight: 700;
+            color: #C2185B;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .sb-value {
+            color: #1A1A1A;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .sb-sizes {
+            margin-top: 8px;
+        }
+
+        .sb-size-item {
+            padding: 6px 10px;
+            background: white;
+            border-radius: 6px;
+            margin: 5px 0;
+            font-size: 13px;
+            display: flex;
+            justify-content: space-between;
+            border: 1px solid #FFB3D9;
+        }
+
+        .sb-price-summary {
+            margin-top: 20px;
+            padding: 15px;
+            background: linear-gradient(135deg, #E91E63 0%, #FF1493 100%);
+            border-radius: 12px;
+            color: white;
+        }
+
+        .sb-price-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            font-size: 13px;
+        }
+
+        .sb-price-total {
+            border-top: 2px solid rgba(255,255,255,0.3);
+            margin-top: 10px;
+            padding-top: 10px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .next-step-btn {
+            background: linear-gradient(135deg, #E91E63 0%, #FF1493 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .next-step-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4);
+        }
+
+        @media (max-width: 1400px) {
+            .live-sidebar {
+                position: relative;
+                top: 0;
+                right: 0;
+                width: 100%;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- LIVE SIDEBAR -->
+    <div class="live-sidebar">
+        <h4>✓ Your Configuration</h4>
+
+        <div class="sb-section">
+            <span class="sb-label">Step 1: Text</span>
+            <div class="sb-value" id="sb-text">Not selected</div>
+        </div>
+
+        <div class="sb-section">
+            <span class="sb-label">Step 2: Color</span>
+            <div class="sb-value" id="sb-color">Not selected</div>
+        </div>
+
+        <div class="sb-section">
+            <span class="sb-label">Step 3: Material</span>
+            <div class="sb-value" id="sb-material">Not selected</div>
+            <div class="sb-sizes" id="sb-sizes"></div>
+        </div>
+
+        <div class="sb-price-summary" id="sb-price-summary" style="display: none;">
+            <div class="sb-price-row">
+                <span>Subtotal:</span>
+                <span id="sb-subtotal">$0.00</span>
+            </div>
+            <div class="sb-price-row">
+                <span>Tax (8.4%):</span>
+                <span id="sb-tax">$0.00</span>
+            </div>
+            <div class="sb-price-row sb-price-total">
+                <span>Total:</span>
+                <span id="sb-total">$0.00</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>100 & Main Delivery Signage Selection</h1>
+            <h2 style="font-size: 18px; font-weight: 500; color: #64748b; margin: 15px 0;">
+                Choose your sign configuration with live pricing
+            </h2>
+            <span class="status-badge">For Board Review</span>
+        </div>
+
+        <!-- STEP 1: Text & Wording -->
+        <div class="section">
+            <span class="step-badge">Step 1 of 3</span>
+            <h2>Select Sign Text & Wording</h2>
+
+            <div class="design-grid">
+                <div class="design-card" data-step="text" data-option="text1">
+                    <div class="design-header">
+                        <div class="design-title">Maximum Impact</div>
+                        <div class="design-subtitle">Bold and direct messaging</div>
+                    </div>
+                    <div class="design-preview">
+                        <div class="sign-mockup" style="background: #000; color: white;">
+                            <div class="sign-text-line" style="text-decoration: underline;">DO NOT USE INTERCOM</div>
+                            <div class="sign-text-line">AMAZON DELIVERIES</div>
+                            <div class="sign-arrow">→</div>
+                            <div class="sign-text-line">USE EXTERIOR SIDE DOOR</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="design-card" data-step="text" data-option="text2">
+                    <div class="design-header">
+                        <div class="design-title">Amazon-First</div>
+                        <div class="design-subtitle">Targets 80% of delivery drivers</div>
+                    </div>
+                    <div class="design-preview">
+                        <div class="sign-mockup" style="background: #000; color: white;">
+                            <div class="sign-text-line" style="font-size: 28px; text-decoration: underline;">AMAZON DELIVERIES</div>
+                            <div class="sign-text-line">DO NOT USE INTERCOM</div>
+                            <div class="sign-arrow">→</div>
+                            <div class="sign-text-line">USE EXTERIOR SIDE DOOR</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="design-card" data-step="text" data-option="text3">
+                    <div class="design-header">
+                        <div class="design-title">Complete Guidance</div>
+                        <div class="design-subtitle">Full wayfinding instructions</div>
+                    </div>
+                    <div class="design-preview">
+                        <div class="sign-mockup" style="background: #000; color: white;">
+                            <div class="sign-text-line" style="font-size: 32px;">AMAZON</div>
+                            <div class="sign-text-line"><span style="text-decoration: underline;">DO NOT</span> USE INTERCOM</div>
+                            <div class="sign-arrow">→</div>
+                            <div class="sign-text-line" style="font-size: 20px;">PACKAGE ROOM ENTRANCE</div>
+                            <div class="sign-text-line" style="font-size: 20px;">AROUND CORNER</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="next-step-btn" onclick="scrollToSection('step2')">
+                Continue to Step 2: Color Scheme →
+            </button>
+        </div>
+
+        <!-- STEP 2: Color Scheme -->
+        <div class="section" id="step2">
+            <span class="step-badge">Step 2 of 3</span>
+            <h2>Select Color Scheme</h2>
+
+            <div class="design-grid">
+                <div class="design-card" data-step="color" data-option="color1">
+                    <div class="design-header">
+                        <div class="design-title">Black Background</div>
+                        <div class="design-subtitle">Official building standard</div>
+                    </div>
+                    <div class="design-preview">
+                        <div class="sign-mockup" style="background: #000; color: white;">
+                            <div style="font-size: 36px; margin-bottom: 20px;">Parcel/Package Delivery</div>
+                            <div class="sign-arrow">→</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="design-card" data-step="color" data-option="color2">
+                    <div class="design-header">
+                        <div class="design-title">Gray Building Match</div>
+                        <div class="design-subtitle">Blends with exterior</div>
+                    </div>
+                    <div class="design-preview">
+                        <div class="sign-mockup" style="background: #5A5A5A; color: white; border: 1px solid #E0E0E0;">
+                            <div class="sign-text-line">DO NOT USE INTERCOM</div>
+                            <div class="sign-arrow">→</div>
+                            <div class="sign-text-line">DELIVERIES THIS WAY</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="design-card" data-step="color" data-option="color3">
+                    <div class="design-header">
+                        <div class="design-title">Yellow Border</div>
+                        <div class="design-subtitle">High visibility warning</div>
+                    </div>
+                    <div class="design-preview">
+                        <div class="sign-mockup" style="background: #1A1A1A; color: white; border: 6px solid #FFCC00; border-radius: 8px;">
+                            <div style="font-size: 20px; margin-bottom: 15px; font-weight: 600;">DELIVERY NOTICE</div>
+                            <div class="sign-text-line">DO NOT USE INTERCOM</div>
+                            <div class="sign-arrow">→</div>
+                            <div class="sign-text-line">USE EXTERIOR SIDE DOOR</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="next-step-btn" onclick="scrollToSection('step3')">
+                Continue to Step 3: Material & Sizes →
+            </button>
+        </div>
+
+        <!-- STEP 3: Material & Sizes with Pricing -->
+        <div class="section" id="step3">
+            <span class="step-badge">Step 3 of 3</span>
+            <h2>Select Material & Sizes</h2>
+
+            <p style="margin-bottom: 25px; color: #666; font-size: 15px;">
+                Choose material and select which sizes you need. All pricing from FASTSIGNS EST-12189.
+            </p>
+
+            <div class="design-grid">
+                <!-- PVC -->
+                <div class="design-card" data-step="material" data-option="pvc">
+                    <div class="design-header">
+                        <div class="design-title">PVC 2mm - Most Economical</div>
+                        <div class="design-subtitle">Lightweight, budget-friendly</div>
+                    </div>
+                    <div class="design-preview" style="background: #f0f0f0; display: block;">
+                        <div style="padding: 20px;">
+                            <h3 style="margin-bottom: 15px; color: #1A1A1A; font-size: 18px;">PVC Rigid Board Sign</h3>
+                            <p style="color: #666; margin-bottom: 20px; font-size: 14px;">
+                                Rigid plastic with UV printing. 3-5 year outdoor lifespan.
+                            </p>
+
+                            <div class="size-selector">
+                                <h4>Select Sizes:</h4>
+                                <label class="size-option">
+                                    <input type="checkbox" class="size-checkbox" data-material="pvc" data-size="small" data-price="26.46" checked>
+                                    <div class="size-details">
+                                        <span class="size-name">Small (11" × 9")</span>
+                                        <span class="size-price">$26.46</span>
+                                    </div>
+                                </label>
+                                <label class="size-option">
+                                    <input type="checkbox" class="size-checkbox" data-material="pvc" data-size="medium" data-price="51.76" checked>
+                                    <div class="size-details">
+                                        <span class="size-name">Medium (24" × 19.6") ★</span>
+                                        <span class="size-price">$51.76</span>
+                                    </div>
+                                </label>
+                                <label class="size-option">
+                                    <input type="checkbox" class="size-checkbox" data-material="pvc" data-size="large" data-price="82.04" checked>
+                                    <div class="size-details">
+                                        <span class="size-name">Large (36" × 29.5")</span>
+                                        <span class="size-price">$82.04</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Acrylic -->
+                <div class="design-card" data-step="material" data-option="acrylic">
+                    <div class="design-header">
+                        <div class="design-title">Acrylic 1/4" - Premium</div>
+                        <div class="design-subtitle">Professional appearance</div>
+                    </div>
+                    <div class="design-preview" style="background: #f0f0f0; display: block;">
+                        <div style="padding: 20px;">
+                            <h3 style="margin-bottom: 15px; color: #1A1A1A; font-size: 18px;">Clear Acrylic Sign</h3>
+                            <p style="color: #666; margin-bottom: 20px; font-size: 14px;">
+                                1/4" thick clear acrylic. 7-10 year outdoor lifespan.
+                            </p>
+
+                            <div class="size-selector">
+                                <h4>Select Sizes:</h4>
+                                <label class="size-option">
+                                    <input type="checkbox" class="size-checkbox" data-material="acrylic" data-size="small" data-price="51.72">
+                                    <div class="size-details">
+                                        <span class="size-name">Small (11" × 9")</span>
+                                        <span class="size-price">$51.72</span>
+                                    </div>
+                                </label>
+                                <label class="size-option">
+                                    <input type="checkbox" class="size-checkbox" data-material="acrylic" data-size="medium" data-price="97.02" checked>
+                                    <div class="size-details">
+                                        <span class="size-name">Medium (24" × 19.6") ★</span>
+                                        <span class="size-price">$97.02</span>
+                                    </div>
+                                </label>
+                                <label class="size-option">
+                                    <input type="checkbox" class="size-checkbox" data-material="acrylic" data-size="large" data-price="225.00">
+                                    <div class="size-details">
+                                        <span class="size-name">Large (36" × 29.5")</span>
+                                        <span class="size-price">$225.00</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dibond -->
+                <div class="design-card" data-step="material" data-option="dibond">
+                    <div class="design-header">
+                        <div class="design-title">Dibond/Aluminum - Most Durable</div>
+                        <div class="design-subtitle">Maximum outdoor durability</div>
+                    </div>
+                    <div class="design-preview" style="background: #f0f0f0; display: block;">
+                        <div style="padding: 20px;">
+                            <h3 style="margin-bottom: 15px; color: #1A1A1A; font-size: 18px;">Aluminum Composite Sign</h3>
+                            <p style="color: #666; margin-bottom: 20px; font-size: 14px;">
+                                3mm aluminum panel. 10+ year outdoor lifespan.
+                            </p>
+
+                            <div class="size-selector">
+                                <h4>Select Sizes:</h4>
+                                <label class="size-option">
+                                    <input type="checkbox" class="size-checkbox" data-material="dibond" data-size="small" data-price="48.91">
+                                    <div class="size-details">
+                                        <span class="size-name">Small (11" × 9")</span>
+                                        <span class="size-price">$48.91</span>
+                                    </div>
+                                </label>
+                                <label class="size-option">
+                                    <input type="checkbox" class="size-checkbox" data-material="dibond" data-size="medium" data-price="119.83" checked>
+                                    <div class="size-details">
+                                        <span class="size-name">Medium (24" × 19.6") ★</span>
+                                        <span class="size-price">$119.83</span>
+                                    </div>
+                                </label>
+                                <label class="size-option">
+                                    <input type="checkbox" class="size-checkbox" data-material="dibond" data-size="large" data-price="232.81">
+                                    <div class="size-details">
+                                        <span class="size-name">Large (36" × 29.5")</span>
+                                        <span class="size-price">$232.81</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="next-step-btn" onclick="alert('Configuration complete! Sidebar shows your full order.')">
+                Review Configuration →
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // State management
+        const selections = {
+            text: null,
+            color: null,
+            material: null,
+            sizes: []
+        };
+
+        // Material name mapping
+        const materialNames = {
+            pvc: 'PVC 2mm',
+            acrylic: 'Acrylic 1/4"',
+            dibond: 'Dibond/Aluminum 3mm'
+        };
+
+        // Size dimension mapping
+        const sizeDimensions = {
+            small: '11" × 9"',
+            medium: '24" × 19.6"',
+            large: '36" × 29.5"'
+        };
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            setupCardSelections();
+            setupSizeCheckboxes();
+
+            // Auto-select first options for demo
+            const firstText = document.querySelector('.design-card[data-step="text"]');
+            if (firstText) firstText.click();
+        });
+
+        // Setup card click handlers
+        function setupCardSelections() {
+            const cards = document.querySelectorAll('.design-card[data-step]');
+
+            cards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    // Don't trigger if clicking checkbox
+                    if (e.target.type === 'checkbox') return;
+
+                    const step = this.getAttribute('data-step');
+                    const option = this.getAttribute('data-option');
+
+                    // Remove selection from siblings
+                    document.querySelectorAll(`.design-card[data-step="${step}"]`).forEach(c => {
+                        c.classList.remove('selected');
+                    });
+
+                    // Add selection to this card
+                    this.classList.add('selected');
+
+                    // Update state
+                    selections[step] = option;
+
+                    // Update sidebar
+                    updateSidebar();
+                });
+            });
+        }
+
+        // Setup size checkbox handlers
+        function setupSizeCheckboxes() {
+            const checkboxes = document.querySelectorAll('.size-checkbox');
+
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    // Make sure parent material card is selected
+                    const materialCard = this.closest('.design-card[data-step="material"]');
+                    if (materialCard && !materialCard.classList.contains('selected')) {
+                        materialCard.click();
+                    }
+
+                    updateSidebar();
+                });
+            });
+        }
+
+        // Update sidebar display
+        function updateSidebar() {
+            // Update text
+            if (selections.text) {
+                const textCard = document.querySelector(`.design-card[data-step="text"][data-option="${selections.text}"]`);
+                const textTitle = textCard?.querySelector('.design-title')?.textContent || 'Not selected';
+                document.getElementById('sb-text').textContent = textTitle;
+            }
+
+            // Update color
+            if (selections.color) {
+                const colorCard = document.querySelector(`.design-card[data-step="color"][data-option="${selections.color}"]`);
+                const colorTitle = colorCard?.querySelector('.design-title')?.textContent || 'Not selected';
+                document.getElementById('sb-color').textContent = colorTitle;
+            }
+
+            // Update material and sizes
+            if (selections.material) {
+                const materialName = materialNames[selections.material] || selections.material;
+                document.getElementById('sb-material').textContent = materialName;
+
+                // Update sizes
+                updateSidebarSizes();
+            }
+
+            // Update pricing
+            updateSidebarPricing();
+        }
+
+        // Update sidebar sizes
+        function updateSidebarSizes() {
+            const sizesContainer = document.getElementById('sb-sizes');
+            const selectedMaterial = selections.material;
+
+            if (!selectedMaterial) {
+                sizesContainer.innerHTML = '';
+                return;
+            }
+
+            // Get checked checkboxes for this material
+            const checkedBoxes = document.querySelectorAll(
+                `.size-checkbox[data-material="${selectedMaterial}"]:checked`
+            );
+
+            if (checkedBoxes.length === 0) {
+                sizesContainer.innerHTML = '<div style="color: #999; font-size: 12px; margin-top: 8px;">No sizes selected</div>';
+                return;
+            }
+
+            sizesContainer.innerHTML = '';
+            checkedBoxes.forEach(checkbox => {
+                const size = checkbox.dataset.size;
+                const price = parseFloat(checkbox.dataset.price);
+                const dimensions = sizeDimensions[size];
+
+                const sizeItem = document.createElement('div');
+                sizeItem.className = 'sb-size-item';
+                sizeItem.innerHTML = `
+                    <span>${size.charAt(0).toUpperCase() + size.slice(1)} (${dimensions})</span>
+                    <span style="font-weight: 700;">$${price.toFixed(2)}</span>
+                `;
+                sizesContainer.appendChild(sizeItem);
+            });
+        }
+
+        // Update sidebar pricing
+        function updateSidebarPricing() {
+            const selectedMaterial = selections.material;
+
+            if (!selectedMaterial) {
+                document.getElementById('sb-price-summary').style.display = 'none';
+                return;
+            }
+
+            // Calculate total from checked boxes
+            const checkedBoxes = document.querySelectorAll(
+                `.size-checkbox[data-material="${selectedMaterial}"]:checked`
+            );
+
+            if (checkedBoxes.length === 0) {
+                document.getElementById('sb-price-summary').style.display = 'none';
+                return;
+            }
+
+            let subtotal = 0;
+            checkedBoxes.forEach(checkbox => {
+                subtotal += parseFloat(checkbox.dataset.price);
+            });
+
+            const tax = subtotal * 0.084; // 8.4% tax
+            const total = subtotal + tax;
+
+            // Update display
+            document.getElementById('sb-subtotal').textContent = `$${subtotal.toFixed(2)}`;
+            document.getElementById('sb-tax').textContent = `$${tax.toFixed(2)}`;
+            document.getElementById('sb-total').textContent = `$${total.toFixed(2)}`;
+            document.getElementById('sb-price-summary').style.display = 'block';
+        }
+
+        // Scroll helper
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    </script>
+</body>
+</html>
